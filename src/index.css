@@ -1,67 +1,122 @@
-:root {
-  /* Restrained palette: deep green, warm paper, soft gold accent */
-  --text-muted: #5c5a55;
-  --text-heading: #1c1b18;
-  --bg: #faf8f4;
-  --surface: #f3f1eb;
-  --card-bg: #fffcf7;
-  --border: #e0dcd2;
-  --code-bg: #ebe8e0;
-  --accent: #1e5c45;
-  --accent-hover: #164536;
-  --accent-subtle: rgba(30, 92, 69, 0.1);
-  --accent-muted: rgba(30, 92, 69, 0.35);
-  --gold: #9a7b2c;
-  --shadow-soft: rgba(28, 27, 24, 0.08);
+/* Ethiopian Orthodox–inspired learning platform: parchment, burgundy, gold, calm serif/sans pairing */
 
-  /* Layout & rhythm — shared across pages */
-  --radius-sm: 8px;
+:root {
+  /* Liturgical palette: parchment, wine, gold, umber */
+  --text-heading: #2a1f18;
+  --text-muted: #5c4a3e;
+  --text-soft: #6e5c50;
+  --bg-base: #ebe3d4;
+  --bg: #f4ede2;
+  --surface: #faf5ec;
+  --card-bg: #fffdf8;
+  --cream: #f8f0e4;
+  --border: #d2c2ae;
+  --border-strong: #b9a48c;
+  --code-bg: #ede6db;
+
+  --accent: #6b1f2e;
+  --accent-hover: #551826;
+  --accent-deep: #42121c;
+  --accent-subtle: rgba(107, 31, 46, 0.09);
+  --accent-muted: rgba(107, 31, 46, 0.38);
+
+  --gold: #8f6b28;
+  --gold-bright: #c9a24a;
+  --gold-soft: rgba(201, 162, 74, 0.22);
+  --shadow-soft: rgba(42, 31, 24, 0.07);
+  --shadow-ink: rgba(42, 31, 24, 0.12);
+
+  /* Sacred hero (home + optional callouts) */
+  --hero-bg-deep: #2a1016;
+  --hero-bg-mid: #3d1820;
+  --hero-text: #faf4e8;
+  --hero-text-muted: rgba(250, 244, 232, 0.88);
+  --hero-gold: #e4c77a;
+  --hero-gold-soft: rgba(228, 199, 122, 0.35);
+  --hero-border: rgba(228, 199, 122, 0.22);
+
+  /* Subtle Ethiopian cross / manuscript motif (warm umber strokes on parchment) */
+  --bg-cross-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 112 112'%3E%3Cg fill='none' stroke='%238a6048' stroke-width='0.35' opacity='0.09'%3E%3Ccircle cx='56' cy='56' r='20'/%3E%3Cpath d='M56 14v84M14 56h84'/%3E%3Ccircle cx='56' cy='14' r='2.5'/%3E%3Ccircle cx='56' cy='98' r='2.5'/%3E%3Ccircle cx='14' cy='56' r='2.5'/%3E%3Ccircle cx='98' cy='56' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+
+  /* Layout & rhythm */
+  --radius-sm: 6px;
   --radius-md: 10px;
-  --radius-lg: 12px;
+  --radius-lg: 14px;
   --radius-pill: 999px;
   --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 2.5rem;
-  --max-content: 48rem;
-  --shadow-card: 0 2px 12px var(--shadow-soft);
+  --space-sm: 0.85rem;
+  --space-md: 1.15rem;
+  --space-lg: 1.75rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 3.25rem;
+  --space-section: 3rem;
+  --max-content: min(52rem, 100% - 2.5rem);
+  --shadow-card: 0 2px 14px var(--shadow-soft);
 
-  --sans: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  --heading: Georgia, 'Times New Roman', serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --sans: 'Lato', 'Segoe UI', system-ui, sans-serif;
+  --heading: 'Cormorant Garamond', 'Palatino Linotype', Palatino, Georgia, serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
 
-  font: 17px/150% var(--sans);
+  font: 18px/1.65 var(--sans);
   letter-spacing: 0.01em;
-  color-scheme: light dark;
+  color-scheme: light;
   color: var(--text-muted);
   background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  :root {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
     font-size: 16px;
   }
 }
 
+/* Warm evening reading — deep umber paper, not neon tech-dark */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-muted: #b8b5ad;
-    --text-heading: #f2efe8;
-    --bg: #141512;
-    --surface: #1a1c18;
-    --card-bg: #1f221e;
-    --border: #2f332d;
-    --code-bg: #252824;
-    --accent: #6eb896;
-    --accent-hover: #8ed4b0;
-    --accent-subtle: rgba(110, 184, 150, 0.12);
-    --accent-muted: rgba(110, 184, 150, 0.4);
-    --gold: #c9a84a;
+    color-scheme: dark;
+    --text-heading: #f3ebe0;
+    --text-muted: #c4b6a8;
+    --text-soft: #a8988a;
+    --bg-base: #120d0a;
+    --bg: #1a1410;
+    --surface: #221a14;
+    --card-bg: #2a211a;
+    --cream: #2d241c;
+    --border: #3d3229;
+    --border-strong: #524538;
+    --code-bg: #2a221c;
+
+    --accent: #c9a77a;
+    --accent-hover: #dcc39a;
+    --accent-deep: #a6855c;
+    --accent-subtle: rgba(201, 167, 122, 0.12);
+    --accent-muted: rgba(201, 167, 122, 0.45);
+
+    --gold: #d4b87a;
+    --gold-bright: #e8d4a8;
+    --gold-soft: rgba(212, 184, 122, 0.15);
     --shadow-soft: rgba(0, 0, 0, 0.35);
+    --shadow-ink: rgba(0, 0, 0, 0.45);
+
+    --hero-bg-deep: #0f0a0c;
+    --hero-bg-mid: #1c1215;
+    --hero-text: #faf4e8;
+    --hero-text-muted: rgba(250, 244, 232, 0.85);
+    --hero-gold: #e4c77a;
+    --hero-gold-soft: rgba(228, 199, 122, 0.28);
+    --hero-border: rgba(228, 199, 122, 0.2);
+
+    --bg-cross-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 112 112'%3E%3Cg fill='none' stroke='%23c9a77a' stroke-width='0.35' opacity='0.07'%3E%3Ccircle cx='56' cy='56' r='20'/%3E%3Cpath d='M56 14v84M14 56h84'/%3E%3Ccircle cx='56' cy='14' r='2.5'/%3E%3Ccircle cx='56' cy='98' r='2.5'/%3E%3Ccircle cx='14' cy='56' r='2.5'/%3E%3Ccircle cx='98' cy='56' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
   }
 }
 
@@ -73,6 +128,29 @@
 
 body {
   margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-base);
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 253, 248, 0.88) 0%,
+      rgba(244, 237, 226, 0.94) 42%,
+      rgba(235, 227, 212, 0.97) 100%
+    ),
+    radial-gradient(ellipse 100% 70% at 50% -15%, rgba(201, 162, 74, 0.07), transparent 55%),
+    var(--bg-cross-pattern);
+  background-size: auto, auto, 112px 112px;
+  background-attachment: scroll, scroll, scroll;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image:
+      linear-gradient(180deg, rgba(26, 20, 16, 0.97) 0%, rgba(18, 13, 10, 0.99) 100%),
+      radial-gradient(ellipse 90% 50% at 50% 0%, rgba(201, 167, 122, 0.06), transparent 50%),
+      var(--bg-cross-pattern);
+  }
 }
 
 #root {
@@ -85,11 +163,24 @@ p {
   margin: 0;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 code {
   font-family: var(--mono);
   font-size: 0.9em;
-  padding: 0.15em 0.4em;
+  padding: 0.15em 0.45em;
   border-radius: 4px;
   background: var(--code-bg);
   color: var(--text-heading);
+  border: 1px solid var(--border);
 }

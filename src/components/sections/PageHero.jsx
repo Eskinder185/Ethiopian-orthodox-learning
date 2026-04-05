@@ -3,6 +3,7 @@ import '../../styles/ContentComponents.css'
 export default function PageHero({
   title,
   subtitle,
+  subtitleParagraphs,
   eyebrow,
   sectionLabel,
   children,
@@ -24,7 +25,17 @@ export default function PageHero({
       ) : null}
       {eyebrow ? <p className="page-hero__eyebrow">{eyebrow}</p> : null}
       <h1 className="page-hero__title">{title}</h1>
-      {subtitle ? <p className="page-hero__subtitle">{subtitle}</p> : null}
+      {subtitleParagraphs?.length ? (
+        <div className="page-hero__subtitles">
+          {subtitleParagraphs.map((t, i) => (
+            <p key={i} className="page-hero__subtitle">
+              {t}
+            </p>
+          ))}
+        </div>
+      ) : subtitle ? (
+        <p className="page-hero__subtitle">{subtitle}</p>
+      ) : null}
       {children ? <div className="page-hero__slot">{children}</div> : null}
     </header>
   )

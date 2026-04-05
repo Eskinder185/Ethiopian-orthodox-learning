@@ -2,6 +2,7 @@ import '../../styles/content-blocks.css'
 import InfoBanner from '../sections/InfoBanner.jsx'
 import InfoBlock from '../sections/InfoBlock.jsx'
 import SectionTitle from '../sections/SectionTitle.jsx'
+import TopicAccordion from '../ui/TopicAccordion.jsx'
 
 /**
  * Renders a list of caution lines (copyright, pastoral care, verify with church).
@@ -62,4 +63,20 @@ export function SummarySections({ sections = [], headingIdPrefix = 'summary' }) 
       ))}
     </div>
   )
+}
+
+/**
+ * Same data as SummarySections, presented as accordions (first panel open) for less scrolling.
+ */
+export function AccordionSummarySections({ sections = [], headingIdPrefix = 'summary' }) {
+  if (!sections.length) return null
+
+  const items = sections.map((s, i) => ({
+    id: s.id ?? `${headingIdPrefix}-${i}`,
+    title: s.title,
+    subtitle: s.subtitle,
+    paragraphs: s.body ?? [],
+  }))
+
+  return <TopicAccordion items={items} openFirstItem className="content-accordion--learn-topics" />
 }

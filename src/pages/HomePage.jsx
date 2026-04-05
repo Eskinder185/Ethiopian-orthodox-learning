@@ -6,6 +6,8 @@ import InfoBlock from '../components/sections/InfoBlock.jsx'
 import StatusBox from '../components/sections/StatusBox.jsx'
 import QuickLinksSection from '../components/sections/QuickLinksSection.jsx'
 import FeatureGrid from '../components/sections/FeatureGrid.jsx'
+import ExpandableText from '../components/ui/ExpandableText.jsx'
+import CollapsiblePanel from '../components/ui/CollapsiblePanel.jsx'
 import { paths } from '../constants/paths.js'
 import { homeContent, homeQuickSections, homeFeaturedPractice } from '../content/homeContent.js'
 import './HomePage.css'
@@ -21,7 +23,9 @@ export default function HomePage() {
         title={hc.intro.title}
         intro={hc.intro.tagline}
       >
-        <p className="home__lead">{hc.intro.lead}</p>
+        <ExpandableText lines={3} className="home__lead-expand" moreLabel="Read more">
+          <p className="home__lead">{hc.intro.lead}</p>
+        </ExpandableText>
         <div className="home__hero-actions">
           <ActionButton to={paths.practice.index} variant="primary">
             Begin practice
@@ -32,9 +36,16 @@ export default function HomePage() {
         </div>
       </PageHeader>
 
-      <StatusBox tone="calm" className="home__framework-note">
-        {hc.frameworkNotice}
-      </StatusBox>
+      <CollapsiblePanel
+        title="About materials on this site"
+        icon="◇"
+        defaultOpen={false}
+        className="home__framework-collapsible"
+      >
+        <StatusBox tone="calm" className="home__framework-note">
+          {hc.frameworkNotice}
+        </StatusBox>
+      </CollapsiblePanel>
 
       <section className="home__section" aria-labelledby="home-rhythm-heading">
         <SectionTitle
@@ -42,11 +53,25 @@ export default function HomePage() {
           title={s.rhythm.title}
           subtitle={s.rhythm.subtitle}
         />
-        <InfoBlock variant="soft">
-          {hc.rhythmParagraphs.map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
-        </InfoBlock>
+        <div className="topic-card-row home__topic-row">
+          <span className="topic-card-row__icon" aria-hidden="true">
+            🙏
+          </span>
+          <div className="topic-card-row__body">
+            <p className="home__teaser">{hc.rhythmTeaser}</p>
+            <CollapsiblePanel
+              title="More on prayer, fasting, and reading"
+              defaultOpen={false}
+              icon="✧"
+            >
+              <InfoBlock variant="soft">
+                {hc.rhythmParagraphs.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </InfoBlock>
+            </CollapsiblePanel>
+          </div>
+        </div>
       </section>
 
       <QuickLinksSection
@@ -78,11 +103,21 @@ export default function HomePage() {
 
       <section className="home__section home__section--mission" aria-labelledby="home-mission-heading">
         <SectionTitle id="home-mission-heading" title={s.mission.title} />
-        <InfoBlock variant="soft">
-          {hc.missionParagraphs.map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
-        </InfoBlock>
+        <div className="topic-card-row home__topic-row">
+          <span className="topic-card-row__icon" aria-hidden="true">
+            ✦
+          </span>
+          <div className="topic-card-row__body">
+            <p className="home__teaser">{hc.missionTeaser}</p>
+            <CollapsiblePanel title="Our purpose — full statement" defaultOpen={false} icon="◇">
+              <InfoBlock variant="soft">
+                {hc.missionParagraphs.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </InfoBlock>
+            </CollapsiblePanel>
+          </div>
+        </div>
       </section>
     </div>
   )

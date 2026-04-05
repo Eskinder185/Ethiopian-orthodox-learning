@@ -26,25 +26,25 @@ export const languageHome = {
       to: paths.language.alphabet,
       title: 'Amharic alphabet',
       description:
-        'Learn Fidel in small sets: recognition, sound, and stroke practice with an external interactive chart.',
+        'Meet Fidel in small, peaceful steps — see each letter, hear it, trace it — with a linked chart when you’re ready.',
       category: 'Reading',
     },
     {
       to: paths.language.writing,
       title: 'Writing practice',
-      description: 'Look, copy, cover, and review — calm handwriting sessions.',
+      description: 'Slow, reverent strokes: look, copy, cover, and return until the shapes feel familiar.',
       category: 'Writing',
     },
     {
       to: paths.language.pronunciation,
       title: 'Pronunciation practice',
-      description: 'Listen on original sources, repeat slowly, and refine difficult sounds.',
+      description: 'Listen with patience, speak softly, and let difficult sounds soften over time.',
       category: 'Speaking & listening',
     },
   ],
   relatedItems: [
-    rel(paths.practice.index, 'Practice hub', 'Apply language skills to mezmur and prayer routines.'),
-    rel(paths.learn.index, 'Learn hub', 'Context for scripture and teachings as you read more Amharic.'),
+    rel(paths.practice.index, 'Practice hub', 'Carry new letters into hymn lines and daily prayer.'),
+    rel(paths.learn.index, 'Learn hub', 'Scripture and teaching as your reading grows stronger.'),
   ],
 }
 

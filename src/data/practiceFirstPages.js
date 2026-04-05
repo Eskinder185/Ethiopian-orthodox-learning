@@ -31,6 +31,15 @@ export const practicePageConfigs = {
       rel(paths.learn.liturgy, 'Liturgy', 'See how hymns fit the larger service.'),
       rel(paths.progress.tracking, 'Practice tracking', 'Note habits and review in your own words.'),
     ],
+    jumpNavLinks: [
+      { href: '#practice-orientation', label: 'Orientation' },
+      { href: '#how-to-heading', label: 'How to use' },
+      { href: '#practice-flow-heading', label: 'Practice flow' },
+      { href: '#practice-external-resources', label: 'External links' },
+      { href: '#mezmur-workspace', label: 'Workspace' },
+      { href: '#reflection-heading', label: 'After practice' },
+      { href: '#checklist-heading', label: 'Checklist' },
+    ],
   },
 
   tselot: {
@@ -43,6 +52,13 @@ export const practicePageConfigs = {
     relatedItems: [
       rel(paths.practice.mezmur, 'Mezmur practice', 'Connect sung and spoken prayer.'),
       rel(paths.learn.liturgy, 'Liturgy', 'Link home prayer to Sunday worship.'),
+    ],
+    jumpNavLinks: [
+      { href: '#how-to-heading', label: 'How to use' },
+      { href: '#practice-flow-heading', label: 'Practice flow' },
+      { href: '#practice-external-resources', label: 'External links' },
+      { href: '#reflection-heading', label: 'After practice' },
+      { href: '#checklist-heading', label: 'Checklist' },
     ],
   },
 

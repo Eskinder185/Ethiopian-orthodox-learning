@@ -51,26 +51,27 @@ export default function CalendarHomePage() {
       />
       <div className="cal-how-grid">
         <div className="cal-how-card">
-          <h3>Two calendars</h3>
+          <h3>Two ways of counting days</h3>
           <p>
-            Civil life often uses the Gregorian calendar. The Church uses the Ethiopian calendar
-            (thirteen months, different year number). We convert between them mathematically so you
-            can see both at once.
+            Daily life often follows the Gregorian calendar; the Church journeys through the Ethiopian
+            calendar — its own months, feasts, and sense of the year. We show both together so you can
+            live in the world and still think with the Church.
           </p>
         </div>
         <div className="cal-how-card">
           <h3>Fasting & feasts</h3>
           <p>
-            Wednesday and Friday fasting, Great Lent before Pascha, Advent before Nativity, and major
-            fixed feasts come from the same reference document as this build — expandable later with
-            Senksar data.
+            Wednesday and Friday fasts, the great fasts before Nativity and Pascha, and the major holy
+            days named here echo received Orthodox practice. Let your spiritual father and parish
+            calendar guide what you keep when health, travel, or local tradition calls for care.
           </p>
         </div>
         <div className="cal-how-card">
-          <h3>Grow the data</h3>
+          <h3>Growing with the Church year</h3>
           <p>
-            Add saints, local observances, and PDF links in <code>src/data/calendarData.js</code> and
-            extend <code>liturgicalCalendar.js</code> for new rules without redesigning the pages.
+            Over time this calendar can welcome more feast days, saints’ stories, local observances,
+            and links to hymns and readings — so your sense of the year deepens as the site grows.
+            What matters most is living the rhythm with Christ, not the screen.
           </p>
         </div>
       </div>

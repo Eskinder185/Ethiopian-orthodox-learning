@@ -7,6 +7,8 @@ import ResourceList from './ResourceList.jsx'
 import InfoBlock from './InfoBlock.jsx'
 import StatusBox from './StatusBox.jsx'
 import SectionDivider from './SectionDivider.jsx'
+import ExpandableText from '../ui/ExpandableText.jsx'
+import CollapsiblePanel from '../ui/CollapsiblePanel.jsx'
 import { placeholderCopy } from '../../data/uiCopy.js'
 
 const defaultInfoChildren = (
@@ -50,13 +52,22 @@ export default function SectionHubLayout({
       />
 
       <SectionOverview>
-        <p>{overview}</p>
+        <ExpandableText lines={4} moreLabel="Show more" className="section-hub__overview-expand">
+          <p>{overview}</p>
+        </ExpandableText>
       </SectionOverview>
 
       {showMaterialsNote && materialsNote ? (
-        <StatusBox tone="muted" className="section-hub__materials-note">
-          {materialsNote}
-        </StatusBox>
+        <CollapsiblePanel
+          title="Note on materials"
+          icon="◇"
+          defaultOpen={false}
+          className="section-hub__materials-collapsible"
+        >
+          <StatusBox tone="muted" className="section-hub__materials-note">
+            {materialsNote}
+          </StatusBox>
+        </CollapsiblePanel>
       ) : null}
 
       <SectionDivider />
@@ -94,9 +105,14 @@ export default function SectionHubLayout({
 
       <SectionDivider />
 
-      <InfoBlock title={infoTitle} variant="soft">
-        {infoChildren ?? defaultInfoChildren}
-      </InfoBlock>
+      <CollapsiblePanel
+        title={infoTitle}
+        icon="✧"
+        defaultOpen={false}
+        className="section-hub__info-collapsible"
+      >
+        <InfoBlock variant="soft">{infoChildren ?? defaultInfoChildren}</InfoBlock>
+      </CollapsiblePanel>
 
       {resourceItems.length > 0 ? (
         <ResourceList

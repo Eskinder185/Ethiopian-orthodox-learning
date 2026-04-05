@@ -15,11 +15,14 @@ export default function PageHeader({
   className = '',
 }) {
   const label = sectionLabel ?? category
+  const subtitleParagraphs = Array.isArray(intro) ? intro : undefined
+  const subtitle = typeof intro === 'string' ? intro : undefined
 
   return (
     <PageHero
       title={title}
-      subtitle={intro}
+      subtitle={subtitle}
+      subtitleParagraphs={subtitleParagraphs}
       eyebrow={eyebrow}
       sectionLabel={label}
       compact={compact}

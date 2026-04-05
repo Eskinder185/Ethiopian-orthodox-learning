@@ -9,7 +9,7 @@
 }
 
 .progress-dashboard__section {
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-section);
 }
 
 .progress-dashboard__section:last-child {

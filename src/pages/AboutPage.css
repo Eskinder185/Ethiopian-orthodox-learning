@@ -19,7 +19,7 @@
 .about-page__scope-text {
   margin: 0;
   line-height: 1.55;
-  color: var(--color-text-muted, inherit);
+  color: var(--text-muted);
 }
 
 .about-page__faq {
@@ -42,7 +42,7 @@
 .about-page__faq-a {
   margin: 0;
   line-height: 1.55;
-  color: var(--color-text-muted, inherit);
+  color: var(--text-muted);
 }
 
 .about-page__future-intro {

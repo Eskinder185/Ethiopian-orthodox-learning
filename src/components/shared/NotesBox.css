@@ -1,27 +1,30 @@
 .notes-box {
-  padding: 1rem 1.1rem;
-  border-radius: 10px;
+  padding: 1.2rem 1.35rem;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  background: var(--card-bg);
+  background: linear-gradient(180deg, var(--card-bg) 0%, var(--surface) 100%);
+  box-shadow: 0 1px 8px var(--shadow-soft);
   text-align: left;
 }
 
 .notes-box__title {
-  font-size: 0.9rem;
+  font-family: var(--heading);
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-heading);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.55rem;
+  letter-spacing: 0.02em;
 }
 
 .notes-box__body {
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 1.02rem;
+  line-height: 1.65;
   color: var(--text-muted);
   margin: 0;
 }
 
 .notes-box__body p {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.55rem;
 }
 
 .notes-box__body p:last-child {
@@ -30,11 +33,11 @@
 
 .notes-box__body ul {
   margin: 0;
-  padding-left: 1.2rem;
+  padding-left: 1.35rem;
 }
 
 .notes-box__body li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .notes-box__body li:last-child {

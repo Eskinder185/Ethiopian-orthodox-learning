@@ -4,38 +4,6 @@ import { parseTimeToSeconds, formatSecondsToTimestamp } from '../../utils/timeFo
 import { loadYouTubeIframeAPI } from '../../utils/loadYouTubeIframeAPI.js'
 import './MezmurPracticeWorkspace.css'
 
-const WORKSPACE_INTRO = {
-  kicker: 'Warm-up & preparation',
-  lead: 'A calm start helps your voice and attention before you sing.',
-  bridge:
-    'Use the steps below to settle your body and breath, then work in small timed chunks: loop one line, try short look-away tests, and build longer chains line by line.',
-}
-
-const WARMUP_STEPS = [
-  {
-    title: 'Stand or sit tall',
-    body:
-      'Keep your back straight, shoulders relaxed, and head level. Do not slouch.',
-  },
-  {
-    title: 'Relax your mouth and throat',
-    body: 'Loosen your jaw, lips, and tongue. Let your face stay calm.',
-  },
-  {
-    title: 'Take 3 slow breaths',
-    body: 'Breathe low and gently. Do not raise your shoulders.',
-  },
-  {
-    title: 'Hum softly first',
-    body: 'Before saying the words, hum the melody lightly on “mmm” to feel the flow.',
-  },
-  {
-    title: 'Focus on one short line',
-    body:
-      'Do not start with the whole mezmur. Take one small line, repeat it slowly, and stay steady.',
-  },
-]
-
 const SPEED_OPTIONS = [
   { label: 'Slower (0.5×)', value: 0.5 },
   { label: 'Slow (0.75×)', value: 0.75 },
@@ -328,33 +296,9 @@ export default function MezmurPracticeWorkspace() {
   return (
     <div className="mezmur-workspace" id="mezmur-workspace">
       <h2 className="mezmur-workspace__page-title">Mezmur practice workspace</h2>
-      <div className="mezmur-workspace__intro">
-        <p className="mezmur-workspace__intro-kicker">{WORKSPACE_INTRO.kicker}</p>
-        <p className="mezmur-workspace__tagline">
-          <span className="mezmur-workspace__tagline-lead">{WORKSPACE_INTRO.lead}</span>{' '}
-          {WORKSPACE_INTRO.bridge}
-        </p>
-      </div>
 
       <div className="mezmur-workspace__split">
         <div className="mezmur-workspace__column mezmur-workspace__column--left">
-          <section className="mezmur-workspace__section" aria-labelledby="mezmur-warmup-heading">
-            <h3 id="mezmur-warmup-heading" className="mezmur-workspace__heading">
-              {WORKSPACE_INTRO.kicker}
-            </h3>
-            <p className="mezmur-workspace__section-lead">{WORKSPACE_INTRO.lead}</p>
-            <div className="mezmur-warmup-card">
-              <ul className="mezmur-warmup-card__list">
-                {WARMUP_STEPS.map((step) => (
-                  <li key={step.title} className="mezmur-warmup-card__item">
-                    <strong className="mezmur-warmup-card__title">{step.title}</strong>
-                    <span className="mezmur-warmup-card__body">{step.body}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
           <section className="mezmur-workspace__section" aria-labelledby="mezmur-chunks-heading">
             <h3 id="mezmur-chunks-heading" className="mezmur-workspace__heading">
               Lyric chunks (timestamps)

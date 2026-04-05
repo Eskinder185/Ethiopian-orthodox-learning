@@ -6,22 +6,22 @@ import { paths } from '../constants/paths.js'
 export const progressNavCards = [
   {
     title: 'Mezmur',
-    description: 'Hymn flow — listen, repeat, review with external sources.',
+    description: 'Sacred hymns — listen, repeat, and let the melody settle in your heart.',
     to: paths.practice.mezmur,
   },
   {
     title: 'Tselot',
-    description: 'Daily prayer routines with texts from books or linked sites.',
+    description: 'Daily prayer — small, steady visits to the words the Church has taught you.',
     to: paths.practice.tselot,
   },
   {
     title: 'Liturgy',
-    description: 'Orientation to the Divine Liturgy between Sundays.',
+    description: 'Sunday worship — return between services so nothing feels unfamiliar.',
     to: paths.learn.liturgy,
   },
   {
     title: 'Amharic alphabet',
-    description: 'Fidel recognition in small, calm sets.',
+    description: 'Sacred letters — a few at a time, with patience and joy.',
     to: paths.language.alphabet,
   },
 ]
@@ -31,17 +31,18 @@ export const progressSiteContent = {
     category: 'Progress',
     title: 'Progress',
     intro:
-      'Progress here means faithful attention — not competition. The site will eventually help you notice patterns in prayer, hymn practice, language touchpoints, and learning goals you choose. Nothing is stored on a server yet; this page explains the direction and links you back into practice.',
+      'Here, progress is faithfulness in small things — coming back to prayer, humming a hymn line, opening the alphabet — without scores or pressure. Over time this space will help you notice those quiet patterns. For now, consider this a gentle compass that always points you toward practice.',
     notice:
-      'Numbers, streaks, and timelines will appear only when local or optional cloud storage is added with your control. Until then, use a notebook or calendar you already trust.',
+      'Tallies and timelines will arrive only when private, optional tools are ready — always under your control. Until then, a notebook or calendar you already love is a holy enough record.',
   },
 
   supportTitle: 'What progress tracking is for',
   supportParagraphs: [
-    'The aim is gentle structure: seeing that you returned to a prayer flow, touched the alphabet, or reviewed a liturgy section — without shaming missed days. Orthodox life is not a leaderboard.',
-    'When features ship, they should stay private, easy to reset, and secondary to parish worship and spiritual direction.',
+    'The hope is a little structure that cheers you on: you returned to prayer, touched a few letters, or read one liturgy section again — never shame for missed days. The Christian life is not a contest.',
+    'Whenever tools appear here, they should stay yours to reset or set aside, and always second to parish worship and your spiritual father’s counsel.',
   ],
 
   practiceAreasTitle: 'Return to practice',
-  practiceAreasSubtitle: 'These pages hold the actual routines; progress will connect to them over time.',
+  practiceAreasSubtitle:
+    'These are the living pages — prayer, song, liturgy, letters. Progress will meet you here when it is ready.',
 }

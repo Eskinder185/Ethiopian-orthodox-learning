@@ -34,10 +34,16 @@ export const homeContent = {
     },
   },
 
+  rhythmTeaser:
+    'Weekday prayer and hymns connect to Sunday worship; fasting follows the church year — always confirm details with your parish and official calendars.',
+
   rhythmParagraphs: [
     'Personal prayer and the Church’s hymns connect weekdays to Sunday worship. Start with what your parish recommends — one prayer set, one short hymn, or one liturgical response — and repeat it calmly until it rests in memory.',
     'Fasting and feasts follow the Ethiopian church year. This site explains context only; every rule that affects your health or schedule should be confirmed in person and with authoritative calendars.',
   ],
+
+  missionTeaser:
+    'We support reverent study and practice at home alongside your priest and parish — never in place of them.',
 
   missionParagraphs: [
     'Orthodox Learning exists to honor Christ and His Church by making faith, prayer, and tradition easier to study and practice at home — with reverence and always alongside your priest and parish, never in place of them.',
@@ -54,25 +60,25 @@ export const homeQuickSections = [
   {
     to: paths.language.index,
     title: 'Language',
-    description: 'Amharic Fidel, writing, and pronunciation for church reading and song.',
+    description: 'Amharic letters, careful writing, and listening — for prayer and hymnody.',
     category: 'Section',
   },
   {
     to: paths.progress.index,
     title: 'Progress',
-    description: 'Overview of how habit tracking will support your practice over time.',
+    description: 'Gentle habits for prayer, hymns, and learning — without pressure or scores.',
     category: 'Section',
   },
   {
     to: paths.learn.index,
     title: 'Learn',
-    description: 'Scripture, teachings, church knowledge, and liturgy — summaries and orientation.',
+    description: 'Scripture, faith, church life, and the liturgy — short, welcoming guides.',
     category: 'Section',
   },
   {
     to: paths.calendar.index,
     title: 'Calendar',
-    description: 'Today, fasting context, and feasts — always verify with official sources.',
+    description: 'Today in Church time, fasting seasons, and feasts — always confirm with your parish.',
     category: 'Section',
   },
 ]

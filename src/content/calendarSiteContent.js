@@ -4,11 +4,11 @@
 export const calendarNarratives = {
   home: {
     intro:
-      'The Ethiopian Orthodox Church follows the Ethiopian calendar: twelve months of thirty days, plus Pagumen (five or six days), with leap years every four years. Years are counted from the Era of the Incarnation and usually run seven or eight years behind the civil Gregorian year.',
+      'The Ethiopian Orthodox Church keeps time with the Ethiopian calendar: twelve months of thirty days, the little month of Pagumen, and years counted from the Era of the Incarnation — often seven or eight years behind the civil Gregorian year many of us use each day.',
     purpose:
-      'Below, your device’s Gregorian date is converted to the Ethiopian date. Fasting, feasts, and weekday themes follow the research-based tables on file — confirm every rule that affects your life with your priest and an official church calendar.',
+      'See today in both calendars, notice fasting days and feasts, and read the spiritual theme of the weekday — then let your priest and an official church calendar have the final word on what shapes your fasting and joy.',
     notice:
-      'Moveable feasts use the same Pascha (Easter) rule as the Eastern Orthodox Julian computus. The Senksar (synaxarion) names a saint or event for each day; only major fixed and moveable feasts are listed here so far.',
+      'Great feasts and fasts follow the Church’s received reckoning of Pascha. The full cloud of saints and local commemorations lives in the Senksar and parish books; here you’ll find a helpful outline, not every holy day in full.',
   },
 
   today: {

@@ -1,6 +1,10 @@
 import ContentPageLayout from '../../components/sections/ContentPageLayout.jsx'
-import SectionTitle from '../../components/sections/SectionTitle.jsx'
-import { CautionsList, NotesList, SummarySections } from '../../components/content/SummaryBlocks.jsx'
+import CollapsiblePanel from '../../components/ui/CollapsiblePanel.jsx'
+import {
+  AccordionSummarySections,
+  CautionsList,
+  NotesList,
+} from '../../components/content/SummaryBlocks.jsx'
 import { subpageOutlines } from '../../data/subpageOutlines.js'
 
 /**
@@ -22,34 +26,40 @@ export default function LearnTopicPage({ outlineKey, content }) {
     >
       <CautionsList items={content.cautions} />
       <NotesList items={content.notes} />
-      <SummarySections sections={content.sections} headingIdPrefix={outlineKey} />
+      <AccordionSummarySections sections={content.sections} headingIdPrefix={outlineKey} />
       {er ? (
-        <section
-          className="learn-external-reader"
-          aria-labelledby={`${outlineKey}-external-reader-h`}
+        <CollapsiblePanel
+          title={er.title}
+          icon="↗"
+          defaultOpen={false}
+          className="learn-external-reader-collapsible"
         >
-          <SectionTitle id={`${outlineKey}-external-reader-h`} title={er.title} />
-          {er.body?.map((p, i) => (
-            <p key={i} className="learn-external-reader__p">
-              {p}
+          <div
+            className="learn-external-reader learn-external-reader--embedded"
+            id={`${outlineKey}-external-reader`}
+          >
+            {er.body?.map((p, i) => (
+              <p key={i} className="learn-external-reader__p">
+                {p}
+              </p>
+            ))}
+            <p className="learn-external-reader__label">{er.urlCaption}</p>
+            <p className="learn-external-reader__url">
+              <a
+                href={er.href}
+                className="learn-external-reader__link text-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {er.linkLabel}
+                <span className="learn-external-reader__sr"> (opens in new tab)</span>
+              </a>
             </p>
-          ))}
-          <p className="learn-external-reader__label">{er.urlCaption}</p>
-          <p className="learn-external-reader__url">
-            <a
-              href={er.href}
-              className="learn-external-reader__link text-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {er.linkLabel}
-              <span className="learn-external-reader__sr"> (opens in new tab)</span>
-            </a>
-          </p>
-          <p className="learn-external-reader__raw-url">
-            <code>{er.href}</code>
-          </p>
-        </section>
+            <p className="learn-external-reader__raw-url">
+              <code>{er.href}</code>
+            </p>
+          </div>
+        </CollapsiblePanel>
       ) : null}
     </ContentPageLayout>
   )

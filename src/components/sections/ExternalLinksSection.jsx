@@ -2,7 +2,7 @@ import '../../styles/ContentComponents.css'
 import ExternalResourceCard from './ExternalResourceCard.jsx'
 import { placeholderCopy } from '../../data/uiCopy.js'
 
-function hasValidLinks(links) {
+export function hasValidExternalLinks(links) {
   if (!links?.length) return false
   return links.some((l) => l?.href && (l.resourceTitle || l.label))
 }
@@ -16,8 +16,10 @@ export default function ExternalLinksSection({
   links = [],
   footnote = placeholderCopy.externalResourcesFootnote,
   className = '',
+  /** Hide badge + H2 when nested inside another control (e.g. collapsible). */
+  suppressHeader = false,
 }) {
-  if (!hasValidLinks(links)) return null
+  if (!hasValidExternalLinks(links)) return null
 
   const normalized = links.map((item) => ({
     href: item.href,
@@ -31,17 +33,24 @@ export default function ExternalLinksSection({
 
   return (
     <section
-      className={'external-links-section' + (className ? ` ${className}` : '')}
-      aria-labelledby="external-links-section-title"
+      className={
+        'external-links-section' +
+        (suppressHeader ? ' external-links-section--embedded' : '') +
+        (className ? ` ${className}` : '')
+      }
+      aria-labelledby={suppressHeader ? undefined : 'external-links-section-title'}
+      aria-label={suppressHeader ? title : undefined}
     >
-      <div className="external-links-section__head">
-        <span className="external-links-section__badge" aria-hidden="true">
-          External resources
-        </span>
-        <h2 id="external-links-section-title" className="external-links-section__title">
-          {title}
-        </h2>
-      </div>
+      {suppressHeader ? null : (
+        <div className="external-links-section__head">
+          <span className="external-links-section__badge" aria-hidden="true">
+            External resources
+          </span>
+          <h2 id="external-links-section-title" className="external-links-section__title">
+            {title}
+          </h2>
+        </div>
+      )}
 
       <p className="external-links-section__intro">{intro}</p>
 

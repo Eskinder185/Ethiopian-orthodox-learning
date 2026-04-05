@@ -268,9 +268,9 @@ export const FASTING_SEASON_DEFINITIONS = [
 /** Site copy blocks */
 export const CALENDAR_INTRO = {
   homeLead:
-    'The Ethiopian Orthodox Tewahedo Church uses the Ethiopian calendar: twelve months of thirty days, plus Pagumen (five or six days), with leap years every four years. Years are counted from the Era of the Incarnation and usually run seven or eight years behind the Gregorian year used in much of daily life.',
+    'We walk with two ways of counting days: the civil calendar around us and the Church’s Ethiopian calendar — dates, feasts, fasts, and each weekday’s spiritual theme — always alongside your priest’s guidance.',
   homeGregorianNote:
-    'This site converts your device’s Gregorian date to the Ethiopian date and summarizes fasting, feasts, and the weekday theme. Always confirm strict fasts, dispensations, and local observance with your priest and diocesan calendar.',
+    'What you see here is a gentle aid: Ethiopian date, fasting context, and the day’s church mood. Confirm every strict fast, feast, and local custom with your spiritual father and the calendar your diocese approves.',
   todayFooter:
     'Full commemorations for each day come from the Senksar (synaxarion) and parish books. This page highlights the weekly theme and major fixed feasts; moveable feasts follow Orthodox Pascha.',
   upcomingHeading: 'Upcoming fixed feasts (Ethiopian dates)',

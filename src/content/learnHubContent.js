@@ -8,28 +8,28 @@ export const learnHubTopics = [
     to: paths.learn.scripture,
     title: 'Scripture',
     description:
-      'Scripture in liturgy and tradition, the 81-book canon, Ge’ez heritage, prayerful reading — plus an optional online reader.',
+      'How the Church hears the Bible — the fuller canon, Ge’ez heritage, and prayerful reading, with an optional link to read online.',
     category: 'Topic',
   },
   {
     to: paths.learn.teachings,
     title: 'Teachings',
     description:
-      'Faith and order: Trinity, incarnation, salvation, and the seven sacraments — a beginner summary from church teaching texts.',
+      'The Orthodox faith in plain words — Trinity, Christ’s saving work, and the mysteries of the Church — a gentle beginning.',
     category: 'Topic',
   },
   {
     to: paths.learn.churchKnowledge,
     title: 'Church knowledge',
     description:
-      'History, liturgical life, monasticism, Aksum and Lalibela — orientation with room for parish teaching.',
+      'The story, rhythm, and holy places of Orthodox life — history, worship, monastic witness, and room for what your parish shares.',
     category: 'Topic',
   },
   {
     to: paths.learn.liturgy,
     title: 'Liturgy',
     description:
-      'The Divine Liturgy (Qidase) in parts — prepare and review between Sundays with linked references.',
+      'The Divine Liturgy (Qidase) unfolded in calm steps — prepare between Sundays and follow trusted references.',
     category: 'Topic',
   },
 ]
@@ -38,38 +38,39 @@ export const learnHubResourceItems = [
   {
     to: paths.learn.scripture,
     label: 'Scripture',
-    description: 'Canon, habits, and link to an external Ethiopian Bible reader.',
+    description: 'Reading with the Church — and a doorway to an external Bible reader when you wish.',
     kind: 'In-app',
   },
   {
     to: paths.learn.teachings,
     label: 'Teachings',
-    description: 'Faith, order, and the seven sacraments — summarized for beginners.',
+    description: 'Core beliefs and the mysteries — clear, humble summaries for newcomers.',
     kind: 'In-app',
   },
   {
     to: paths.learn.churchKnowledge,
     label: 'Church knowledge',
-    description: 'Tewahedo identity, history, liturgy, monasticism, sacred places — start here.',
+    description: 'Who we are, where we’ve been, and how we pray — a welcoming overview.',
     kind: 'In-app',
   },
   {
     to: paths.learn.liturgy,
     label: 'Liturgy',
-    description: 'Divine Liturgy flow and outbound references.',
+    description: 'Sunday worship explained in order — with links when you want to go deeper.',
     kind: 'In-app',
   },
 ]
 
 export const learnHubContent = {
   title: 'Learn',
-  eyebrow: 'Teaching & knowledge',
+  eyebrow: 'Faith, Scripture & sacred tradition',
   intro:
-    'Foundational knowledge for Ethiopian Orthodox Christianity: Scripture, teachings, church history and customs, and orientation to the Divine Liturgy — in brief, original summaries.',
+    'Step gently into Scripture, the Church’s faith, her story, and the Divine Liturgy — brief guides meant to support what you receive in parish and from your spiritual father.',
   overview:
-    'The Ethiopian Orthodox Church receives an expanded biblical canon (often described as 81 books) and honors both written Scripture and apostolic tradition. These pages offer high-level explanations: how to approach the Bible, core beliefs such as the Trinity and Incarnation, distinctive books in summary, an entry point to history and liturgical life, and a structured way to study the Qidase between Sundays. Use them to build a broad map, then follow outbound links to patriarchates, publishers, and seminaries for full texts and official statements — never as a substitute for your parish.',
+    'The Ethiopian Orthodox Church cherishes Scripture and the living tradition handed down from the apostles. These pages sketch a calm map: how the Bible is read in the Church, what we believe about Christ and His gifts, glimpses of our history and holy places, and how the Divine Liturgy (Qidase) unfolds — so you can pray with growing understanding. When you need full texts or authoritative teaching, your parish and the books and links your bishop recognizes remain your home.',
   topicsTitle: 'Topics',
-  topicsSubtitle: 'Each topic offers on-site summaries; deep study continues in books, classes, and linked sources.',
+  topicsSubtitle:
+    'Open a topic for a short, readable guide; let books, classes, and your parish take you the rest of the way.',
   notes: [
     'Keep doctrine overview simple; deep theology belongs in books and classes.',
     'When naming canon or feasts, double-check against an authority your bishop recognizes.',

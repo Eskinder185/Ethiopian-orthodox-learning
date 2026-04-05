@@ -16,7 +16,7 @@
 
 .calendar-overview__grid {
   display: grid;
-  gap: 1rem;
+  gap: var(--space-lg);
   grid-template-columns: 1fr;
 }
 
@@ -52,7 +52,8 @@
 }
 
 .status-card__title {
-  font-size: 1rem;
+  font-family: var(--heading);
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-heading);
   margin: 0 0 0.5rem;
@@ -66,8 +67,8 @@
 }
 
 .status-card__body {
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 1.02rem;
+  line-height: 1.65;
   color: var(--text-muted);
   margin: 0;
 }
@@ -82,11 +83,13 @@
 
 /* —— ReminderBox —— */
 .reminder-box {
-  padding: 1rem 1.1rem;
-  border-radius: 10px;
-  border-left: 4px solid var(--accent-muted);
-  background: var(--accent-subtle);
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold-bright);
+  background: linear-gradient(90deg, var(--accent-subtle) 0%, var(--cream) 100%);
   text-align: left;
+  box-shadow: 0 1px 8px var(--shadow-soft);
 }
 
 .reminder-box__title {

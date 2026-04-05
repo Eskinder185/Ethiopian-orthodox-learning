@@ -4,13 +4,13 @@
 export const languageNarratives = {
   home: {
     title: 'Language',
-    eyebrow: 'Ethiopian Orthodox learning',
+    eyebrow: 'Words for worship & witness',
     intro:
-      'This area supports church use of Amharic and liturgical Ge‘ez: reading prayers, hymns, and scripture with growing confidence. The Amharic script (Fidel) is a syllabary — traditionally about thirty-three base shapes, each with several vowel forms — learned step by step in church schools (Fidel Bet) and many online courses.',
+      'Amharic and Ge‘ez draw you closer to prayers, hymns, and Scripture as Ethiopian Orthodox Christians have sung and read them for generations. Learn at a humble pace — to recognize, write, and hear — the way many first meet the letters in parish life and Fidel school.',
     purpose:
-      'You will practice recognition, handwriting, and pronunciation using flows on this site, while full charts, audio, and worksheets stay on teacher sites we link to when available.',
+      'Here you’ll find gentle practice rhythms; full alphabets, audio, and courses stay on the teachers and websites your community trusts — we simply point the way.',
     notice:
-      'Order and names of letters may differ from your prayer book — follow a chart or teacher your parish recommends.',
+      'Letter order or names may not match every prayer book — follow the chart or teacher your parish suggests.',
   },
 
   alphabet: {

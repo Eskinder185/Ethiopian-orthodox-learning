@@ -27,7 +27,7 @@ export default function LanguageHomePage() {
       <SectionTitle
         id="language-areas-heading"
         title="Where to start"
-        subtitle="Choose reading, writing, or listening — each page has its own layout and room to grow."
+        subtitle="Reading, writing, or listening — pick one door and grow little by little."
       />
 
       <div className="feature-grid feature-grid--topics">

@@ -12,7 +12,7 @@ const cal = calendarNarratives
 
 export const calendarHome = {
   title: 'Calendar',
-  eyebrow: 'Church year & daily rhythm',
+  eyebrow: 'The Church’s time & your day',
   intro: cal.home.intro,
   purpose: cal.home.purpose,
   notice: cal.home.notice,
@@ -21,25 +21,27 @@ export const calendarHome = {
       to: paths.calendar.today,
       title: 'Today',
       description:
-        'Gregorian and Ethiopian dates, weekday theme, fasting context, and feasts for the current day.',
+        'This moment in civil and Church time — the weekday’s spiritual theme, fasting hints, and any great feast we mark for today.',
       category: 'Daily',
     },
     {
       to: paths.calendar.fasting,
       title: 'Fasting',
-      description: 'Wednesday and Friday fasts and the major fasting seasons explained from church sources.',
+      description:
+        'The gentle discipline of Wednesdays, Fridays, and the great fasts — explained with reverence; your priest confirms the rule.',
       category: 'Discipline',
     },
     {
       to: paths.calendar.holidays,
       title: 'Holidays',
-      description: 'Principal fixed feasts with Ethiopian and approximate Gregorian dates.',
+      description:
+        'Principal feasts on the Ethiopian calendar, with civil dates to help you plan and rejoice.',
       category: 'Feasts',
     },
   ],
   relatedItems: [
-    rel(paths.learn.teachings, 'Teachings', 'Spiritual context behind fasts and feasts.'),
-    rel(paths.practice.tselot, 'Tselot practice', 'Prayer rhythm through the church year.'),
+    rel(paths.learn.teachings, 'Teachings', 'The faith behind fasting, feasting, and every sacred season.'),
+    rel(paths.practice.tselot, 'Tselot practice', 'Let prayer keep step with the Church’s calendar.'),
   ],
 }
 

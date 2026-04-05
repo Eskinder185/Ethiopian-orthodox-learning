@@ -3,6 +3,7 @@ import PageHeader from './PageHeader.jsx'
 import SectionTitle from './SectionTitle.jsx'
 import ResourceList from './ResourceList.jsx'
 import DocumentCard from '../cards/DocumentCard.jsx'
+import ExpandableText from '../ui/ExpandableText.jsx'
 
 /**
  * Standard subpage shell: category, title, summary, main column, optional document cards, related links.
@@ -23,7 +24,11 @@ export default function ContentPageLayout({
   return (
     <article className="content-page">
       <PageHeader category={category} title={title} compact />
-      {summary ? <p className="content-page__summary">{summary}</p> : null}
+      {summary ? (
+        <ExpandableText lines={3} className="content-page__summary-wrap" moreLabel="Read more">
+          <p className="content-page__summary">{summary}</p>
+        </ExpandableText>
+      ) : null}
 
       <div className="content-page__main">{children}</div>
 
