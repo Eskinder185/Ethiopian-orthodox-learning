@@ -4,6 +4,13 @@ import { parseTimeToSeconds, formatSecondsToTimestamp } from '../../utils/timeFo
 import { loadYouTubeIframeAPI } from '../../utils/loadYouTubeIframeAPI.js'
 import './MezmurPracticeWorkspace.css'
 
+const WORKSPACE_INTRO = {
+  kicker: 'Warm-up & preparation',
+  lead: 'A calm start helps your voice and attention before you sing.',
+  bridge:
+    'Use the steps below to settle your body and breath, then work in small timed chunks: loop one line, try short look-away tests, and build longer chains line by line.',
+}
+
 const WARMUP_STEPS = [
   {
     title: 'Stand or sit tall',
@@ -322,8 +329,10 @@ export default function MezmurPracticeWorkspace() {
     <div className="mezmur-workspace" id="mezmur-workspace">
       <h2 className="mezmur-workspace__page-title">Mezmur practice workspace</h2>
       <div className="mezmur-workspace__intro">
+        <p className="mezmur-workspace__intro-kicker">{WORKSPACE_INTRO.kicker}</p>
         <p className="mezmur-workspace__tagline">
-          Listen, type lyrics in small chunks, and loop sections to memorize — all on one page.
+          <span className="mezmur-workspace__tagline-lead">{WORKSPACE_INTRO.lead}</span>{' '}
+          {WORKSPACE_INTRO.bridge}
         </p>
       </div>
 
@@ -331,11 +340,9 @@ export default function MezmurPracticeWorkspace() {
         <div className="mezmur-workspace__column mezmur-workspace__column--left">
           <section className="mezmur-workspace__section" aria-labelledby="mezmur-warmup-heading">
             <h3 id="mezmur-warmup-heading" className="mezmur-workspace__heading">
-              Warm-up & preparation
+              {WORKSPACE_INTRO.kicker}
             </h3>
-            <p className="mezmur-workspace__section-lead">
-              A calm start helps your voice and attention before you sing.
-            </p>
+            <p className="mezmur-workspace__section-lead">{WORKSPACE_INTRO.lead}</p>
             <div className="mezmur-warmup-card">
               <ul className="mezmur-warmup-card__list">
                 {WARMUP_STEPS.map((step) => (
@@ -548,9 +555,40 @@ export default function MezmurPracticeWorkspace() {
               Memorization support
             </h3>
             <p className="mezmur-workspace__memo-lead">
-              Choose <strong>Set active</strong> on one chunk. Work that piece until it feels easy:
-              hum along, say it without looking, then move on.
+              Choose <strong>Set active</strong> on one chunk. Hum along, then say or sing it
+              without staring at the text — short tests beat long staring.
             </p>
+
+            <div className="mezmur-memo-tips" aria-label="Memorization tips">
+              <div className="mezmur-memo-tip">
+                <h4 className="mezmur-memo-tip__title">Short look-away tests</h4>
+                <p className="mezmur-memo-tip__p">
+                  Never keep staring at the line too long. You memorize faster when you do short
+                  look-away tests — glance, look away, say it, check if needed. That is what teaches
+                  the brain. Use <strong>Hide active lyrics</strong> below the same way.
+                </p>
+              </div>
+              <div className="mezmur-memo-tip">
+                <h4 className="mezmur-memo-tip__title">Line-connecting method</h4>
+                <p className="mezmur-memo-tip__p">
+                  After learning line 1 and line 2, chain them before adding more:
+                </p>
+                <ol className="mezmur-memo-tip__ol">
+                  <li>Do line 1 alone.</li>
+                  <li>Do line 2 alone.</li>
+                  <li>Do line 1 + 2 together.</li>
+                </ol>
+                <p className="mezmur-memo-tip__p">Then once line 3 is learned:</p>
+                <ol className="mezmur-memo-tip__ol">
+                  <li>Do line 3 alone.</li>
+                  <li>Then 2 + 3.</li>
+                  <li>Then 1 + 2 + 3.</li>
+                </ol>
+                <p className="mezmur-memo-tip__p mezmur-memo-tip__p--emphasis">
+                  This builds strong chains — match each “line” to one lyric chunk in the list above.
+                </p>
+              </div>
+            </div>
             <p className="mezmur-workspace__active-line" role="status">
               {activeChunk ? (
                 <>

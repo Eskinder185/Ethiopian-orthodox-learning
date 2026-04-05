@@ -13,11 +13,25 @@
   margin-bottom: 1.25rem;
 }
 
+.mezmur-workspace__intro-kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.35rem;
+}
+
 .mezmur-workspace__tagline {
   font-size: 0.95rem;
   color: var(--text-muted);
   margin: 0;
   line-height: 1.5;
+}
+
+.mezmur-workspace__tagline-lead {
+  color: var(--text-heading);
+  font-weight: 500;
 }
 
 .mezmur-workspace__split {
@@ -149,6 +163,57 @@
   line-height: 1.55;
   color: var(--text-muted);
   margin: 0 0 0.75rem;
+}
+
+.mezmur-memo-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0 0 1rem;
+}
+
+.mezmur-memo-tip {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 1px 3px var(--shadow-soft);
+}
+
+.mezmur-memo-tip__title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0 0 0.45rem;
+}
+
+.mezmur-memo-tip__p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem;
+}
+
+.mezmur-memo-tip__p:last-child {
+  margin-bottom: 0;
+}
+
+.mezmur-memo-tip__p--emphasis {
+  font-weight: 500;
+  color: var(--text-heading);
+  margin-top: 0.35rem;
+}
+
+.mezmur-memo-tip__ol {
+  margin: 0 0 0.5rem;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.mezmur-memo-tip__ol li {
+  margin-bottom: 0.2rem;
 }
 
 .mezmur-workspace__label {
