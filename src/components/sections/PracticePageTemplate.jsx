@@ -7,7 +7,6 @@ import PracticeFlowSteps from './PracticeFlowSteps.jsx'
 import ExternalLinksSection, {
   hasValidExternalLinks,
 } from './ExternalLinksSection.jsx'
-import ResourceList from './ResourceList.jsx'
 import TopicAccordion from '../ui/TopicAccordion.jsx'
 import CollapsiblePanel from '../ui/CollapsiblePanel.jsx'
 import PageJumpNav from '../ui/PageJumpNav.jsx'
@@ -28,6 +27,7 @@ export default function PracticePageTemplate({
   config,
   supplement = null,
   afterExternalLinks = null,
+  articleClassName = '',
 }) {
   if (!config) return null
 
@@ -51,7 +51,6 @@ export default function PracticePageTemplate({
     checklistTitle = 'Session checklist',
     checklistSubtitle = 'Work through these in order; mark them mentally or on paper as you go.',
     checklistItems = DEFAULT_CHECKLIST,
-    relatedItems = [],
     jumpNavLinks = [],
   } = config
 
@@ -72,7 +71,8 @@ export default function PracticePageTemplate({
     <article
       className={
         'content-page practice-page practice-page-template' +
-        (showJumpNav ? ' practice-page--with-jump' : '')
+        (showJumpNav ? ' practice-page--with-jump' : '') +
+        (articleClassName ? ` ${articleClassName}` : '')
       }
     >
       <div className="practice-page__columns">
@@ -172,14 +172,6 @@ export default function PracticePageTemplate({
               </ul>
             </CollapsiblePanel>
           </section>
-
-          {relatedItems.length > 0 ? (
-            <ResourceList
-              className="practice-page__related"
-              title="Related practice pages"
-              items={relatedItems}
-            />
-          ) : null}
 
           {supplement}
         </div>

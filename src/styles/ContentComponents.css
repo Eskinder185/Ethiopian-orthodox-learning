@@ -2,23 +2,23 @@
 
 .page-hero {
   text-align: left;
-  margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-xl);
   border-bottom: 1px solid var(--border);
 }
 
 .page-hero--compact {
   margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-md);
+  padding-bottom: var(--space-lg);
 }
 
 .page-hero__meta {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
 }
 
 .page-hero__eyebrow {
-  margin: 0 0 0.4rem;
-  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+  font-size: var(--type-eyebrow);
   font-weight: 600;
   font-family: var(--sans);
   text-transform: uppercase;
@@ -28,16 +28,18 @@
 
 .page-hero__title {
   font-family: var(--heading);
-  font-size: clamp(2rem, 5vw, 2.85rem);
-  font-weight: 600;
+  font-size: var(--type-h1);
+  font-weight: 700;
   color: var(--text-heading);
-  margin: 0 0 0.65rem;
-  letter-spacing: 0.02em;
-  line-height: 1.12;
+  margin: 0 0 var(--space-below-page-title);
+  letter-spacing: 0.025em;
+  line-height: var(--line-h1);
 }
 
 .page-hero--compact .page-hero__title {
-  font-size: clamp(1.75rem, 4.5vw, 2.35rem);
+  font-size: var(--type-h1-compact);
+  font-weight: 700;
+  line-height: var(--line-h1);
 }
 
 .page-hero__subtitles {
@@ -49,8 +51,9 @@
 
 .page-hero__subtitle {
   margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  font-weight: 500;
+  line-height: var(--line-body);
   color: var(--text-muted);
   max-width: 46rem;
 }
@@ -60,25 +63,25 @@
 }
 
 .section-title {
-  margin: 0 0 var(--space-md);
-  padding-bottom: 0.35rem;
+  margin: 0 0 var(--space-lg);
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--gold-soft);
 }
 
 .section-title__label {
   font-family: var(--heading);
-  font-size: clamp(1.45rem, 3vw, 1.85rem);
-  font-weight: 600;
+  font-size: var(--type-h2);
+  font-weight: 700;
   color: var(--text-heading);
-  margin: 0 0 0.45rem;
-  letter-spacing: 0.03em;
-  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.025em;
+  line-height: var(--line-h2);
 }
 
 .section-title__subtitle {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: var(--type-small);
+  line-height: 1.65;
   color: var(--text-muted);
   max-width: 42rem;
 }
@@ -144,10 +147,11 @@
 
 .content-card__title {
   font-family: var(--heading);
-  font-size: 1.2rem;
+  font-size: var(--type-card-title);
   font-weight: 600;
   color: var(--text-heading);
   margin: 0 0 0.45rem;
+  line-height: var(--line-h3);
 }
 
 .content-card__desc {
@@ -215,55 +219,6 @@
   color: var(--text-muted);
 }
 
-/* —— Resource list —— */
-.resource-list {
-  text-align: left;
-}
-
-.resource-list__title {
-  font-family: var(--heading);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--text-heading);
-  margin: 0 0 var(--space-md);
-  letter-spacing: 0.02em;
-}
-
-.resource-list__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.resource-list__item {
-  padding: 0.65rem 0.75rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-}
-
-.resource-list__link {
-  font-size: 0.95rem;
-}
-
-.resource-list__desc {
-  display: block;
-  margin-top: 0.25rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.45;
-}
-
-.resource-list__tag {
-  display: inline-block;
-  margin-top: 0.35rem;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-}
-
 /* —— Verse card —— */
 .verse-card {
   text-align: left;
@@ -285,9 +240,9 @@
 
 .verse-card__text {
   font-family: var(--heading);
-  font-size: 1.05rem;
+  font-size: var(--type-lead);
   font-style: italic;
-  line-height: 1.65;
+  line-height: var(--line-body);
   color: var(--text-heading);
   margin: 0 0 0.85rem;
 }
@@ -338,10 +293,11 @@
 
 .practice-card__title {
   font-family: var(--heading);
-  font-size: 1.2rem;
+  font-size: var(--type-card-title);
   font-weight: 600;
   color: var(--text-heading);
   margin: 0 0 0.45rem;
+  line-height: var(--line-h3);
 }
 
 .practice-card__desc {
@@ -392,10 +348,12 @@
 }
 
 .calendar-card__title {
-  font-size: 1.05rem;
+  font-family: var(--heading);
+  font-size: var(--type-card-title);
   font-weight: 600;
   color: var(--text-heading);
   margin: 0 0 0.4rem;
+  line-height: var(--line-h3);
 }
 
 .calendar-card__detail {
@@ -430,15 +388,17 @@
 
 .info-block__title {
   font-family: var(--heading);
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: var(--type-h3);
+  font-weight: 700;
   color: var(--text-heading);
   margin: 0 0 0.55rem;
+  line-height: var(--line-h3);
+  letter-spacing: 0.02em;
 }
 
 .info-block__body {
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: var(--type-small);
+  line-height: var(--line-body);
   color: var(--text-muted);
   margin: 0;
 }
@@ -481,8 +441,8 @@
 
 .content-page__summary {
   margin: 0;
-  font-size: 1.12rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
 }
 
@@ -510,16 +470,16 @@
 
 .section-hub__overview-title {
   font-family: var(--heading);
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: var(--type-h2);
+  font-weight: 700;
   color: var(--text-heading);
-  margin: 0 0 0.65rem;
-  letter-spacing: 0.02em;
-  line-height: 1.25;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.025em;
+  line-height: var(--line-h2);
 }
 
 .section-hub__overview-body {
-  font-size: 1.05rem;
+  font-size: var(--type-lead);
   line-height: 1.7;
   color: var(--text-muted);
   margin: 0;
@@ -543,21 +503,9 @@
   }
 }
 
-.section-hub__resource-list {
-  margin-top: 1.75rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-
 .content-page__examples {
   margin-top: 2.25rem;
   padding-top: 1.75rem;
-  border-top: 1px solid var(--border);
-}
-
-.content-page__related {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
   border-top: 1px solid var(--border);
 }
 
@@ -611,8 +559,8 @@
 
 .status-box__text {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
 }
 
@@ -768,19 +716,20 @@
 
 .practice-flow__title {
   font-family: var(--heading);
-  font-size: 1.45rem;
-  font-weight: 600;
+  font-size: var(--type-h2);
+  font-weight: 700;
   color: var(--text-heading);
   margin: 0 0 0.85rem;
   letter-spacing: 0.02em;
+  line-height: var(--line-h2);
 }
 
 .practice-flow__list {
   margin: 0;
   padding-left: 1.35rem;
   color: var(--text-muted);
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
 }
 
 .practice-flow__item {
@@ -790,12 +739,6 @@
 
 .practice-flow__item:last-child {
   margin-bottom: 0;
-}
-
-.practice-page__related {
-  margin-top: 1.75rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
 }
 
 /* —— External links section (card grid) —— */
@@ -831,17 +774,17 @@
 
 .external-links-section__title {
   font-family: var(--heading);
-  font-size: 1.45rem;
-  font-weight: 600;
+  font-size: var(--type-h2);
+  font-weight: 700;
   color: var(--text-heading);
   margin: 0;
-  line-height: 1.25;
+  line-height: var(--line-h2);
   letter-spacing: 0.02em;
 }
 
 .external-links-section__intro {
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
   margin: 0 0 1.15rem;
   max-width: 46rem;
@@ -974,8 +917,8 @@
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
-  font-size: 1.02rem;
-  line-height: 1.55;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
   text-align: left;
 }
@@ -1011,4 +954,25 @@
 
 .practice-page__reflection {
   margin-top: 0.25rem;
+}
+
+/* Headings in page flow without a component class (e.g. calendar snapshot) */
+.content-page h2:not([class]) {
+  font-family: var(--heading);
+  font-size: var(--type-h2);
+  font-weight: 700;
+  line-height: var(--line-h2);
+  letter-spacing: 0.02em;
+  color: var(--text-heading);
+  margin: 0 0 0.75rem;
+}
+
+.content-page h3:not([class]) {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  font-weight: 700;
+  line-height: var(--line-h3);
+  letter-spacing: 0.02em;
+  color: var(--text-heading);
+  margin: 0 0 0.65rem;
 }

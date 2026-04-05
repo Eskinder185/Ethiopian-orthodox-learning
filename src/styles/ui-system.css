@@ -68,18 +68,18 @@ button.btn {
 }
 
 .btn--primary {
-  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%);
-  border-color: rgba(201, 162, 74, 0.45);
-  color: #fffef9;
+  background: linear-gradient(180deg, var(--accent-hover) 0%, var(--accent-deep) 100%);
+  border-color: rgba(212, 166, 60, 0.5);
+  color: #fffcf7;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.12) inset,
-    0 2px 10px var(--shadow-ink);
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 2px 12px var(--shadow-ink);
 }
 
 .btn--primary:hover {
-  background: linear-gradient(180deg, var(--accent-hover) 0%, var(--accent) 100%);
+  background: linear-gradient(180deg, var(--accent-highlight) 0%, var(--accent-hover) 100%);
   border-color: var(--gold-bright);
-  color: #fffef9;
+  color: #fffcf7;
 }
 
 .btn--secondary {
@@ -108,14 +108,14 @@ button.btn {
 
 @media (prefers-color-scheme: dark) {
   .btn--primary {
-    color: #1a1410;
+    color: #0f172a;
     background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 100%);
-    border-color: rgba(26, 20, 16, 0.35);
+    border-color: rgba(15, 23, 42, 0.35);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   }
 
   .btn--primary:hover {
-    color: #1a1410;
+    color: #0f172a;
     filter: brightness(1.06);
   }
 
@@ -138,7 +138,7 @@ button.btn {
 }
 
 .text-link:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--gold-bright);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -154,8 +154,8 @@ button.btn {
 }
 
 .info-banner--calm {
-  background: linear-gradient(135deg, var(--cream) 0%, var(--accent-subtle) 100%);
-  border-color: var(--accent-muted);
+  background: linear-gradient(135deg, var(--cream) 0%, var(--accent-green-subtle) 100%);
+  border-color: var(--border-strong);
 }
 
 .info-banner--muted {

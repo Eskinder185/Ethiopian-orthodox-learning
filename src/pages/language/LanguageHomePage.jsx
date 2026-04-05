@@ -3,13 +3,12 @@ import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
-import ResourceList from '../../components/sections/ResourceList.jsx'
 import LanguageSectionCard from '../../components/language/LanguageSectionCard.jsx'
 import { languageHome } from '../../data/languagePages.js'
 import '../../components/language/LanguageComponents.css'
 
 export default function LanguageHomePage() {
-  const { title, eyebrow, intro, purpose, notice, cards, relatedItems } = languageHome
+  const { title, eyebrow, intro, purpose, notice, cards } = languageHome
 
   return (
     <article className="content-page language-home">
@@ -41,13 +40,6 @@ export default function LanguageHomePage() {
           />
         ))}
       </div>
-
-      {relatedItems.length > 0 ? (
-        <>
-          <SectionDivider />
-          <ResourceList title="Related on this site" items={relatedItems} />
-        </>
-      ) : null}
     </article>
   )
 }

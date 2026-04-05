@@ -69,12 +69,12 @@
 
 .liturgy-teaching__hero-title {
   font-family: var(--heading);
-  font-size: clamp(1.65rem, 3.5vw, 2.1rem);
-  font-weight: 600;
+  font-size: var(--type-h1);
+  font-weight: 700;
   color: var(--text-heading);
-  margin: 0 0 0.85rem;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+  margin: 0 0 var(--space-below-page-title);
+  line-height: var(--line-h1);
+  letter-spacing: 0.025em;
 }
 
 .liturgy-teaching__hero-body {
@@ -82,7 +82,7 @@
 }
 
 .liturgy-teaching__hero-body p {
-  font-size: 1.05rem;
+  font-size: var(--type-lead);
   line-height: 1.68;
   color: var(--text-muted);
   margin: 0 0 0.85rem;
@@ -291,10 +291,12 @@
 }
 
 .liturgy-teaching__learn-card-title {
-  font-size: 0.95rem;
+  font-family: var(--heading);
+  font-size: var(--type-h3);
   font-weight: 700;
+  line-height: var(--line-h3);
   color: var(--text-heading);
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.45rem;
 }
 
 .liturgy-teaching__learn-card p {
@@ -420,8 +422,4 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-.liturgy-teaching__related {
-  margin-top: 0.5rem;
 }

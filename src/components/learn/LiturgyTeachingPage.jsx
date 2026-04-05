@@ -1,7 +1,6 @@
 import PageHeader from '../sections/PageHeader.jsx'
 import PageSection from '../ui/PageSection.jsx'
 import InfoBanner from '../sections/InfoBanner.jsx'
-import ResourceList from '../sections/ResourceList.jsx'
 import ExpandableText from '../ui/ExpandableText.jsx'
 import CollapsiblePanel from '../ui/CollapsiblePanel.jsx'
 import PageJumpNav from '../ui/PageJumpNav.jsx'
@@ -53,7 +52,7 @@ function EmText({ children }) {
   )
 }
 
-export default function LiturgyTeachingPage({ relatedItems = [] }) {
+export default function LiturgyTeachingPage() {
   return (
     <article className="content-page liturgy-teaching-page liturgy-teaching-page--with-jump">
       <div className="liturgy-teaching__with-nav">
@@ -310,12 +309,6 @@ export default function LiturgyTeachingPage({ relatedItems = [] }) {
               </a>
             </section>
           </CollapsiblePanel>
-
-          {relatedItems.length > 0 ? (
-            <aside className="content-page__related liturgy-teaching__related">
-              <ResourceList title="Related on this site" items={relatedItems} />
-            </aside>
-          ) : null}
         </div>
 
         <PageJumpNav links={LITURGY_JUMP_LINKS} label="On this page" />

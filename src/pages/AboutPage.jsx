@@ -4,6 +4,8 @@ import PageHeader from '../components/sections/PageHeader.jsx'
 import SectionTitle from '../components/sections/SectionTitle.jsx'
 import SectionDivider from '../components/sections/SectionDivider.jsx'
 import InfoBlock from '../components/sections/InfoBlock.jsx'
+import ExpandableText from '../components/ui/ExpandableText.jsx'
+import CollapsiblePanel from '../components/ui/CollapsiblePanel.jsx'
 import { aboutContent } from '../content/aboutContent.js'
 
 export default function AboutPage() {
@@ -15,17 +17,23 @@ export default function AboutPage() {
 
       <section aria-labelledby="about-purpose-heading">
         <SectionTitle id="about-purpose-heading" title={c.purpose.title} />
-        <InfoBlock variant="soft">
-          {c.purpose.paragraphs.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-        </InfoBlock>
+        <ExpandableText lines={3} className="about-page__purpose-expand" moreLabel="Read more">
+          <div className="about-page__purpose-inner">
+            {c.purpose.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </ExpandableText>
       </section>
 
       <SectionDivider />
 
-      <section aria-labelledby="about-scope-heading">
-        <SectionTitle id="about-scope-heading" title={c.scope.title} />
+      <CollapsiblePanel
+        title={c.scope.title}
+        icon="◇"
+        defaultOpen={false}
+        className="about-page__collapsible"
+      >
         <ul className="about-page__scope-list" role="list">
           {c.scope.items.map((item) => (
             <li key={item.label} className="about-page__scope-item">
@@ -34,26 +42,30 @@ export default function AboutPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </CollapsiblePanel>
 
       <SectionDivider />
 
       <section aria-labelledby="about-faq-heading">
         <SectionTitle id="about-faq-heading" title={c.faq.title} />
-        <dl className="about-page__faq">
+        <div className="about-page__faq">
           {c.faq.items.map((item) => (
-            <div key={item.q} className="about-page__faq-block">
-              <dt className="about-page__faq-q">{item.q}</dt>
-              <dd className="about-page__faq-a">{item.a}</dd>
-            </div>
+            <details key={item.q} className="about-page__faq-item">
+              <summary className="about-page__faq-q">{item.q}</summary>
+              <p className="about-page__faq-a">{item.a}</p>
+            </details>
           ))}
-        </dl>
+        </div>
       </section>
 
       <SectionDivider />
 
-      <section aria-labelledby="about-future-heading">
-        <SectionTitle id="about-future-heading" title={c.future.title} />
+      <CollapsiblePanel
+        title={c.future.title}
+        icon="✧"
+        defaultOpen={false}
+        className="about-page__collapsible"
+      >
         <p className="about-page__future-intro">{c.future.intro}</p>
         <ul className="about-page__future-list" role="list">
           {c.future.items.map((line) => (
@@ -63,7 +75,7 @@ export default function AboutPage() {
         <InfoBlock variant="soft" className="about-page__future-closing">
           <p>{c.future.closing}</p>
         </InfoBlock>
-      </section>
+      </CollapsiblePanel>
     </article>
   )
 }

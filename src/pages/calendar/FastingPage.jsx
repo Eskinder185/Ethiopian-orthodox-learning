@@ -3,7 +3,6 @@ import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
-import ResourceList from '../../components/sections/ResourceList.jsx'
 import { fastingPage } from '../../data/calendarPages.js'
 import { FASTING_SEASON_DEFINITIONS } from '../../data/calendarData.js'
 import { getGreatLentGregorianRange, formatGregorianDate } from '../../utils/liturgicalCalendar.js'
@@ -11,7 +10,7 @@ import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
 
 export default function FastingPage() {
-  const { category, title, intro, confirmNote, relatedItems } = fastingPage
+  const { category, title, intro, confirmNote } = fastingPage
   const gy = new Date().getFullYear()
   const lentThis = getGreatLentGregorianRange(gy)
   const lentNext = getGreatLentGregorianRange(gy + 1)
@@ -100,10 +99,6 @@ export default function FastingPage() {
       <SectionDivider />
 
       <StatusBox tone="muted">{confirmNote}</StatusBox>
-
-      {relatedItems.length > 0 ? (
-        <ResourceList className="practice-page__related" title="Related pages" items={relatedItems} />
-      ) : null}
     </article>
   )
 }

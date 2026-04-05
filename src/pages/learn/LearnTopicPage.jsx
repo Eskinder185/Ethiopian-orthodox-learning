@@ -21,8 +21,6 @@ export default function LearnTopicPage({ outlineKey, content }) {
       title={content.title}
       category={outline.category}
       summary={content.intro}
-      relatedTitle={outline.relatedTitle}
-      relatedItems={outline.relatedItems}
     >
       <CautionsList items={content.cautions} />
       <NotesList items={content.notes} />

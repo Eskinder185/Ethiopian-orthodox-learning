@@ -5,7 +5,6 @@ import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
 import InfoBlock from '../../components/sections/InfoBlock.jsx'
 import ExternalLinksSection from '../../components/sections/ExternalLinksSection.jsx'
-import ResourceList from '../../components/sections/ResourceList.jsx'
 import LetterCard from '../../components/language/LetterCard.jsx'
 import PracticeSteps from '../../components/language/PracticeSteps.jsx'
 import NotesBox from '../../components/shared/NotesBox.jsx'
@@ -27,7 +26,6 @@ export default function AmharicAlphabetPage() {
     progressTitle,
     progressIntro,
     externalSection,
-    relatedItems,
   } = alphabetPage
 
   return (
@@ -85,14 +83,6 @@ export default function AmharicAlphabetPage() {
           feels unsure. A simple notebook line is enough.
         </p>
       </NotesBox>
-
-      {relatedItems.length > 0 ? (
-        <ResourceList
-          className="practice-page__related"
-          title="Related pages"
-          items={relatedItems}
-        />
-      ) : null}
     </article>
   )
 }

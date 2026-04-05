@@ -8,8 +8,8 @@
 .content-notes__list {
   margin: 0;
   padding-left: 1.35rem;
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
 }
 
@@ -35,7 +35,7 @@
 
 .content-summary-sections__p {
   margin: 0 0 0.65rem;
-  font-size: 1.05rem;
+  font-size: var(--type-lead);
   line-height: 1.68;
   color: var(--text-muted);
   max-width: 46rem;
@@ -62,8 +62,8 @@
 
 .learn-external-reader__p {
   margin: 0 0 0.7rem;
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
 }
 

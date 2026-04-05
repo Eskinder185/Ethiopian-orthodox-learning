@@ -1,13 +1,6 @@
 import { paths } from '../constants/paths.js'
 import { calendarNarratives } from '../content/calendarSiteContent.js'
 
-const rel = (to, label, description) => ({
-  to,
-  label,
-  description,
-  kind: 'On this site',
-})
-
 const cal = calendarNarratives
 
 export const calendarHome = {
@@ -39,21 +32,12 @@ export const calendarHome = {
       category: 'Feasts',
     },
   ],
-  relatedItems: [
-    rel(paths.learn.teachings, 'Teachings', 'The faith behind fasting, feasting, and every sacred season.'),
-    rel(paths.practice.tselot, 'Tselot practice', 'Let prayer keep step with the Church’s calendar.'),
-  ],
 }
 
 export const todayPage = {
   category: 'Calendar · Today',
   title: 'Today',
   intro: cal.today.intro,
-  relatedItems: [
-    rel(paths.calendar.index, 'Calendar home', 'Overview of Today, Fasting, and Holidays.'),
-    rel(paths.calendar.fasting, 'Fasting', 'Seasonal and weekly context.'),
-    rel(paths.calendar.holidays, 'Holidays', 'Major feasts and holy days.'),
-  ],
 }
 
 export const fastingPage = {
@@ -61,20 +45,10 @@ export const fastingPage = {
   title: 'Fasting',
   intro: cal.fasting.intro,
   confirmNote: cal.fasting.confirmNote,
-  relatedItems: [
-    rel(paths.calendar.today, 'Today', 'Dates and fasting for this day.'),
-    rel(paths.calendar.holidays, 'Holidays', 'How fasts end and feasts begin.'),
-    rel(paths.learn.teachings, 'Teachings', 'Theology and spirituality of fasting.'),
-  ],
 }
 
 export const holidaysPage = {
   category: 'Calendar · Holidays',
   title: 'Holidays',
   intro: cal.holidays.intro,
-  relatedItems: [
-    rel(paths.calendar.today, 'Today', 'See whether today is a feast or fast.'),
-    rel(paths.calendar.fasting, 'Fasting', 'How seasons of preparation fit the year.'),
-    rel(paths.learn.churchKnowledge, 'Church knowledge', 'Stories and context behind the days.'),
-  ],
 }

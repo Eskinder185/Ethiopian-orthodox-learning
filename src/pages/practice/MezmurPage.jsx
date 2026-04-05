@@ -6,6 +6,7 @@ export default function MezmurPage() {
   return (
     <PracticePageTemplate
       config={practicePageConfigs.mezmur}
+      articleClassName="practice-page--workspace-wide"
       afterExternalLinks={<MezmurPracticeWorkspace />}
     />
   )

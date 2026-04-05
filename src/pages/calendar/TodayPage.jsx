@@ -4,7 +4,6 @@ import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
 import InfoBlock from '../../components/sections/InfoBlock.jsx'
-import ResourceList from '../../components/sections/ResourceList.jsx'
 import CalendarDateCard from '../../components/calendar/CalendarDateCard.jsx'
 import WeekdayThemeCard from '../../components/calendar/WeekdayThemeCard.jsx'
 import FastingStatusCard from '../../components/calendar/FastingStatusCard.jsx'
@@ -26,7 +25,7 @@ export default function TodayPage() {
   const upcoming = getUpcomingFixedFeasts(now, 6)
   const week = getThisWeekSummaries(now)
 
-  const { category, title, intro, relatedItems } = todayPage
+  const { category, title, intro } = todayPage
 
   return (
     <article className="content-page calendar-page calendar-page--today">
@@ -166,10 +165,6 @@ export default function TodayPage() {
       <SectionDivider />
 
       <p className="cal-card__body">{CALENDAR_INTRO.todayFooter}</p>
-
-      {relatedItems.length > 0 ? (
-        <ResourceList className="practice-page__related" title="Related pages" items={relatedItems} />
-      ) : null}
     </article>
   )
 }

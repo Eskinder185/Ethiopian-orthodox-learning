@@ -3,7 +3,6 @@ import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
-import ResourceList from '../../components/sections/ResourceList.jsx'
 import CalendarSectionCard from '../../components/calendar/CalendarSectionCard.jsx'
 import { calendarHome } from '../../data/calendarPages.js'
 import { CALENDAR_INTRO } from '../../data/calendarData.js'
@@ -12,7 +11,7 @@ import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
 
 export default function CalendarHomePage() {
-  const { title, eyebrow, intro, purpose, notice, cards, relatedItems } = calendarHome
+  const { title, eyebrow, intro, purpose, notice, cards } = calendarHome
   const snapshot = getLiturgicalDayState(new Date())
 
   return (
@@ -91,13 +90,6 @@ export default function CalendarHomePage() {
           />
         ))}
       </div>
-
-      {relatedItems.length > 0 ? (
-        <>
-          <SectionDivider />
-          <ResourceList title="Related on this site" items={relatedItems} />
-        </>
-      ) : null}
     </article>
   )
 }

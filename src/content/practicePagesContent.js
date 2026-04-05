@@ -1,5 +1,5 @@
 /**
- * Narrative bodies for PracticePageTemplate configs. relatedItems stay in practiceFirstPages.js.
+ * Narrative bodies for PracticePageTemplate configs merged in practiceFirstPages.js.
  */
 
 const MEZMUR_ORIENTATION_PARAGRAPHS = [
@@ -76,14 +76,19 @@ export const mezmurPageContent = {
 
 export const tselotPageContent = {
   category: 'Practice · Tselot',
-  title: 'Tselot practice',
+  title: 'Daily Prayer',
+  practiceNotice:
+    'The prayers on this page are for learning and private devotion. Use approved books or sites for rubrics, audio, and any language you pray in at church.',
+  introShort:
+    'Prayer at home, in an order the Church has long loved: praise, the Lord’s Prayer, Mary, the faith, and thanks. Below you can read, learn, and pray step by step.',
   intro:
-    'Tselot orders personal prayer through the day. Many faithful begin with morning prayers (Zeweter), continue with short prayers at work or school, and close with evening or bedtime prayers. Use one booklet or website your parish recommends; this page only structures pace, repetition, and review. Posture, the sign of the cross, and a steady time of day help habits form.',
+    'Daily prayer (Tselot) orders the day around God. Many begin with morning prayers, return to short prayers during the day, and close with evening praise. This page gives English texts for learning and devotion; keep comparing any wording with books or sites your parish approves.',
   howToUseSummary:
-    'Pick one approved prayer set first, use legitimate aids for text, and favor consistency over length.',
+    'Start small, use the beginner routine if it helps, and expand into the full sections when you are ready.',
   howToUse: [
-    'Pick one prayer set (for example morning prayers) before adding evening material.',
-    'Use transliteration or translation aids from legitimate publishers; do not paste full prayers here.',
+    'Skim the category overview, then open one prayer section at a time.',
+    'Use the suggested beginner routine until those parts feel natural.',
+    'Confirm phrasing and rubrics with your priest or prayer book when you can.',
     'Consistency matters more than length.',
   ],
   steps: [
@@ -106,5 +111,5 @@ export const tselotPageContent = {
     links: [],
   },
   notesBody:
-    'Write which prayer set you used and questions for your priest — not the full text of the prayers.',
+    'Note which sections you prayed and anything you want to ask your spiritual father — a few honest lines in your own notebook are enough.',
 }

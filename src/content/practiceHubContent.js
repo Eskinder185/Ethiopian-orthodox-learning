@@ -15,21 +15,6 @@ export const practiceHubTopics = [
   },
 ]
 
-export const practiceHubResourceItems = [
-  {
-    to: paths.practice.mezmur,
-    label: 'Mezmur practice',
-    description: 'Hymn flow with outbound sources.',
-    kind: 'In-app',
-  },
-  {
-    to: paths.practice.tselot,
-    label: 'Tselot practice',
-    description: 'Daily prayer routines.',
-    kind: 'In-app',
-  },
-]
-
 /**
  * Practice section hub (SectionHubLayout).
  */

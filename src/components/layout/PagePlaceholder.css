@@ -3,18 +3,19 @@
 }
 
 .page-placeholder__title {
-  font-size: clamp(1.65rem, 4vw, 2.25rem);
-  font-weight: 600;
+  font-family: var(--heading);
+  font-size: var(--type-h1);
+  font-weight: 700;
   color: var(--text-heading);
-  margin: 0 0 0.65rem;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  margin: 0 0 var(--space-below-page-title);
+  letter-spacing: 0.02em;
+  line-height: var(--line-h1);
 }
 
 .page-placeholder__intro {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.55;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
 }
 

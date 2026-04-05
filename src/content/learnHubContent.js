@@ -34,33 +34,6 @@ export const learnHubTopics = [
   },
 ]
 
-export const learnHubResourceItems = [
-  {
-    to: paths.learn.scripture,
-    label: 'Scripture',
-    description: 'Reading with the Church — and a doorway to an external Bible reader when you wish.',
-    kind: 'In-app',
-  },
-  {
-    to: paths.learn.teachings,
-    label: 'Teachings',
-    description: 'Core beliefs and the mysteries — clear, humble summaries for newcomers.',
-    kind: 'In-app',
-  },
-  {
-    to: paths.learn.churchKnowledge,
-    label: 'Church knowledge',
-    description: 'Who we are, where we’ve been, and how we pray — a welcoming overview.',
-    kind: 'In-app',
-  },
-  {
-    to: paths.learn.liturgy,
-    label: 'Liturgy',
-    description: 'Sunday worship explained in order — with links when you want to go deeper.',
-    kind: 'In-app',
-  },
-]
-
 export const learnHubContent = {
   title: 'Learn',
   eyebrow: 'Faith, Scripture & sacred tradition',

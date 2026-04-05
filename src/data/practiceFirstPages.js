@@ -1,13 +1,5 @@
-import { paths } from '../constants/paths.js'
 import { mezmurPageContent, tselotPageContent } from '../content/practicePagesContent.js'
 import { tselotDailyPrayer, mezmurLibrary } from './curatedExternalLinks.js'
-
-const rel = (to, label, description) => ({
-  to,
-  label,
-  description,
-  kind: 'On this site',
-})
 
 /**
  * Practice-first page copy: instructional only; full texts via external links you add.
@@ -27,10 +19,6 @@ export const practicePageConfigs = {
       intro: externalIntro,
       links: [mezmurLibrary],
     },
-    relatedItems: [
-      rel(paths.learn.liturgy, 'Liturgy', 'See how hymns fit the larger service.'),
-      rel(paths.progress.tracking, 'Practice tracking', 'Note habits and review in your own words.'),
-    ],
     jumpNavLinks: [
       { href: '#practice-orientation', label: 'Orientation' },
       { href: '#how-to-heading', label: 'How to use' },
@@ -49,11 +37,11 @@ export const practicePageConfigs = {
       intro: externalIntro,
       links: [tselotDailyPrayer],
     },
-    relatedItems: [
-      rel(paths.practice.mezmur, 'Mezmur practice', 'Connect sung and spoken prayer.'),
-      rel(paths.learn.liturgy, 'Liturgy', 'Link home prayer to Sunday worship.'),
-    ],
     jumpNavLinks: [
+      { href: '#daily-prayer', label: 'Daily prayers' },
+      { href: '#daily-prayer-overview', label: 'Overview' },
+      { href: '#daily-prayer-beginner', label: 'Beginner routine' },
+      { href: '#daily-prayer-texts', label: 'Full prayers' },
       { href: '#how-to-heading', label: 'How to use' },
       { href: '#practice-flow-heading', label: 'Practice flow' },
       { href: '#practice-external-resources', label: 'External links' },
@@ -83,11 +71,6 @@ export const practicePageConfigs = {
     },
     notesBody:
       'A notebook or notes app is enough for now. The goal is faithful consistency, not a perfect record.',
-    relatedItems: [
-      rel(paths.progress.index, 'Progress overview', 'Return to the progress home.'),
-      rel(paths.progress.stats, 'Stats & summary', 'How summaries might serve you later.'),
-      rel(paths.practice.index, 'Practice hub', 'Jump back to worship practices.'),
-    ],
   },
 
   stats: {
@@ -111,10 +94,5 @@ export const practicePageConfigs = {
     },
     notesBody:
       'Discuss with a mentor before turning spiritual life into charts; the aim is encouragement, not comparison.',
-    relatedItems: [
-      rel(paths.progress.index, 'Progress overview', 'Return to the main progress page.'),
-      rel(paths.progress.tracking, 'Practice tracking', 'Day-to-day intentions and review.'),
-      rel(paths.practice.index, 'Practice hub', 'Where your practice routines live.'),
-    ],
   },
 }

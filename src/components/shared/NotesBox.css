@@ -9,16 +9,17 @@
 
 .notes-box__title {
   font-family: var(--heading);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: var(--type-h3);
+  font-weight: 700;
   color: var(--text-heading);
   margin: 0 0 0.55rem;
   letter-spacing: 0.02em;
+  line-height: var(--line-h3);
 }
 
 .notes-box__body {
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
   color: var(--text-muted);
   margin: 0;
 }

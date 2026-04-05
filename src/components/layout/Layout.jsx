@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import SiteGuide from '../guide/SiteGuide.jsx'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
 import './Layout.css'
@@ -15,6 +16,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <SiteGuide />
     </div>
   )
 }

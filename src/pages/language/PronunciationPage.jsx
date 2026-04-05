@@ -5,7 +5,6 @@ import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
 import InfoBlock from '../../components/sections/InfoBlock.jsx'
 import ExternalLinksSection from '../../components/sections/ExternalLinksSection.jsx'
-import ResourceList from '../../components/sections/ResourceList.jsx'
 import PracticeSteps from '../../components/language/PracticeSteps.jsx'
 import NotesBox from '../../components/shared/NotesBox.jsx'
 import { pronunciationPage } from '../../data/languagePages.js'
@@ -24,7 +23,6 @@ export default function PronunciationPage() {
     selfCheckTitle,
     selfCheckTips,
     externalSection,
-    relatedItems,
   } = pronunciationPage
 
   return (
@@ -73,14 +71,6 @@ export default function PronunciationPage() {
           ))}
         </ul>
       </NotesBox>
-
-      {relatedItems.length > 0 ? (
-        <ResourceList
-          className="practice-page__related"
-          title="Related pages"
-          items={relatedItems}
-        />
-      ) : null}
     </article>
   )
 }

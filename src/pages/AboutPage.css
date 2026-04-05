@@ -1,9 +1,28 @@
+.about-page__purpose-expand {
+  max-width: 46rem;
+}
+
+.about-page__purpose-inner p {
+  margin: 0 0 0.65rem;
+  font-size: var(--type-lead);
+  line-height: var(--line-body);
+  color: var(--text-muted);
+}
+
+.about-page__purpose-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.about-page__collapsible {
+  margin-bottom: 0;
+}
+
 .about-page__scope-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 1.25rem;
+  gap: 1.15rem;
 }
 
 .about-page__scope-item {
@@ -14,52 +33,77 @@
   display: block;
   font-weight: 600;
   margin-bottom: 0.35rem;
+  color: var(--text-heading);
 }
 
 .about-page__scope-text {
   margin: 0;
-  line-height: 1.55;
+  line-height: 1.6;
+  font-size: var(--type-lead);
   color: var(--text-muted);
 }
 
 .about-page__faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin: 0;
 }
 
-.about-page__faq-block {
-  margin: 0 0 1.5rem;
-}
-
-.about-page__faq-block:last-child {
-  margin-bottom: 0;
+.about-page__faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.35rem 0.9rem;
+  background: var(--card-bg);
+  box-shadow: 0 1px 6px var(--shadow-soft);
 }
 
 .about-page__faq-q {
-  font-weight: 600;
-  margin: 0 0 0.4rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--text-heading);
+  cursor: pointer;
+  padding: 0.55rem 0;
+  list-style: none;
+  line-height: 1.45;
+}
+
+.about-page__faq-q::-webkit-details-marker {
+  display: none;
+}
+
+.about-page__faq-item[open] .about-page__faq-q {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.65rem;
 }
 
 .about-page__faq-a {
-  margin: 0;
-  line-height: 1.55;
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--text-muted);
 }
 
 .about-page__future-intro {
   margin: 0 0 0.75rem;
-  line-height: 1.55;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
 .about-page__future-list {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.15rem;
   padding-left: 1.25rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
 .about-page__future-list li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 
 .about-page__future-closing {
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
 }

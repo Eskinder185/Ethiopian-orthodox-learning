@@ -1,7 +1,6 @@
 import '../../styles/ContentComponents.css'
 import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
-import ResourceList from '../../components/sections/ResourceList.jsx'
 import { holidaysPage } from '../../data/calendarPages.js'
 import { FIXED_FEASTS } from '../../data/calendarData.js'
 import {
@@ -14,7 +13,7 @@ import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
 
 export default function HolidaysPage() {
-  const { category, title, intro, relatedItems } = holidaysPage
+  const { category, title, intro } = holidaysPage
   const from = new Date()
   const ey = gregorianDateToEthiopian(from).year
 
@@ -66,10 +65,6 @@ export default function HolidaysPage() {
         Pentecost are tied to Pascha each year. Open <strong>Calendar → Today</strong> on those civil
         dates to see the full entry.
       </p>
-
-      {relatedItems.length > 0 ? (
-        <ResourceList className="practice-page__related" title="Related pages" items={relatedItems} />
-      ) : null}
     </article>
   )
 }

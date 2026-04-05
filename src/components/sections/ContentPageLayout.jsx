@@ -1,20 +1,17 @@
 import '../../styles/ContentComponents.css'
 import PageHeader from './PageHeader.jsx'
 import SectionTitle from './SectionTitle.jsx'
-import ResourceList from './ResourceList.jsx'
 import DocumentCard from '../cards/DocumentCard.jsx'
 import ExpandableText from '../ui/ExpandableText.jsx'
 
 /**
- * Standard subpage shell: category, title, summary, main column, optional document cards, related links.
+ * Standard subpage shell: category, title, summary, main column, optional document cards.
  */
 export default function ContentPageLayout({
   title,
   summary,
   category,
   children,
-  relatedTitle = 'Related resources',
-  relatedItems = [],
   exampleSectionTitle = 'Further reading',
   exampleSectionSubtitle,
   exampleDocuments,
@@ -53,12 +50,6 @@ export default function ContentPageLayout({
             ))}
           </div>
         </section>
-      ) : null}
-
-      {relatedItems.length > 0 ? (
-        <aside className="content-page__related">
-          <ResourceList title={relatedTitle} items={relatedItems} />
-        </aside>
       ) : null}
     </article>
   )

@@ -5,13 +5,6 @@ import {
   geezPronunciationYoutube,
 } from './curatedExternalLinks.js'
 
-const rel = (to, label, description) => ({
-  to,
-  label,
-  description,
-  kind: 'On this site',
-})
-
 const { home: langHome, alphabet: langAlph, writing: langWrite, pronunciation: langPro } =
   languageNarratives
 
@@ -41,10 +34,6 @@ export const languageHome = {
       description: 'Listen with patience, speak softly, and let difficult sounds soften over time.',
       category: 'Speaking & listening',
     },
-  ],
-  relatedItems: [
-    rel(paths.practice.index, 'Practice hub', 'Carry new letters into hymn lines and daily prayer.'),
-    rel(paths.learn.index, 'Learn hub', 'Scripture and teaching as your reading grows stronger.'),
   ],
 }
 
@@ -80,11 +69,6 @@ export const alphabetPage = {
       'Interactive letters and sound — hosted on the original site; opens in a new tab.',
     links: [amharicAlphabetInteractive],
   },
-  relatedItems: [
-    rel(paths.language.index, 'Language home', 'Overview of reading, writing, and pronunciation.'),
-    rel(paths.language.writing, 'Writing practice', 'Move from recognition to forming letters.'),
-    rel(paths.language.pronunciation, 'Pronunciation practice', 'Match letters to sounds you hear.'),
-  ],
 }
 
 export const writingPracticePage = {
@@ -116,11 +100,6 @@ export const writingPracticePage = {
   reflectionPrompts: [
     'Which syllables still feel awkward after today’s session?',
     'Did neatness improve on the second pass compared with the first?',
-  ],
-  relatedItems: [
-    rel(paths.language.alphabet, 'Amharic alphabet', 'Review shapes before heavy writing.'),
-    rel(paths.language.pronunciation, 'Pronunciation practice', 'Speak syllables before you write them.'),
-    rel(paths.language.index, 'Language home', 'Return to the learning overview.'),
   ],
 }
 
@@ -155,9 +134,4 @@ export const pronunciationPage = {
       'Listening and repeating from the original channel — opens in a new tab.',
     links: [geezPronunciationYoutube],
   },
-  relatedItems: [
-    rel(paths.language.alphabet, 'Amharic alphabet', 'See letters while you hear them.'),
-    rel(paths.language.writing, 'Writing practice', 'Connect sound to hand motion.'),
-    rel(paths.practice.mezmur, 'Mezmur practice', 'Apply growing skills in hymn lines over time.'),
-  ],
 }
