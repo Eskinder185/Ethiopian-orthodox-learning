@@ -1,0 +1,42 @@
+.notes-box {
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-align: left;
+}
+
+.notes-box__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0 0 0.5rem;
+}
+
+.notes-box__body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.notes-box__body p {
+  margin: 0 0 0.5rem;
+}
+
+.notes-box__body p:last-child {
+  margin-bottom: 0;
+}
+
+.notes-box__body ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.notes-box__body li {
+  margin-bottom: 0.35rem;
+}
+
+.notes-box__body li:last-child {
+  margin-bottom: 0;
+}

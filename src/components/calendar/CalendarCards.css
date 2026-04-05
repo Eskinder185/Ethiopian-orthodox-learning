@@ -1,0 +1,310 @@
+.cal-card {
+  padding: 1.1rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-align: left;
+  box-shadow: 0 2px 8px var(--shadow-soft);
+}
+
+.cal-card__eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.cal-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+
+.cal-card__subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0 0 0.65rem;
+  font-style: italic;
+}
+
+.cal-card__gregorian {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0 0 0.35rem;
+}
+
+.cal-card__ethiopian {
+  font-size: 1rem;
+  color: var(--text-heading);
+  margin: 0 0 0.35rem;
+}
+
+.cal-card__meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cal-card__geez {
+  font-weight: 500;
+  color: var(--gold, #c9a227);
+}
+
+.cal-card__body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cal-card__status {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0 0 0.65rem;
+  line-height: 1.45;
+}
+
+.cal-card__tags {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.cal-card__tag {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: var(--accent-subtle);
+  color: var(--text-heading);
+}
+
+.cal-card__seasons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.cal-card__season p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+}
+
+.cal-card__season strong {
+  font-size: 0.9rem;
+  color: var(--text-heading);
+}
+
+.cal-card--feast {
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.cal-card__feast-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.cal-card__geez-title {
+  font-size: 0.95rem;
+  color: var(--gold, #c9a227);
+}
+
+.cal-card__badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: var(--border);
+  color: var(--text-muted);
+}
+
+.cal-today__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .cal-today__grid--main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cal-today__spiritual {
+  margin-top: 1rem;
+}
+
+.cal-upcoming {
+  margin-top: 1.5rem;
+}
+
+.cal-upcoming__list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.cal-week-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 0.75rem;
+}
+
+.cal-week-table th,
+.cal-week-table td {
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-week-table th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* Calendar home — how it works */
+.cal-how-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .cal-how-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cal-how-card {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: left;
+}
+
+.cal-how-card h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.4rem;
+  color: var(--text-heading);
+}
+
+.cal-how-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cal-overview-card {
+  display: block;
+  padding: 1.1rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-decoration: none;
+  color: inherit;
+  text-align: left;
+  position: relative;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.cal-overview-card:hover {
+  border-color: var(--accent-muted);
+  box-shadow: 0 4px 14px var(--shadow-soft);
+}
+
+.cal-overview-card__cat {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+}
+
+.cal-overview-card__title {
+  font-size: 1.05rem;
+  margin: 0.35rem 0 0.4rem;
+  color: var(--text-heading);
+}
+
+.cal-overview-card__desc {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin: 0 1.5rem 0 0;
+}
+
+.cal-overview-card__arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.cal-feast-grid {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cal-feast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cal-fasting-card {
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-align: left;
+}
+
+.cal-fasting-card h3 {
+  font-size: 1rem;
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-fasting-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 0.35rem;
+}
+
+.cal-fasting-card__meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.9;
+  margin: 0.5rem 0 0;
+}

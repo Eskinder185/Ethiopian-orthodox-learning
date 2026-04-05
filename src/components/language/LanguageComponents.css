@@ -1,0 +1,78 @@
+/* Language section: letter grid, hub tweaks, compact placeholders */
+
+.language-section-card {
+  height: 100%;
+}
+
+.language-home .page-hero__slot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.language-home .page-hero__slot .page-hero__subtitle {
+  margin: 0;
+}
+
+.letter-card-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+}
+
+.letter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.85rem 0.65rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px var(--shadow-soft);
+  min-height: 6.5rem;
+  box-sizing: border-box;
+}
+
+.letter-card__glyph {
+  font-size: 2.15rem;
+  line-height: 1.2;
+  font-family:
+    'Noto Sans Ethiopic',
+    'Abyssinica SIL',
+    'Nyala',
+    'Ethiopia Jiret',
+    var(--sans);
+  color: var(--text-heading);
+  margin-bottom: 0.35rem;
+}
+
+.letter-card__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+}
+
+.letter-card__note {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.language-page__placeholders {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .language-page__placeholders--split {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}

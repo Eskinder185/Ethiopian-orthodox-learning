@@ -1,0 +1,377 @@
+.liturgy-teaching-page {
+  max-width: 48rem;
+}
+
+.liturgy-teaching__hero {
+  margin: 1rem 0 1.5rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, var(--surface) 0%, var(--card-bg) 100%);
+  box-shadow: 0 2px 12px var(--shadow-soft);
+}
+
+.liturgy-teaching__eyebrow {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.liturgy-teaching__hero-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+}
+
+.liturgy-teaching__hero-body {
+  margin: 0;
+}
+
+.liturgy-teaching__hero-body p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.liturgy-teaching__hero-body p:last-child {
+  margin-bottom: 0;
+}
+
+.liturgy-teaching__source-banner {
+  margin-bottom: 1.25rem;
+}
+
+.liturgy-teaching__notice-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .liturgy-teaching__notice-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.liturgy-teaching__callout {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+}
+
+.liturgy-teaching__callout--accent {
+  border-color: var(--accent-muted);
+  background: var(--accent-subtle);
+}
+
+.liturgy-teaching__callout--communion {
+  border-left: 3px solid var(--accent-muted);
+}
+
+.liturgy-teaching__callout-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 0.4rem;
+}
+
+.liturgy-teaching__callout p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.liturgy-teaching__before-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.liturgy-teaching__before-list li {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.liturgy-teaching__before-do {
+  font-weight: 700;
+  color: var(--text-heading);
+  font-size: 0.95rem;
+}
+
+.liturgy-teaching__before-why {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.liturgy-teaching__checklist,
+.liturgy-teaching__bullet-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.liturgy-teaching__checklist li,
+.liturgy-teaching__bullet-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.55;
+  color: var(--text-heading);
+  font-size: 0.92rem;
+}
+
+.liturgy-teaching__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.liturgy-teaching__step {
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+}
+
+.liturgy-teaching__step-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 1rem;
+  line-height: 1.35;
+}
+
+.liturgy-teaching__step-num {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 8px;
+  background: var(--accent-subtle);
+  color: var(--text-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.liturgy-teaching__step-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .liturgy-teaching__step-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.liturgy-teaching__step-block {
+  padding: 0.75rem 0.85rem;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.liturgy-teaching__step-block--clergy {
+  border-top: 3px solid rgba(100, 120, 160, 0.35);
+}
+
+.liturgy-teaching__step-block--people {
+  border-top: 3px solid var(--accent-muted);
+}
+
+.liturgy-teaching__step-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 0 0 0.45rem;
+}
+
+.liturgy-teaching__step-block p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-heading);
+}
+
+.liturgy-teaching__prose {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 0.85rem;
+}
+
+.liturgy-teaching__communion-banner {
+  margin-bottom: 1rem;
+}
+
+.liturgy-teaching__learn-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.liturgy-teaching__learn-card {
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed var(--border);
+  background: var(--surface);
+}
+
+.liturgy-teaching__learn-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 0.4rem;
+}
+
+.liturgy-teaching__learn-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.liturgy-teaching__faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.liturgy-teaching__faq-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.35rem 0.85rem;
+  background: var(--card-bg);
+}
+
+.liturgy-teaching__faq-q {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-heading);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  list-style: none;
+}
+
+.liturgy-teaching__faq-q::-webkit-details-marker {
+  display: none;
+}
+
+.liturgy-teaching__faq-item[open] .liturgy-teaching__faq-q {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.65rem;
+}
+
+.liturgy-teaching__faq-a {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 0.65rem;
+}
+
+.liturgy-teaching__final-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent-muted);
+}
+
+.liturgy-teaching__final-checklist li {
+  position: relative;
+  padding-left: 1.35rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.45;
+}
+
+.liturgy-teaching__final-checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.liturgy-teaching__final-checklist li:last-child {
+  margin-bottom: 0;
+}
+
+.liturgy-teaching__pdf {
+  margin: 2rem 0 1.5rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.liturgy-teaching__pdf-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.liturgy-teaching__pdf-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.liturgy-teaching__pdf-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.liturgy-teaching__pdf-link:hover {
+  color: var(--accent-hover);
+}
+
+.liturgy-teaching__pdf-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.liturgy-teaching__related {
+  margin-top: 0.5rem;
+}

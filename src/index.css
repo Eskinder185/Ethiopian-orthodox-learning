@@ -1,0 +1,95 @@
+:root {
+  /* Restrained palette: deep green, warm paper, soft gold accent */
+  --text-muted: #5c5a55;
+  --text-heading: #1c1b18;
+  --bg: #faf8f4;
+  --surface: #f3f1eb;
+  --card-bg: #fffcf7;
+  --border: #e0dcd2;
+  --code-bg: #ebe8e0;
+  --accent: #1e5c45;
+  --accent-hover: #164536;
+  --accent-subtle: rgba(30, 92, 69, 0.1);
+  --accent-muted: rgba(30, 92, 69, 0.35);
+  --gold: #9a7b2c;
+  --shadow-soft: rgba(28, 27, 24, 0.08);
+
+  /* Layout & rhythm — shared across pages */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --max-content: 48rem;
+  --shadow-card: 0 2px 12px var(--shadow-soft);
+
+  --sans: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --heading: Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 17px/150% var(--sans);
+  letter-spacing: 0.01em;
+  color-scheme: light dark;
+  color: var(--text-muted);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-muted: #b8b5ad;
+    --text-heading: #f2efe8;
+    --bg: #141512;
+    --surface: #1a1c18;
+    --card-bg: #1f221e;
+    --border: #2f332d;
+    --code-bg: #252824;
+    --accent: #6eb896;
+    --accent-hover: #8ed4b0;
+    --accent-subtle: rgba(110, 184, 150, 0.12);
+    --accent-muted: rgba(110, 184, 150, 0.4);
+    --gold: #c9a84a;
+    --shadow-soft: rgba(0, 0, 0, 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: var(--code-bg);
+  color: var(--text-heading);
+}

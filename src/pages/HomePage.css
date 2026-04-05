@@ -1,0 +1,53 @@
+/* Home-only layout; shared card/typography tokens live in ContentComponents.css */
+
+.home {
+  text-align: left;
+}
+
+.home__section {
+  margin-bottom: 2.5rem;
+}
+
+.home__section:last-child {
+  margin-bottom: 0;
+}
+
+.home__section--mission .section-title {
+  margin-bottom: 0.85rem;
+}
+
+/* Hero: tune shared PageHero for the home screen */
+.home .page-hero.home__hero {
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.home .page-hero__title {
+  font-size: clamp(1.85rem, 5vw, 2.65rem);
+  letter-spacing: -0.03em;
+}
+
+.home .page-hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.home__lead {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+  max-width: 38rem;
+}
+
+.home__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.home__framework-note {
+  margin-bottom: 1.5rem;
+}
