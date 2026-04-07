@@ -33,7 +33,22 @@ function chunkSummary(text) {
   return t.length > 52 ? `${t.slice(0, 50)}…` : t
 }
 
-export default function MezmurPracticeWorkspace() {
+/**
+ * @param {object} [props]
+ * @param {string} [props.anchorId] — DOM id for skip links / anchors
+ * @param {string} [props.workspaceTitle]
+ * @param {string} [props.workspaceIntro]
+ * @param {{ nonce: number; url: string } | null} [props.loadRequest] — bump `nonce` to load `url` (e.g. from catalog)
+ * @param {string} [props.className]
+ */
+export default function MezmurPracticeWorkspace({
+  anchorId = 'chant-practice-workspace',
+  workspaceTitle = 'Chant practice workspace',
+  workspaceIntro =
+    'Use the YouTube player with timestamps and short lyric parts — for mezmur or werb you paste or load from the list above.',
+  loadRequest = null,
+  className = '',
+}) {
   const playerMountId = useId().replace(/:/g, '')
   const playerMountRef = useRef(null)
   const playerRef = useRef(null)
@@ -54,7 +69,6 @@ export default function MezmurPracticeWorkspace() {
   const [playbackRate, setPlaybackRate] = useState(1)
   const [memoTab, setMemoTab] = useState('lookaway')
 
-  playbackRateRef.current = playbackRate
   const [showScratchLyrics, setShowScratchLyrics] = useState(false)
   const [scratchLyrics, setScratchLyrics] = useState('')
   const [youtubeInput, setYoutubeInput] = useState('')
@@ -99,6 +113,16 @@ export default function MezmurPracticeWorkspace() {
     setVideoId(id)
   }, [youtubeInput])
 
+  useEffect(() => {
+    const url = loadRequest?.url?.trim()
+    if (!url || !loadRequest?.nonce) return
+    const id = extractYouTubeId(url)
+    if (!id) return
+    setYoutubeError(null)
+    setYoutubeInput(url)
+    setVideoId(id)
+  }, [loadRequest?.nonce, loadRequest?.url])
+
   const clearVideo = useCallback(() => {
     setVideoId(null)
     setYoutubeError(null)
@@ -116,6 +140,10 @@ export default function MezmurPracticeWorkspace() {
   }, [])
 
   useEffect(() => {
+    playbackRateRef.current = playbackRate
+  }, [playbackRate])
+
+  useEffect(() => {
     if (!videoId) {
       setPlayerReady(false)
       const p = effectPlayerRef.current || playerRef.current
@@ -123,7 +151,7 @@ export default function MezmurPracticeWorkspace() {
       playerRef.current = null
       try {
         p?.destroy?.()
-      } catch (_) {
+      } catch {
         /* ignore */
       }
       return
@@ -153,7 +181,7 @@ export default function MezmurPracticeWorkspace() {
               if (cancelled) {
                 try {
                   e.target.destroy()
-                } catch (_) {
+                } catch {
                   /* ignore */
                 }
                 return
@@ -161,7 +189,7 @@ export default function MezmurPracticeWorkspace() {
               playerRef.current = e.target
               try {
                 e.target.setPlaybackRate(playbackRateRef.current)
-              } catch (_) {
+              } catch {
                 /* ignore */
               }
               setPlayerReady(true)
@@ -169,7 +197,7 @@ export default function MezmurPracticeWorkspace() {
           },
         })
         effectPlayerRef.current = yt
-      } catch (_) {
+      } catch {
         setYoutubeError('Could not start the YouTube player. Try refreshing the page.')
       }
     })
@@ -182,7 +210,7 @@ export default function MezmurPracticeWorkspace() {
       playerRef.current = null
       try {
         p?.destroy?.()
-      } catch (_) {
+      } catch {
         /* ignore */
       }
     }
@@ -193,7 +221,7 @@ export default function MezmurPracticeWorkspace() {
     if (!p?.setPlaybackRate) return
     try {
       p.setPlaybackRate(playbackRate)
-    } catch (_) {
+    } catch {
       /* ignore */
     }
   }, [playbackRate, videoId])
@@ -211,7 +239,7 @@ export default function MezmurPracticeWorkspace() {
         p.seekTo(chunk.startSec, true)
         try {
           p.playVideo()
-        } catch (_) {
+        } catch {
           /* ignore */
         }
       }
@@ -224,6 +252,21 @@ export default function MezmurPracticeWorkspace() {
     const p = getPlayer()
     if (!p?.getCurrentTime || !p.seekTo) return
     const t = Math.max(0, p.getCurrentTime() - 5)
+    p.seekTo(t, true)
+  }, [getPlayer])
+
+  const seekCurrentPlus5 = useCallback(() => {
+    const p = getPlayer()
+    if (!p?.getCurrentTime || !p.seekTo) return
+    let t = p.getCurrentTime() + 5
+    try {
+      const d = p.getDuration?.()
+      if (typeof d === 'number' && d > 0 && !Number.isNaN(d)) {
+        t = Math.min(Math.max(0, d - 0.25), t)
+      }
+    } catch {
+      /* ignore */
+    }
     p.seekTo(t, true)
   }, [getPlayer])
 
@@ -273,7 +316,7 @@ export default function MezmurPracticeWorkspace() {
         if (cur >= endSec - 0.12) {
           try {
             p.pauseVideo()
-          } catch (_) {
+          } catch {
             /* ignore */
           }
           clearInterval(playOnceIntervalRef.current)
@@ -315,13 +358,10 @@ export default function MezmurPracticeWorkspace() {
   )
 
   return (
-    <div className="mezmur-workspace" id="mezmur-workspace">
+    <div className={'mezmur-workspace' + (className ? ` ${className}` : '')} id={anchorId}>
       <header className="mezmur-workspace__header">
-        <h2 className="mezmur-workspace__page-title">Mezmur practice workspace</h2>
-        <p className="mezmur-workspace__intro">
-          Work with video, timestamps, and lyrics in a calm rhythm — memorize or transcribe at your
-          own pace.
-        </p>
+        <h2 className="mezmur-workspace__page-title">{workspaceTitle}</h2>
+        <p className="mezmur-workspace__intro">{workspaceIntro}</p>
       </header>
 
       <div className="mezmur-workspace__primary">
@@ -396,6 +436,14 @@ export default function MezmurPracticeWorkspace() {
                     disabled={!playerReady}
                   >
                     Play / Pause
+                  </button>
+                  <button
+                    type="button"
+                    className="mezmur-btn mezmur-btn--ghost mezmur-btn--small"
+                    onClick={seekCurrentPlus5}
+                    disabled={!playerReady}
+                  >
+                    +5s
                   </button>
                   <label className="mezmur-controls__speed">
                     <span className="visually-hidden">Speed</span>

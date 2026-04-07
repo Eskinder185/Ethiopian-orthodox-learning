@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import '../../styles/ContentComponents.css'
 import PageHeader from './PageHeader.jsx'
 import SectionTitle from './SectionTitle.jsx'
@@ -19,15 +20,17 @@ export default function SectionHubLayout({
   overview,
   eyebrow,
   topics = [],
-  topicsTitle = 'Where to go next',
+  topicsTitle,
   topicsSubtitle,
   contentSlots,
   headerCompact = false,
   materialsNote = placeholderCopy.hubNotice,
   showMaterialsNote = false,
 }) {
+  const { t } = useTranslation('common')
   const slots = Array.isArray(contentSlots) ? contentSlots : []
   const showSlots = slots.length > 0
+  const topicsHeading = topicsTitle ?? t('commonUi.whereToGoNext')
 
   return (
     <article className="content-page section-hub">
@@ -39,14 +42,14 @@ export default function SectionHubLayout({
       />
 
       <SectionOverview>
-        <ExpandableText lines={4} moreLabel="Show more" className="section-hub__overview-expand">
+        <ExpandableText lines={4} moreLabel={t('commonUi.showMore')} className="section-hub__overview-expand">
           <p>{overview}</p>
         </ExpandableText>
       </SectionOverview>
 
       {showMaterialsNote && materialsNote ? (
         <CollapsiblePanel
-          title="Note on materials"
+          title={t('commonUi.noteOnMaterials')}
           icon="◇"
           defaultOpen={false}
           className="section-hub__materials-collapsible"
@@ -61,18 +64,18 @@ export default function SectionHubLayout({
 
       <SectionTitle
         id="section-topics-heading"
-        title={topicsTitle}
+        title={topicsHeading}
         subtitle={topicsSubtitle}
       />
 
       <div className="feature-grid feature-grid--topics">
-        {topics.map((t) => (
+        {topics.map((topic) => (
           <ContentCard
-            key={t.to}
-            to={t.to}
-            title={t.title}
-            description={t.description}
-            category={t.category}
+            key={topic.to}
+            to={topic.to}
+            title={topic.title}
+            description={topic.description}
+            category={topic.category}
           />
         ))}
       </div>

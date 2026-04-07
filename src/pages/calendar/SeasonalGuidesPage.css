@@ -1,0 +1,139 @@
+/* Seasonal guides hub — spacing and grids only; tone matches rest of Calendar */
+
+.seasonal-hub__notice {
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.seasonal-hub__section {
+  margin: 0;
+}
+
+.seasonal-hub__section--grow {
+  margin-bottom: var(--space-lg);
+}
+
+.seasonal-hub__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.seasonal-hub__grid--major {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .seasonal-hub__grid--major {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .seasonal-hub__grid--major {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.seasonal-hub__grid--changes {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 520px) {
+  .seasonal-hub__grid--changes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .seasonal-hub__grid--changes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.seasonal-hub-card {
+  padding: 1.05rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-align: left;
+  box-shadow: 0 1px 6px var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.seasonal-hub-card--compact {
+  box-shadow: 0 1px 4px var(--shadow-soft);
+}
+
+.seasonal-hub-card__title {
+  font-family: var(--heading);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-heading);
+  margin: 0 0 0.5rem;
+}
+
+.seasonal-hub-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0 0 0.85rem;
+  flex: 1;
+}
+
+.seasonal-hub-card__action {
+  align-self: flex-start;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.seasonal-hub-card__soon {
+  display: inline-block;
+  margin-top: auto;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.seasonal-hub__where {
+  margin-top: 0.75rem;
+}
+
+.seasonal-hub__begin-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.seasonal-hub__begin-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.seasonal-hub__begin-num {
+  flex-shrink: 0;
+  width: 1.65rem;
+  height: 1.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent-muted);
+}

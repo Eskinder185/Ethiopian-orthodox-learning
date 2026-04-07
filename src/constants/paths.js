@@ -1,39 +1,45 @@
 /**
- * Central place for route paths. Import these in NavLink and navigate()
- * so URLs stay consistent as the app grows.
+ * Canonical routes for OrthodoxPath. Use in NavLink, Link, and navigate().
+ * Legacy URLs are redirected in App.jsx.
  */
 export const paths = {
   home: '/',
+  startHere: '/start-here',
   about: '/about',
 
   learn: {
     index: '/learn',
     scripture: '/learn/scripture',
     teachings: '/learn/teachings',
-    churchKnowledge: '/learn/church-knowledge',
     liturgy: '/learn/liturgy',
+    churchLifeHistory: '/learn/church-life-history',
+    churchYear: '/learn/church-year',
   },
 
   practice: {
     index: '/practice',
-    mezmur: '/practice/mezmur',
-    tselot: '/practice/tselot',
-  },
-
-  language: {
-    index: '/language',
-    alphabet: '/language/amharic-alphabet',
-    writing: '/language/writing',
-    pronunciation: '/language/pronunciation',
+    prayer: '/practice/prayer',
+    /** Mezmur & Werb — unified chant practice */
+    chants: '/practice/chants',
+    instruments: '/practice/instruments',
+    language: {
+      index: '/practice/language',
+      alphabet: '/practice/language/amharic-alphabet',
+      writing: '/practice/language/writing',
+      pronunciation: '/practice/language/pronunciation',
+    },
   },
 
   calendar: {
     index: '/calendar',
     today: '/calendar/today',
+    ethiopianMonths: '/calendar/ethiopian-months',
     fasting: '/calendar/fasting',
-    holidays: '/calendar/holidays',
+    feastsHolyDays: '/calendar/feasts-holy-days',
+    seasons: '/calendar/seasons',
   },
 
+  /** Still reachable; not in main navigation. */
   progress: {
     index: '/progress',
     stats: '/progress/stats',

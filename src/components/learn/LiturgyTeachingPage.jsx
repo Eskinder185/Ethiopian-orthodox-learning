@@ -3,6 +3,9 @@ import PageSection from '../ui/PageSection.jsx'
 import InfoBanner from '../sections/InfoBanner.jsx'
 import ExpandableText from '../ui/ExpandableText.jsx'
 import CollapsiblePanel from '../ui/CollapsiblePanel.jsx'
+import ExternalSourceCard from '../sections/ExternalSourceCard.jsx'
+import ExternalSourceSupportSection from '../sections/ExternalSourceSupportSection.jsx'
+import SectionDivider from '../sections/SectionDivider.jsx'
 import PageJumpNav from '../ui/PageJumpNav.jsx'
 import {
   liturgySourceNote,
@@ -36,7 +39,7 @@ const LITURGY_JUMP_LINKS = [
   { href: '#learn-more', label: 'Learn more' },
   { href: '#faq', label: 'FAQ' },
   { href: '#final-checklist', label: 'Checklist' },
-  { href: '#liturgy-pdf', label: 'PDF book' },
+  { href: '#liturgy-full-reference', label: 'Full liturgy PDF' },
 ]
 
 /** Inline **bold** from simple markdown-like strings */
@@ -286,29 +289,23 @@ export default function LiturgyTeachingPage() {
             </ul>
           </PageSection>
 
-          <CollapsiblePanel
-            anchorId="liturgy-pdf"
-            title="Full liturgy book (PDF)"
-            icon="↗"
-            defaultOpen={false}
-            className="liturgy-teaching__pdf-collapsible"
+          <SectionDivider />
+          <ExternalSourceSupportSection
+            id="liturgy-full-reference"
+            className="liturgy-teaching__external-support"
+            eyebrow="Trusted external source"
+            title="Full liturgy reference"
+            subtitle="For deeper study — not the first thing beginners must read"
+            intro={pdfLink.supportIntro}
           >
-            <section className="liturgy-teaching__pdf" aria-labelledby="liturgy-pdf-heading">
-              <h2 id="liturgy-pdf-heading" className="liturgy-teaching__pdf-heading visually-hidden">
-                Full liturgy book (PDF)
-              </h2>
-              <p className="liturgy-teaching__pdf-desc">{pdfLink.description}</p>
-              <a
-                href={pdfLink.href}
-                className="liturgy-teaching__pdf-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {pdfLink.label}
-                <span className="liturgy-teaching__pdf-sr"> (opens in new tab)</span>
-              </a>
-            </section>
-          </CollapsiblePanel>
+            <ExternalSourceCard
+              title="Complete liturgy text (PDF)"
+              description={pdfLink.description}
+              href={pdfLink.href}
+              buttonLabel={pdfLink.buttonLabel}
+              variant="pdf"
+            />
+          </ExternalSourceSupportSection>
         </div>
 
         <PageJumpNav links={LITURGY_JUMP_LINKS} label="On this page" />

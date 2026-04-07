@@ -1,7 +1,7 @@
 import ContentCard from '../cards/ContentCard.jsx'
 
 /**
- * Hub card for /language — thin wrapper for consistent class hooks and defaults.
+ * Hub card for Practice → Language — thin wrapper for consistent class hooks and defaults.
  */
 export default function LanguageSectionCard({
   to,

@@ -23,7 +23,7 @@ export const calendarNarratives = {
       'Calendars and dispensations differ by region, health, and pastoral need. Confirm every rule with official church publications and your spiritual father.',
   },
 
-  holidays: {
+  feasts: {
     intro:
       'Major fixed feasts on the Ethiopian calendar are listed with the approximate Gregorian date in the current Ethiopian year. Movable feasts (Holy Week, Pascha, Ascension, Pentecost) appear on the Today page when they fall on the civil date.',
   },

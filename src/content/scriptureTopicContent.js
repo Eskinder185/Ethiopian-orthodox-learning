@@ -64,13 +64,20 @@ export const scriptureTopicContent = {
     },
   ],
 
-  externalReader: {
-    title: 'Read the full Ethiopian Bible',
-    body: [
-      'Use the external reader below to explore the Ethiopian Bible text. This link is provided as a reading resource for convenience. For formal study, catechesis, or questions about book order and approved editions, consult your priest, catechist, or parish guidance.',
-    ],
-    linkLabel: 'Open Ethiopian Bible reader',
-    href: 'https://online.fliphtml5.com/ekjsx/blhe/',
-    urlCaption: 'External Bible link',
+  /** Rendered below main content as ExternalSourceSupportSection + ExternalSourceCard */
+  externalSupport: {
+    id: 'scripture-external-support',
+    eyebrow: 'Trusted external source',
+    title: 'Go deeper',
+    subtitle: 'Full text in an external reader',
+    intro:
+      'OrthodoxPath does not host the full Bible text. When you want to read longer passages, use this reader — and confirm canon, edition, and parish guidance with your priest when study or catechesis depends on it.',
+    card: {
+      title: 'Full Bible reading',
+      description: 'Read the full Bible text in an external reader.',
+      href: 'https://online.fliphtml5.com/ekjsx/blhe/',
+      buttonLabel: 'Open Bible reader',
+      variant: 'bible',
+    },
   },
 }

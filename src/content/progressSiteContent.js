@@ -7,12 +7,12 @@ export const progressNavCards = [
   {
     title: 'Mezmur',
     description: 'Sacred hymns — listen, repeat, and let the melody settle in your heart.',
-    to: paths.practice.mezmur,
+    to: paths.practice.chants,
   },
   {
-    title: 'Tselot',
+    title: 'Prayer',
     description: 'Daily prayer — small, steady visits to the words the Church has taught you.',
-    to: paths.practice.tselot,
+    to: paths.practice.prayer,
   },
   {
     title: 'Liturgy',
@@ -22,7 +22,7 @@ export const progressNavCards = [
   {
     title: 'Amharic alphabet',
     description: 'Sacred letters — a few at a time, with patience and joy.',
-    to: paths.language.alphabet,
+    to: paths.practice.language.alphabet,
   },
 ]
 

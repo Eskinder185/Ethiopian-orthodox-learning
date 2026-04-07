@@ -1,7 +1,7 @@
 import '../../styles/ContentComponents.css'
 import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
-import { holidaysPage } from '../../data/calendarPages.js'
+import { feastsHolyDaysPage } from '../../data/calendarPages.js'
 import { FIXED_FEASTS } from '../../data/calendarData.js'
 import {
   gregorianDateToEthiopian,
@@ -12,8 +12,8 @@ import { formatEthiopianDate, formatGregorianDate } from '../../utils/liturgical
 import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
 
-export default function HolidaysPage() {
-  const { category, title, intro } = holidaysPage
+export default function FeastsHolyDaysPage() {
+  const { category, title, intro } = feastsHolyDaysPage
   const from = new Date()
   const ey = gregorianDateToEthiopian(from).year
 
@@ -28,11 +28,11 @@ export default function HolidaysPage() {
   })
 
   return (
-    <article className="content-page calendar-page calendar-page--holidays">
+    <article className="content-page calendar-page calendar-page--feasts">
       <PageHeader category={category} title={title} intro={intro} compact />
 
       <SectionTitle
-        id="holidays-fixed-heading"
+        id="feasts-fixed-heading"
         title="Major fixed feasts"
         subtitle={`Ethiopian year ${ey} E.C. (the year that contains today on your device). Gregorian dates update when the Ethiopian year rolls over.`}
       />
@@ -56,14 +56,14 @@ export default function HolidaysPage() {
       </div>
 
       <SectionTitle
-        id="holidays-movable-heading"
+        id="feasts-movable-heading"
         title="Moveable feasts"
         subtitle="Palm Sunday, Pascha, Ascension, and Pentecost follow Orthodox Pascha."
       />
       <p className="cal-card__body">
         Hosanna (Palm Sunday), the crucifixion (Siklet), the resurrection (Fasika), Ascension, and
-        Pentecost are tied to Pascha each year. Open <strong>Calendar → Today</strong> on those civil
-        dates to see the full entry.
+        Pentecost are tied to Pascha each year. Open <strong>Calendar → Today in the Church</strong>{' '}
+        on those civil dates to see the full entry.
       </p>
     </article>
   )

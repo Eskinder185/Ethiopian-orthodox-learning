@@ -3,7 +3,10 @@ import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
+import ExternalSourceCard from '../../components/sections/ExternalSourceCard.jsx'
+import ExternalSourceSupportSection from '../../components/sections/ExternalSourceSupportSection.jsx'
 import LanguageSectionCard from '../../components/language/LanguageSectionCard.jsx'
+import { amharicAlphabetInteractive } from '../../data/curatedExternalLinks.js'
 import { languageHome } from '../../data/languagePages.js'
 import '../../components/language/LanguageComponents.css'
 
@@ -40,6 +43,23 @@ export default function LanguageHomePage() {
           />
         ))}
       </div>
+
+      <SectionDivider />
+      <ExternalSourceSupportSection
+        id="language-external-support"
+        eyebrow="Trusted external source"
+        title="Go deeper"
+        subtitle="Alphabet & pronunciation tool"
+        intro="Use this when you want interactive fidel practice and sound. You will leave OrthodoxPath in a new tab."
+      >
+        <ExternalSourceCard
+          title="Amharic alphabet and pronunciation"
+          description="Practice fidel and pronunciation using this external learning tool."
+          href={amharicAlphabetInteractive.href}
+          buttonLabel="Open alphabet practice"
+          variant="language"
+        />
+      </ExternalSourceSupportSection>
     </article>
   )
 }

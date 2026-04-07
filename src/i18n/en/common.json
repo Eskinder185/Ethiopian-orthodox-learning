@@ -1,0 +1,444 @@
+{
+  "language": {
+    "enShort": "EN",
+    "amShort": "አማርኛ",
+    "switchToEn": "English",
+    "switchToAm": "አማርኛ"
+  },
+  "nav": {
+    "mainLabel": "Main navigation",
+    "mobileLabel": "Mobile main navigation",
+    "home": "Home",
+    "startHere": "Start here",
+    "learn": "Learn",
+    "practice": "Practice",
+    "calendar": "Calendar",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "portfolioSr": "(opens in new tab)",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "navLearn": {
+    "overview": "Overview",
+    "scripture": "Scripture",
+    "teachings": "Teachings",
+    "liturgy": "Liturgy (Qidase / ቅዳሴ)",
+    "churchLifeHistory": "Church Life & History",
+    "churchYear": "Church Year"
+  },
+  "navPractice": {
+    "overview": "Overview",
+    "prayer": "Prayer practice (Tselot / ጸሎት)",
+    "chants": "Mezmur & Werb practice",
+    "instruments": "Instrument practice",
+    "language": "Language & pronunciation"
+  },
+  "navCalendar": {
+    "overview": "Overview",
+    "today": "Today in the Church",
+    "ethiopianMonths": "Ethiopian months",
+    "fasting": "Fasting seasons",
+    "feastsHolyDays": "Feasts & holy days",
+    "seasons": "Seasonal guides"
+  },
+  "footer": {
+    "note": "OrthodoxPath — Ethiopian Orthodox learning and practice: guided routines, respectful summaries, and links to trusted sources.",
+    "aboutLink": "About this site",
+    "copyright": "© {{year}} OrthodoxPath"
+  },
+  "commonUi": {
+    "readMore": "Read more",
+    "showMore": "Show more",
+    "whereToGoNext": "Where to go next",
+    "noteOnMaterials": "Note on materials",
+    "topic": "Topic",
+    "section": "Section",
+    "practice": "Practice",
+    "learn": "Learn",
+    "language": "Language",
+    "hymnody": "Hymnody",
+    "prayer": "Prayer",
+    "daily": "Daily",
+    "time": "Time",
+    "discipline": "Discipline",
+    "feasts": "Feasts",
+    "seasons": "Seasons"
+  },
+  "home": {
+    "title": "OrthodoxPath",
+    "tagline": "Ethiopian Orthodox learning for home and parish",
+    "lead": "OrthodoxPath supports prayer, learning, and practice in the Ethiopian Orthodox Tewahedo Church — Scripture and tradition, liturgy, hymnody, language, and the Church calendar. Use it with your priest and parish, not in place of them.",
+    "whoFor": "Written for beginners, inquirers, and families building habits at home — small steps, reverent language, and links to trusted sources for full texts and audio.",
+    "frameworkNotice": "Sacred texts and audio are not fully hosted here. You will find routines, summaries, and links to books and websites that provide full material.",
+    "startHere": "Start here",
+    "exploreMonth": "Explore this month",
+    "todayInChurch": {
+      "title": "Today in the Church",
+      "subtitle": "Remembrance, context, and what lies ahead — confirm fasts and feasts with your parish.",
+      "card": {
+        "today": "Today in the Church",
+        "next": "Coming next"
+      },
+      "contextType": {
+        "season": "Season",
+        "feastFocus": "Feast focus",
+        "weekly": "This week"
+      },
+      "cta": {
+        "learnMore": "Learn more",
+        "seasonalGuide": "See seasonal guide",
+        "understandFeast": "Understand this feast",
+        "seeCalendar": "See today’s calendar",
+        "prepareFeast": "Prepare for this feast"
+      }
+    },
+    "monthSection": {
+      "title": "This month in the Church",
+      "subtitle": "A snapshot from your device’s date — confirm fasts and feasts with your parish."
+    },
+    "featuredRhythm": {
+      "title": "Fasting & feasts (today’s hint)",
+      "subtitle": "From the same calendar logic as the Calendar section — pastoral guidance always comes first."
+    },
+    "rhythm": {
+      "title": "Prayer, fasting, and reading",
+      "subtitle": "Small daily habits — prayer, awareness of fasts, and Scripture — belong together. Confirm fasting and feast days with your priest and an official church calendar."
+    },
+    "quickLinks": {
+      "title": "Explore the site",
+      "subtitle": "Learn, Practice, and Calendar — three doors into OrthodoxPath."
+    },
+    "featuredPractice": {
+      "title": "Featured practice",
+      "subtitle": "Hymn and prayer practice here; Divine Liturgy orientation under Learn. Full texts and recordings open on their original sites."
+    },
+    "mission": {
+      "title": "Our purpose"
+    },
+    "rhythmTeaser": "Weekday prayer and hymns connect to Sunday worship; fasting follows the church year — always confirm details with your parish and official calendars.",
+    "materialsPanelTitle": "About materials on this site",
+    "rhythmMoreTitle": "More on prayer, fasting, and reading",
+    "missionPanelTitle": "Our purpose — full statement",
+    "missionTeaser": "We support reverent study and practice at home alongside your priest and parish — never in place of them.",
+    "snapshot": {
+      "rightNow": "Right now (this device)",
+      "gregorian": "Gregorian:",
+      "ethiopian": "Ethiopian:",
+      "weekdayTheme": "Weekday theme:",
+      "openToday": "Open Today in the Church",
+      "fastingContext": "Fasting context:",
+      "feastOnData": "Feast on this data set:",
+      "greatFeasts": "Great feasts:",
+      "noFeastHint": "No fixed or moveable feast from our current list falls exactly on this civil day — check",
+      "feastsLink": "Feasts & holy days",
+      "andParish": "and your parish ordo."
+    },
+    "quick": {
+      "learn": {
+        "title": "Learn",
+        "description": "Scripture, teachings, liturgy, church life, and the shape of the Church year."
+      },
+      "practice": {
+        "title": "Practice",
+        "description": "Prayer, mezmur & werb, instruments, and language — guided flows with outbound links for texts."
+      },
+      "calendar": {
+        "title": "Calendar",
+        "description": "Today in Church time, Ethiopian months, fasting seasons, feasts, and seasonal guides."
+      }
+    },
+    "featured": {
+      "chants": {
+        "title": "Mezmur & Werb practice",
+        "description": "Sacred hymns and poetry in one calm library: search, listen on-site when linked, read Amharic and transliteration, and rehearse gently."
+      },
+      "prayer": {
+        "title": "Prayer practice (Tselot / ጸሎት)",
+        "description": "Daily prayers: build a calm, repeatable habit with texts from books or linked sites your parish approves."
+      },
+      "liturgy": {
+        "title": "Liturgy (Qidase / ቅዳሴ)",
+        "description": "The Divine Liturgy (Qidase) in parts — understand responses and flow between Sundays."
+      },
+      "alphabet": {
+        "title": "Amharic alphabet",
+        "description": "Learn Fidel step by step so services and scripture feel more familiar."
+      }
+    }
+  },
+  "learnHub": {
+    "title": "Learn",
+    "eyebrow": "Faith, Scripture & church life",
+    "intro": "Understand the faith, Scripture, the liturgy, church history and life, and the rhythm of the Church year — short guides that support parish teaching and your spiritual father.",
+    "overview": "These pages answer “what” and “why”: how we read Scripture, what we confess, how the liturgy moves, how Ethiopian Orthodox life took shape in history, and how the Church’s calendar shapes prayer. For “when” — today’s fast, this month’s feasts — use the Calendar section.",
+    "topicsTitle": "Topics",
+    "topicsSubtitle": "Choose one place to start; read slowly and return with your parish in mind.",
+    "topicCategory": "Topic",
+    "notesHeading": "Notes",
+    "cautionsHeading": "Editorial caution",
+    "notes": {
+      "0": "Doctrine stays introductory; deeper formation belongs in parish, books, and classes."
+    },
+    "cautions": {
+      "0": "Summarize and link to sources; do not paste long copyrighted or liturgical texts."
+    },
+    "topics": {
+      "scripture": {
+        "title": "Scripture",
+        "description": "How the Church hears the Bible — the fuller canon, Ge’ez heritage, and prayerful reading."
+      },
+      "teachings": {
+        "title": "Teachings",
+        "description": "The Orthodox faith in plain words — Trinity, Christ’s saving work, and the mysteries of the Church."
+      },
+      "liturgy": {
+        "title": "Liturgy (Qidase / ቅዳሴ)",
+        "description": "The Divine Liturgy (Qidase) unfolded in calm steps — prepare between Sundays."
+      },
+      "churchLifeHistory": {
+        "title": "Church Life & History",
+        "description": "Story, worship, monastic witness, and holy places — orientation, not a full encyclopedia."
+      },
+      "churchYear": {
+        "title": "Church Year",
+        "description": "What feasts, fasts, and liturgical seasons are for — meaning here; dates under Calendar."
+      }
+    }
+  },
+  "practiceHub": {
+    "title": "Practice",
+    "eyebrow": "Ethiopian Orthodox · step by step",
+    "intro": "Practice at home means prayer, hymnody, sacred poetry, instruments, and language skills — always with reverence and with material your priest or parish approves. Full texts and recordings stay on linked sites or in books you own.",
+    "overview": "Each area offers a calm flow: how to use the page, steps to repeat, and space for trusted external links. Liturgy as a service is explained under Learn · Liturgy (Qidase / ቅዳሴ).",
+    "topicsTitle": "Practice areas",
+    "topicsSubtitle": "Pick one small habit; consistency matters more than speed.",
+    "topicCategory": "Practice",
+    "notesHeading": "Notes",
+    "cautionsHeading": "Editorial caution",
+    "notes": {
+      "0": "Formal chant training often happens in church schools; informal learners still aim at reverence."
+    },
+    "cautions": {
+      "0": "Do not mirror full hymnals or host recordings here without rights; link out."
+    },
+    "topics": {
+      "prayer": {
+        "title": "Prayer practice (Tselot / ጸሎት)",
+        "description": "Daily prayer habits and structured prayer — texts via books and trusted links."
+      },
+      "chants": {
+        "title": "Mezmur & Werb practice",
+        "description": "Search and practice mezmur and werb together: listen, read Amharic and transliteration, and use trusted linked recordings when provided."
+      },
+      "instruments": {
+        "title": "Instrument practice",
+        "description": "Liturgical instruments in context — listen, learn roles, respect parish norms."
+      },
+      "language": {
+        "title": "Language & pronunciation",
+        "description": "Amharic / Ge’ez sounds and letters for prayer and hymnody."
+      }
+    }
+  },
+  "calendarHub": {
+    "title": "Calendar",
+    "eyebrow": "The Church’s time & your day",
+    "intro": "The Ethiopian Orthodox Church keeps time with the Ethiopian calendar: twelve months of thirty days, the little month of Pagumen, and years counted from the Era of the Incarnation — often seven or eight years behind the civil Gregorian year many of us use each day.",
+    "purpose": "See today in both calendars, notice fasting days and feasts, and read the spiritual theme of the weekday — then let your priest and an official church calendar have the final word on what shapes your fasting and joy.",
+    "notice": "Great feasts and fasts follow the Church’s received reckoning of Pascha. The full cloud of saints and local commemorations lives in the Senksar and parish books; here you’ll find a helpful outline, not every holy day in full.",
+    "howTitle": "How this system works",
+    "howCard1Title": "Two ways of counting days",
+    "howCard1Body": "Daily life often follows the Gregorian calendar; the Church journeys through the Ethiopian calendar — its own months, feasts, and sense of the year. We show both together so you can live in the world and still think with the Church.",
+    "howCard2Title": "Fasting & feasts",
+    "howCard2Body": "Wednesday and Friday fasts, the great fasts before Nativity and Pascha, and the major holy days named here echo received Orthodox practice. Let your spiritual father and parish calendar guide what you keep when health, travel, or local tradition calls for care.",
+    "howCard3Title": "Growing with the Church year",
+    "howCard3Body": "Over time this calendar can welcome more feast days, saints’ stories, local observances, and links to hymns and readings — so your sense of the year deepens as the site grows. What matters most is living the rhythm with Christ, not the screen.",
+    "exploreTitle": "Explore",
+    "exploreSubtitle": "Today, fasting seasons, and fixed feasts.",
+    "snapshotHeading": "Right now (this device)",
+    "gregorian": "Gregorian:",
+    "ethiopian": "Ethiopian:",
+    "weekdayTheme": "Weekday theme:",
+    "homeLead": "We walk with two ways of counting days: the civil calendar around us and the Church’s Ethiopian calendar — dates, feasts, fasts, and each weekday’s spiritual theme — always alongside your priest’s guidance.",
+    "cards": {
+      "today": {
+        "title": "Today in the Church",
+        "description": "This civil day in Ethiopian Church time — weekday theme, fasting context, and any major feast in our data."
+      },
+      "ethiopianMonths": {
+        "title": "Ethiopian months",
+        "description": "The thirteen months of the Ethiopian year — names, Ge’ez script, and approximate civil windows."
+      },
+      "fasting": {
+        "title": "Fasting seasons",
+        "description": "Weekly Wednesday and Friday fasts and the great fasts — explained with reverence; your priest confirms the rule."
+      },
+      "feastsHolyDays": {
+        "title": "Feasts & holy days",
+        "description": "Principal fixed feasts with civil dates to help you plan and rejoice."
+      },
+      "seasons": {
+        "title": "Seasonal guides",
+        "description": "Short guides to the seasons of the Church year — use Calendar for dates, Learn for meaning."
+      }
+    }
+  },
+  "startHere": {
+    "title": "Start here",
+    "eyebrow": "Welcome to OrthodoxPath",
+    "heroLead": "This site helps you pray, learn, and practice at home in the Ethiopian Orthodox Tewahedo tradition — with reverence, patience, and your parish always first.",
+    "beginTeachings": "Begin with Teachings",
+    "whatIsChurchTitle": "What is the Ethiopian Orthodox Tewahedo Church?",
+    "howToUseTitle": "How to use this site",
+    "whatFirstTitle": "What to learn first",
+    "pathTitle": "A beginner learning path",
+    "visitorTitle": "First-time church visitor",
+    "parishTitle": "Parish and spiritual father",
+    "items": {
+      "0": { "label": "Teachings or Scripture", "hint": "A calm foundation in Christ and the Church’s faith." },
+      "1": { "label": "Liturgy (overview)", "hint": "So Sunday worship feels less unfamiliar." },
+      "2": { "label": "Prayer practice (Tselot / ጸሎት)", "hint": "One short routine your priest blesses." }
+    },
+    "learnHubCta": "Open Learn",
+    "ctaExploreSeasons": "Seasonal guides"
+  },
+  "about": {
+    "readMore": "Read more",
+    "title": "About",
+    "eyebrow": "OrthodoxPath",
+    "purposeTitle": "Purpose",
+    "scopeTitle": "What you will find here",
+    "faqTitle": "Frequently asked questions",
+    "futureTitle": "Future plans"
+  },
+  "siteGuide": {
+    "title": "Site guide",
+    "close": "Close site guide",
+    "open": "Open site guide",
+    "fabLabel": "Guide",
+    "welcome": "Peace. I am a simple on-site guide — not artificial intelligence. OrthodoxPath is organized into Learn (faith and meaning), Practice (prayer, hymnody, language, training), and Calendar (time, fasts, feasts). Tap a topic or ask a short question below.",
+    "fallback": "I am still a simple guide for now. Try a suggested question, use the menu (Learn, Practice, and Calendar have subpages), or open Start here for onboarding.",
+    "sectionsLabel": "Sections",
+    "suggestedLabel": "Suggested questions",
+    "inputLabel": "Type a short question",
+    "inputPlaceholder": "Type a short question…",
+    "send": "Send",
+    "askElse": "Ask something else",
+    "topics": {
+      "start": { "label": "Start here", "hint": "Onboarding" },
+      "learn": { "label": "Learn", "hint": "Faith & meaning" },
+      "practice": { "label": "Practice", "hint": "Pray, sing, train" },
+      "language": { "label": "Language & pronunciation", "hint": "Under Practice" },
+      "calendar": { "label": "Calendar", "hint": "When things happen" },
+      "about": { "label": "About", "hint": "This project" }
+    },
+    "entries": {
+      "what-site": {
+        "suggestionLabel": "What is OrthodoxPath for?",
+        "answer": "OrthodoxPath helps you learn and practice Ethiopian Orthodox faith at home: Learn (Scripture, teachings, liturgy, church life & history, church year), Practice (prayer, mezmur & werb together, instruments, language), and Calendar (today, months, fasting, feasts, seasons). It supports your parish — it does not replace your priest.",
+        "linkLabel": "About"
+      },
+      "where-start": {
+        "suggestionLabel": "Where should I start?",
+        "answer": "Open Start here for a short path: what the Church is, how to use the site, and what to try first. Then visit Learn or Practice and pick one small habit.",
+        "linkLabel": "Start here"
+      },
+      "site-organization": {
+        "suggestionLabel": "How is the site organized?",
+        "answer": "Learn explains faith, Scripture, liturgy, church life & history, and the meaning of the church year. Practice is for doing: prayer, mezmur & werb (one shared chant practice page), instruments, language. Calendar is for time: today in the Church, Ethiopian months, fasting seasons, feasts & holy days, and seasonal guides. Use the main menu to open each section’s pages.",
+        "linkLabel": "Start here"
+      },
+      "beginners": {
+        "suggestionLabel": "Is this site for beginners?",
+        "answer": "Yes. Pages welcome newcomers. Nothing here replaces your parish, priest, or bishop — use OrthodoxPath as orientation and gentle practice between church and home.",
+        "linkLabel": "Teachings"
+      },
+      "church-life-history": {
+        "suggestionLabel": "Where is Church Life & History?",
+        "answer": "Learn → Church Life & History orients you to Ethiopian Orthodox story, worship, and places — as a starting point, not a full encyclopedia. Confirm sensitive topics with church sources and your parish.",
+        "linkLabel": "Church Life & History"
+      },
+      "church-year-learn": {
+        "suggestionLabel": "What is Church Year under Learn?",
+        "answer": "Learn → Church Year explains what feasts, fasts, and seasons are for — the meaning of liturgical time. Exact dates and “what week is this?” live under Calendar (and your parish ordo).",
+        "linkLabel": "Church Year"
+      },
+      "practice-mezmur": {
+        "suggestionLabel": "How do I practice mezmur?",
+        "answer": "Practice → Mezmur & Werb practice: one library to search hymns and sacred poetry, open an entry to listen (when a video is linked), read Amharic and transliteration, and follow the gentle Listen → Read → Repeat → Practice flow. Full materials may open on trusted external sites.",
+        "linkLabel": "Mezmur & Werb practice"
+      },
+      "mezmur-page-how": {
+        "suggestionLabel": "How do I use the chant practice page?",
+        "answer": "Search or filter by type, open a chant, then move through Listen (video if linked), Read (Amharic), Repeat (transliteration), and Practice (short guidance). Prefer one line at a time and your parish’s teaching.",
+        "linkLabel": "Mezmur & Werb practice"
+      },
+      "prayer-section": {
+        "suggestionLabel": "Where is prayer practice?",
+        "answer": "Practice → Prayer practice (Tselot / ጸሎት) (including daily prayer). Divine Liturgy as a service is explained under Learn → Liturgy (Qidase / ቅዳሴ) — not under Practice.",
+        "linkLabel": "Prayer practice"
+      },
+      "werb-poetry": {
+        "suggestionLabel": "Where is Werb practice?",
+        "answer": "Practice → Mezmur & Werb practice includes werb (sacred poetry) alongside mezmur in one search library — same calm practice flow for each entry.",
+        "linkLabel": "Mezmur & Werb practice"
+      },
+      "instrument-practice": {
+        "suggestionLabel": "Where is instrument practice?",
+        "answer": "Practice → Instrument practice is a separate orientation page for liturgical instruments — learned with reverence and parish teachers.",
+        "linkLabel": "Instrument practice"
+      },
+      "calendar-section": {
+        "suggestionLabel": "What is the Calendar for?",
+        "answer": "Calendar shows today in the Church, Ethiopian months, fasting seasons, feasts & holy days, and seasonal guides. It answers “when” — Learn answers “what it means.” Your priest confirms rules and dates.",
+        "linkLabel": "Calendar"
+      },
+      "today-church": {
+        "suggestionLabel": "Where is “Today in the Church”?",
+        "answer": "Calendar → Today in the Church pairs your civil date with the Ethiopian date, weekday theme, fasting context, and feasts from our data set.",
+        "linkLabel": "Today in the Church"
+      },
+      "feasts-holy-days": {
+        "suggestionLabel": "Where are feasts listed?",
+        "answer": "Calendar → Feasts & holy days lists major fixed feasts with dates; moveable feasts follow Pascha — check Today in the Church around those civil dates.",
+        "linkLabel": "Feasts & holy days"
+      },
+      "ethiopian-months": {
+        "suggestionLabel": "Where are the Ethiopian months?",
+        "answer": "Calendar → Ethiopian months lists month names, Ge’ez script, and approximate Gregorian windows — a reference table, not fasting rules.",
+        "linkLabel": "Ethiopian months"
+      },
+      "five-pillars": {
+        "suggestionLabel": "What is the Five Pillars of Mystery?",
+        "answer": "In Ethiopian Orthodox teaching, the “five pillars” or mysteries are central acts of grace. Learn → Teachings introduces faith and sacraments; study details with church sources and your spiritual father.",
+        "linkLabel": "Teachings"
+      },
+      "external-links": {
+        "suggestionLabel": "Why do pages use external links?",
+        "answer": "Hymn texts, long prayers, and much media stay on original sites out of respect for copyright and tradition. Links open in a new tab so you see the source.",
+        "linkLabel": "Mezmur & Werb practice"
+      },
+      "amharic-alphabet": {
+        "suggestionLabel": "Where can I learn the Amharic alphabet?",
+        "answer": "Practice → Language & pronunciation → Amharic alphabet (Fidel starter sets and external charts). Writing and pronunciation are sibling pages under the same area.",
+        "linkLabel": "Amharic alphabet"
+      },
+      "learn-liturgy": {
+        "suggestionLabel": "Where is the Divine Liturgy explained?",
+        "answer": "Learn → Liturgy (Qidase / ቅዳሴ) explains the Divine Liturgy step by step. Practice → Mezmur & Werb practice connects to hymnody and sacred poetry; prayer at home is under Practice → Prayer practice (Tselot / ጸሎት).",
+        "linkLabel": "Liturgy"
+      },
+      "scripture": {
+        "suggestionLabel": "Where is Scripture?",
+        "answer": "Learn → Scripture describes how the Church receives Scripture and the fuller canon. Pair reading with your parish and spiritual father.",
+        "linkLabel": "Scripture"
+      },
+      "progress": {
+        "suggestionLabel": "What is Progress?",
+        "answer": "Progress lives at /progress (stats and tracking ideas). It is not in the main menu; you can still open it from bookmarks or this answer when you want a gentle habits space.",
+        "linkLabel": "Progress"
+      }
+    }
+  }
+}

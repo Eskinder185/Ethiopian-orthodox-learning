@@ -1,0 +1,150 @@
+/* Today in the Church — three calm cards, homepage */
+
+.today-church {
+  margin-bottom: var(--space-section);
+}
+
+.today-church .section-title {
+  margin-bottom: var(--space-lg);
+}
+
+.today-church__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .today-church__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .today-church__card--next {
+    grid-column: 1 / -1;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .today-church__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .today-church__card--next {
+    grid-column: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.home-church-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-raised, var(--bg-elevated, var(--bg)));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-church-card:hover {
+  border-color: var(--gold-soft, var(--border));
+  box-shadow: 0 8px 28px rgba(15, 30, 50, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-church-card:hover {
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.home-church-card__media {
+  aspect-ratio: 16 / 9;
+  background: var(--surface-muted, rgba(0, 0, 0, 0.04));
+  flex-shrink: 0;
+}
+
+.home-church-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-church-card__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 6.5rem;
+  background:
+    linear-gradient(145deg, rgba(228, 201, 104, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(30, 58, 95, 0.12), transparent 55%),
+    var(--surface-muted, rgba(0, 0, 0, 0.03));
+  background-size: auto, auto, auto;
+}
+
+.home-church-card__body {
+  padding: 1rem 1.1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.home-church-card__eyebrow {
+  margin: 0;
+  font-size: var(--type-eyebrow, 0.7rem);
+  font-weight: 600;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold, var(--text-muted));
+}
+
+.home-church-card__title {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: var(--type-card-title, 1.1rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-heading);
+}
+
+.home-church-card__desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.home-church-card__cta {
+  margin-top: 0.35rem;
+  align-self: flex-start;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--link, var(--gold));
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.home-church-card__cta:hover,
+.home-church-card__cta:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+.home-church-card__cta:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 2px;
+}

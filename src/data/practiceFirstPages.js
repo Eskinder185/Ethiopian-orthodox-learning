@@ -1,5 +1,4 @@
-import { mezmurPageContent, tselotPageContent } from '../content/practicePagesContent.js'
-import { tselotDailyPrayer, mezmurLibrary } from './curatedExternalLinks.js'
+import { prayerPageContent } from '../content/practicePagesContent.js'
 
 /**
  * Practice-first page copy: instructional only; full texts via external links you add.
@@ -12,30 +11,12 @@ const externalIntro =
   'These resources are hosted on their original websites. Click to open full content in a new tab — nothing is copied or stored here.'
 
 export const practicePageConfigs = {
-  mezmur: {
-    ...mezmurPageContent,
+  prayer: {
+    ...prayerPageContent,
     externalSection: {
-      ...mezmurPageContent.externalSection,
+      ...prayerPageContent.externalSection,
       intro: externalIntro,
-      links: [mezmurLibrary],
-    },
-    jumpNavLinks: [
-      { href: '#practice-orientation', label: 'Orientation' },
-      { href: '#how-to-heading', label: 'How to use' },
-      { href: '#practice-flow-heading', label: 'Practice flow' },
-      { href: '#practice-external-resources', label: 'External links' },
-      { href: '#mezmur-workspace', label: 'Workspace' },
-      { href: '#reflection-heading', label: 'After practice' },
-      { href: '#checklist-heading', label: 'Checklist' },
-    ],
-  },
-
-  tselot: {
-    ...tselotPageContent,
-    externalSection: {
-      ...tselotPageContent.externalSection,
-      intro: externalIntro,
-      links: [tselotDailyPrayer],
+      links: [],
     },
     jumpNavLinks: [
       { href: '#daily-prayer', label: 'Daily prayers' },
@@ -44,7 +25,7 @@ export const practicePageConfigs = {
       { href: '#daily-prayer-texts', label: 'Full prayers' },
       { href: '#how-to-heading', label: 'How to use' },
       { href: '#practice-flow-heading', label: 'Practice flow' },
-      { href: '#practice-external-resources', label: 'External links' },
+      { href: '#prayer-external-support', label: 'Full text / audio' },
       { href: '#reflection-heading', label: 'After practice' },
       { href: '#checklist-heading', label: 'Checklist' },
     ],

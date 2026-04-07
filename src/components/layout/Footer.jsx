@@ -1,19 +1,32 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { PORTFOLIO_URL } from '../../constants/externalLinks.js'
 import { paths } from '../../constants/paths.js'
 
 export default function Footer() {
+  const { t } = useTranslation('common')
   const year = new Date().getFullYear()
 
   return (
     <footer className="site-footer">
       <p className="site-footer__note">
-        Ethiopian Orthodox learning and practice — guided routines, respectful
-        summaries, and links to trusted sources.{' '}
+        {t('footer.note')}{' '}
         <Link to={paths.about} className="site-footer__link">
-          About this site
+          {t('footer.aboutLink')}
         </Link>
       </p>
-      <p className="site-footer__copy">© {year} Orthodox Learning</p>
+      <p className="site-footer__portfolio">
+        <a
+          href={PORTFOLIO_URL}
+          className="site-footer__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t('nav.portfolio')}
+          <span className="visually-hidden"> {t('nav.portfolioSr')}</span>
+        </a>
+      </p>
+      <p className="site-footer__copy">{t('footer.copyright', { year })}</p>
     </footer>
   )
 }

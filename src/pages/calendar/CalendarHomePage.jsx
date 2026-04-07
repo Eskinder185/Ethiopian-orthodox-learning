@@ -1,41 +1,53 @@
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import '../../styles/ContentComponents.css'
 import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
 import CalendarSectionCard from '../../components/calendar/CalendarSectionCard.jsx'
-import { calendarHome } from '../../data/calendarPages.js'
-import { CALENDAR_INTRO } from '../../data/calendarData.js'
+import { calendarHomeCardRoutes } from '../../data/calendarPages.js'
 import { getLiturgicalDayState } from '../../utils/liturgicalCalendar.js'
 import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
 
 export default function CalendarHomePage() {
-  const { title, eyebrow, intro, purpose, notice, cards } = calendarHome
+  const { t } = useTranslation('common')
   const snapshot = getLiturgicalDayState(new Date())
+
+  const cards = useMemo(
+    () =>
+      calendarHomeCardRoutes.map((c) => ({
+        to: c.to,
+        title: t(`calendarHub.cards.${c.key}.title`),
+        description: t(`calendarHub.cards.${c.key}.description`),
+        category: t(`commonUi.${c.categoryKey}`),
+      })),
+    [t],
+  )
 
   return (
     <article className="content-page calendar-home">
-      <PageHeader title={title} eyebrow={eyebrow}>
-        <p className="page-hero__subtitle">{intro}</p>
-        <p className="page-hero__subtitle">{purpose}</p>
+      <PageHeader title={t('calendarHub.title')} eyebrow={t('calendarHub.eyebrow')}>
+        <p className="page-hero__subtitle">{t('calendarHub.intro')}</p>
+        <p className="page-hero__subtitle">{t('calendarHub.purpose')}</p>
       </PageHeader>
 
       <StatusBox tone="calm" className="calendar-home__notice">
-        {notice}
+        {t('calendarHub.notice')}
       </StatusBox>
 
       <section className="cal-how-grid" aria-labelledby="cal-snapshot-heading">
         <div className="cal-how-card" style={{ gridColumn: '1 / -1' }}>
-          <h3 id="cal-snapshot-heading">Right now (this device)</h3>
+          <h3 id="cal-snapshot-heading">{t('calendarHub.snapshotHeading')}</h3>
           <p>
-            <strong>Gregorian: </strong>
+            <strong>{t('calendarHub.gregorian')} </strong>
             {snapshot.gregorianFormatted}
             <br />
-            <strong>Ethiopian: </strong>
+            <strong>{t('calendarHub.ethiopian')} </strong>
             {snapshot.ethiopianFormatted}
             <br />
-            <strong>Weekday theme: </strong>
+            <strong>{t('calendarHub.weekdayTheme')} </strong>
             {snapshot.weekdayThemeShort}
           </p>
         </div>
@@ -45,39 +57,31 @@ export default function CalendarHomePage() {
 
       <SectionTitle
         id="calendar-how-heading"
-        title="How this system works"
-        subtitle={CALENDAR_INTRO.homeLead}
+        title={t('calendarHub.howTitle')}
+        subtitle={t('calendarHub.homeLead')}
       />
       <div className="cal-how-grid">
         <div className="cal-how-card">
-          <h3>Two ways of counting days</h3>
-          <p>
-            Daily life often follows the Gregorian calendar; the Church journeys through the Ethiopian
-            calendar — its own months, feasts, and sense of the year. We show both together so you can
-            live in the world and still think with the Church.
-          </p>
+          <h3>{t('calendarHub.howCard1Title')}</h3>
+          <p>{t('calendarHub.howCard1Body')}</p>
         </div>
         <div className="cal-how-card">
-          <h3>Fasting & feasts</h3>
-          <p>
-            Wednesday and Friday fasts, the great fasts before Nativity and Pascha, and the major holy
-            days named here echo received Orthodox practice. Let your spiritual father and parish
-            calendar guide what you keep when health, travel, or local tradition calls for care.
-          </p>
+          <h3>{t('calendarHub.howCard2Title')}</h3>
+          <p>{t('calendarHub.howCard2Body')}</p>
         </div>
         <div className="cal-how-card">
-          <h3>Growing with the Church year</h3>
-          <p>
-            Over time this calendar can welcome more feast days, saints’ stories, local observances,
-            and links to hymns and readings — so your sense of the year deepens as the site grows.
-            What matters most is living the rhythm with Christ, not the screen.
-          </p>
+          <h3>{t('calendarHub.howCard3Title')}</h3>
+          <p>{t('calendarHub.howCard3Body')}</p>
         </div>
       </div>
 
       <SectionDivider />
 
-      <SectionTitle id="calendar-areas-heading" title="Explore" subtitle="Today, fasting seasons, and fixed feasts." />
+      <SectionTitle
+        id="calendar-areas-heading"
+        title={t('calendarHub.exploreTitle')}
+        subtitle={t('calendarHub.exploreSubtitle')}
+      />
 
       <div className="feature-grid feature-grid--topics">
         {cards.map((c) => (

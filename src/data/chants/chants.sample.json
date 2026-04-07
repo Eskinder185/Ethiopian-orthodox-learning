@@ -1,0 +1,40 @@
+[
+  {
+    "id": "demo-mezmur-1",
+    "type": "mezmur",
+    "title": "የምስሉ አብያተ ክርስቲያን",
+    "transliterationTitle": "Demo hymn — placeholder (Amharic title above)",
+    "lyrics": "Short placeholder line one.\nShort placeholder line two.",
+    "transliterationLyrics": "Placeholder transliteration line one.\nPlaceholder line two.",
+    "youtubeUrl": "https://www.youtube.com/watch?v=M7lc1UVf-VE",
+    "searchTerms": ["demo", "placeholder", "mezmur"],
+    "tags": ["demo"],
+    "difficulty": "beginner",
+    "season": "demo-season",
+    "month": "Meskerem",
+    "practiceTip": "Listen once through, then try one short phrase at a time."
+  },
+  {
+    "id": "demo-werb-1",
+    "type": "werb",
+    "title": "የምስሉ ወርብ",
+    "transliterationTitle": "Demo werb — placeholder (Amharic title above)",
+    "lyrics": "Placeholder sacred poetry line.",
+    "transliterationLyrics": "Placeholder transliteration.",
+    "youtubeUrl": "https://youtu.be/M7lc1UVf-VE",
+    "searchTerms": ["werb", "demo"],
+    "tags": ["demo"],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": "demo-mezmur-2",
+    "type": "mezmur",
+    "title": "ሌላ ምስላዊ ርዕስ",
+    "transliterationTitle": "Another sample mezmur title",
+    "lyrics": "",
+    "transliterationLyrics": "",
+    "youtubeUrl": "",
+    "searchTerms": ["sample", "second"],
+    "difficulty": "advanced"
+  }
+]

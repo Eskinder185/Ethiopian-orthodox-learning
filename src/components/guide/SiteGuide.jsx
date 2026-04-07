@@ -1,20 +1,28 @@
-import { useCallback, useEffect, useId, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import {
-  siteGuideWelcome,
-  siteGuideFallback,
-  siteGuideEntries,
-  siteGuideTopics,
-} from '../../data/siteGuideData.js'
+import { siteGuideMatchEntries, siteGuideTopicRoutes } from '../../data/siteGuideMatch.js'
 import { matchSiteGuideQuery } from './matchSiteGuide.js'
 import './SiteGuide.css'
 
 export default function SiteGuide() {
+  const { t } = useTranslation('common')
   const [open, setOpen] = useState(false)
   const [reply, setReply] = useState(null)
   const [draft, setDraft] = useState('')
   const rootRef = useRef(null)
   const panelId = useId()
+
+  const entries = useMemo(
+    () =>
+      siteGuideMatchEntries.map((m) => ({
+        ...m,
+        suggestionLabel: t(`siteGuide.entries.${m.id}.suggestionLabel`),
+        answer: t(`siteGuide.entries.${m.id}.answer`),
+        linkLabel: t(`siteGuide.entries.${m.id}.linkLabel`),
+      })),
+    [t],
+  )
 
   const close = useCallback(() => {
     setOpen(false)
@@ -51,11 +59,11 @@ export default function SiteGuide() {
     e.preventDefault()
     const q = draft.trim()
     if (!q) return
-    const hit = matchSiteGuideQuery(q, siteGuideEntries)
+    const hit = matchSiteGuideQuery(q, entries)
     if (hit) applyEntry(hit.entry)
     else
       setReply({
-        text: siteGuideFallback,
+        text: t('siteGuide.fallback'),
         linkTo: null,
         linkLabel: null,
       })
@@ -82,19 +90,19 @@ export default function SiteGuide() {
         >
           <header className="site-guide__head">
             <h2 id="site-guide-title" className="site-guide__title">
-              Site guide
+              {t('siteGuide.title')}
             </h2>
             <button
               type="button"
               className="site-guide__icon-btn"
               onClick={close}
-              aria-label="Close site guide"
+              aria-label={t('siteGuide.close')}
             >
               ×
             </button>
           </header>
 
-          <p className="site-guide__welcome">{siteGuideWelcome}</p>
+          <p className="site-guide__welcome">{t('siteGuide.welcome')}</p>
 
           {reply ? (
             <div className="site-guide__reply" role="status">
@@ -107,25 +115,25 @@ export default function SiteGuide() {
                 </p>
               ) : null}
               <button type="button" className="site-guide__text-btn" onClick={onStartOver}>
-                Ask something else
+                {t('siteGuide.askElse')}
               </button>
             </div>
           ) : null}
 
           <div className="site-guide__topics">
             <p className="site-guide__block-label" id="site-guide-topics-heading">
-              Sections
+              {t('siteGuide.sectionsLabel')}
             </p>
             <ul className="site-guide__topic-list" aria-labelledby="site-guide-topics-heading">
-              {siteGuideTopics.map((t) => (
-                <li key={t.id}>
+              {siteGuideTopicRoutes.map((topic) => (
+                <li key={topic.id}>
                   <Link
-                    to={t.to}
+                    to={topic.to}
                     className="site-guide__topic-pill"
                     onClick={close}
-                    title={t.hint}
+                    title={t(`siteGuide.topics.${topic.id}.hint`)}
                   >
-                    {t.label}
+                    {t(`siteGuide.topics.${topic.id}.label`)}
                   </Link>
                 </li>
               ))}
@@ -134,10 +142,10 @@ export default function SiteGuide() {
 
           <div className="site-guide__suggestions">
             <p className="site-guide__block-label" id="site-guide-suggestions-heading">
-              Suggested questions
+              {t('siteGuide.suggestedLabel')}
             </p>
             <ul className="site-guide__chips" aria-labelledby="site-guide-suggestions-heading">
-              {siteGuideEntries.map((entry) => (
+              {entries.map((entry) => (
                 <li key={entry.id} className="site-guide__chips-item">
                   <button
                     type="button"
@@ -153,20 +161,20 @@ export default function SiteGuide() {
 
           <form className="site-guide__form" onSubmit={onSubmitQuestion}>
             <label htmlFor="site-guide-input" className="site-guide__sr-only">
-              Type a short question
+              {t('siteGuide.inputLabel')}
             </label>
             <input
               id="site-guide-input"
               type="search"
               enterKeyHint="send"
               className="site-guide__input"
-              placeholder="Type a short question…"
+              placeholder={t('siteGuide.inputPlaceholder')}
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               autoComplete="off"
             />
             <button type="submit" className="site-guide__submit">
-              Send
+              {t('siteGuide.send')}
             </button>
           </form>
         </section>
@@ -178,9 +186,9 @@ export default function SiteGuide() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}
-        aria-label={open ? 'Close site guide' : 'Open site guide'}
+        aria-label={open ? t('siteGuide.close') : t('siteGuide.open')}
       >
-        <span className="site-guide__fab-label">Guide</span>
+        <span className="site-guide__fab-label">{t('siteGuide.fabLabel')}</span>
       </button>
     </div>
   )

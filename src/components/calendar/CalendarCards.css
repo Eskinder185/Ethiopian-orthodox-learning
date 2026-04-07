@@ -317,3 +317,30 @@
   opacity: 0.9;
   margin: 0.5rem 0 0;
 }
+
+.cal-months-table-wrap {
+  overflow-x: auto;
+  margin: 0.5rem 0 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cal-months-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--type-small);
+  line-height: 1.45;
+}
+
+.cal-months-table th,
+.cal-months-table td {
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.cal-months-table th {
+  background: var(--cream);
+  font-weight: 600;
+  color: var(--text-heading);
+}

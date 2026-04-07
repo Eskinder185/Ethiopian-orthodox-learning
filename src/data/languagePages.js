@@ -16,20 +16,20 @@ export const languageHome = {
   notice: langHome.notice,
   cards: [
     {
-      to: paths.language.alphabet,
+      to: paths.practice.language.alphabet,
       title: 'Amharic alphabet',
       description:
         'Meet Fidel in small, peaceful steps — see each letter, hear it, trace it — with a linked chart when you’re ready.',
       category: 'Reading',
     },
     {
-      to: paths.language.writing,
+      to: paths.practice.language.writing,
       title: 'Writing practice',
       description: 'Slow, reverent strokes: look, copy, cover, and return until the shapes feel familiar.',
       category: 'Writing',
     },
     {
-      to: paths.language.pronunciation,
+      to: paths.practice.language.pronunciation,
       title: 'Pronunciation practice',
       description: 'Listen with patience, speak softly, and let difficult sounds soften over time.',
       category: 'Speaking & listening',
@@ -38,7 +38,7 @@ export const languageHome = {
 }
 
 export const alphabetPage = {
-  category: 'Language · Alphabet',
+  category: 'Practice · Language · Alphabet',
   title: 'Amharic alphabet',
   intro: langAlph.intro,
   notice: langAlph.notice,
@@ -72,7 +72,7 @@ export const alphabetPage = {
 }
 
 export const writingPracticePage = {
-  category: 'Language · Writing',
+  category: 'Practice · Language · Writing',
   title: 'Writing practice',
   intro: langWrite.intro,
   notice: langWrite.notice,
@@ -104,7 +104,7 @@ export const writingPracticePage = {
 }
 
 export const pronunciationPage = {
-  category: 'Language · Pronunciation',
+  category: 'Practice · Language · Pronunciation',
   title: 'Pronunciation practice',
   intro: langPro.intro,
   notice: langPro.notice,

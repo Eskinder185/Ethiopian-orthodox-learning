@@ -13,10 +13,15 @@ export const subpageOutlines = {
     summary:
       'Faith and order of the Ethiopian Orthodox Church: Trinity, incarnation, salvation, and the seven sacraments — summarized for beginners; confirm with your priest.',
   },
-  churchKnowledge: {
-    category: 'Learn · Church knowledge',
+  churchLifeHistory: {
+    category: 'Learn · Church Life & History',
     summary:
       'Tewahedo identity, Aksum and the Nine Saints, distinctive liturgy and Ge’ez chant, monasticism, sacred places — orientation only; verify sensitive topics with church and scholarly sources.',
+  },
+  churchYear: {
+    category: 'Learn · Church Year',
+    summary:
+      'The meaning of liturgical time — feasts, fasts, and the rhythm of the Church year. Orientation here; dates and seasons under Calendar.',
   },
   mezmur: {
     category: 'Practice · Mezmur',

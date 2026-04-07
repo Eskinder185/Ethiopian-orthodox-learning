@@ -3,52 +3,30 @@ import { calendarNarratives } from '../content/calendarSiteContent.js'
 
 const cal = calendarNarratives
 
-export const calendarHome = {
-  title: 'Calendar',
-  eyebrow: 'The Church’s time & your day',
-  intro: cal.home.intro,
-  purpose: cal.home.purpose,
-  notice: cal.home.notice,
-  cards: [
-    {
-      to: paths.calendar.today,
-      title: 'Today',
-      description:
-        'This moment in civil and Church time — the weekday’s spiritual theme, fasting hints, and any great feast we mark for today.',
-      category: 'Daily',
-    },
-    {
-      to: paths.calendar.fasting,
-      title: 'Fasting',
-      description:
-        'The gentle discipline of Wednesdays, Fridays, and the great fasts — explained with reverence; your priest confirms the rule.',
-      category: 'Discipline',
-    },
-    {
-      to: paths.calendar.holidays,
-      title: 'Holidays',
-      description:
-        'Principal feasts on the Ethiopian calendar, with civil dates to help you plan and rejoice.',
-      category: 'Feasts',
-    },
-  ],
-}
+/** Card routes for Calendar hub — titles/descriptions from i18n `calendarHub.cards.<key>`. */
+export const calendarHomeCardRoutes = [
+  { to: paths.calendar.today, key: 'today', categoryKey: 'daily' },
+  { to: paths.calendar.ethiopianMonths, key: 'ethiopianMonths', categoryKey: 'time' },
+  { to: paths.calendar.fasting, key: 'fasting', categoryKey: 'discipline' },
+  { to: paths.calendar.feastsHolyDays, key: 'feastsHolyDays', categoryKey: 'feasts' },
+  { to: paths.calendar.seasons, key: 'seasons', categoryKey: 'seasons' },
+]
 
 export const todayPage = {
   category: 'Calendar · Today',
-  title: 'Today',
+  title: 'Today in the Church',
   intro: cal.today.intro,
 }
 
 export const fastingPage = {
   category: 'Calendar · Fasting',
-  title: 'Fasting',
+  title: 'Fasting seasons',
   intro: cal.fasting.intro,
   confirmNote: cal.fasting.confirmNote,
 }
 
-export const holidaysPage = {
-  category: 'Calendar · Holidays',
-  title: 'Holidays',
-  intro: cal.holidays.intro,
+export const feastsHolyDaysPage = {
+  category: 'Calendar · Feasts',
+  title: 'Feasts & holy days',
+  intro: cal.feasts.intro,
 }

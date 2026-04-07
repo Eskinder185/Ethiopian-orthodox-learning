@@ -74,9 +74,9 @@ export const mezmurPageContent = {
     'Note which hymn you used and whether you practiced with audio or text. Jot questions for your priest or a chanter — this page does not replace approved sources or in-person teaching.',
 }
 
-export const tselotPageContent = {
-  category: 'Practice · Tselot',
-  title: 'Daily Prayer',
+export const prayerPageContent = {
+  category: 'Practice · Prayer',
+  title: 'Prayer practice',
   practiceNotice:
     'The prayers on this page are for learning and private devotion. Use approved books or sites for rubrics, audio, and any language you pray in at church.',
   introShort:

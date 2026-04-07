@@ -391,5 +391,9 @@ export const finalChecklist = {
 export const pdfLink = {
   href: 'https://www.ethiopianorthodox.org/english/church/englishethiopianliturgy.pdf',
   label: 'Read the full English liturgy book (PDF)',
-  description: 'Official-style English text of The Liturgy of the Ethiopian Church for deeper study with your priest.',
+  description:
+    'Explore the complete liturgy text for deeper study with your priest — not something you must read before your first visit.',
+  supportIntro:
+    'The guide above is for learning how Sunday liturgy works. This PDF is the full English text for careful reading when you are ready; it is not required before you attend.',
+  buttonLabel: 'Open liturgy PDF',
 }

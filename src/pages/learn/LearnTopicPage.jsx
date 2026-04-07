@@ -1,5 +1,7 @@
 import ContentPageLayout from '../../components/sections/ContentPageLayout.jsx'
-import CollapsiblePanel from '../../components/ui/CollapsiblePanel.jsx'
+import ExternalSourceCard from '../../components/sections/ExternalSourceCard.jsx'
+import ExternalSourceSupportSection from '../../components/sections/ExternalSourceSupportSection.jsx'
+import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import {
   AccordionSummarySections,
   CautionsList,
@@ -14,7 +16,7 @@ export default function LearnTopicPage({ outlineKey, content }) {
   const outline = subpageOutlines[outlineKey]
   if (!outline) return null
 
-  const er = content.externalReader
+  const ext = content.externalSupport
 
   return (
     <ContentPageLayout
@@ -25,39 +27,19 @@ export default function LearnTopicPage({ outlineKey, content }) {
       <CautionsList items={content.cautions} />
       <NotesList items={content.notes} />
       <AccordionSummarySections sections={content.sections} headingIdPrefix={outlineKey} />
-      {er ? (
-        <CollapsiblePanel
-          title={er.title}
-          icon="↗"
-          defaultOpen={false}
-          className="learn-external-reader-collapsible"
-        >
-          <div
-            className="learn-external-reader learn-external-reader--embedded"
-            id={`${outlineKey}-external-reader`}
+      {ext?.card ? (
+        <>
+          <SectionDivider />
+          <ExternalSourceSupportSection
+            id={ext.id}
+            eyebrow={ext.eyebrow}
+            title={ext.title}
+            subtitle={ext.subtitle}
+            intro={ext.intro}
           >
-            {er.body?.map((p, i) => (
-              <p key={i} className="learn-external-reader__p">
-                {p}
-              </p>
-            ))}
-            <p className="learn-external-reader__label">{er.urlCaption}</p>
-            <p className="learn-external-reader__url">
-              <a
-                href={er.href}
-                className="learn-external-reader__link text-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {er.linkLabel}
-                <span className="learn-external-reader__sr"> (opens in new tab)</span>
-              </a>
-            </p>
-            <p className="learn-external-reader__raw-url">
-              <code>{er.href}</code>
-            </p>
-          </div>
-        </CollapsiblePanel>
+            <ExternalSourceCard {...ext.card} />
+          </ExternalSourceSupportSection>
+        </>
       ) : null}
     </ContentPageLayout>
   )

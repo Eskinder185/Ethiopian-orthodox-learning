@@ -3,8 +3,8 @@
  */
 export const languageNarratives = {
   home: {
-    title: 'Language',
-    eyebrow: 'Words for worship & witness',
+    title: 'Language & pronunciation',
+    eyebrow: 'Practice · words for worship',
     intro:
       'Amharic and Ge‘ez draw you closer to prayers, hymns, and Scripture as Ethiopian Orthodox Christians have sung and read them for generations. Learn at a humble pace — to recognize, write, and hear — the way many first meet the letters in parish life and Fidel school.',
     purpose:

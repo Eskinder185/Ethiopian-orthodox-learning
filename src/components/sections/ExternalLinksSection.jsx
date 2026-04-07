@@ -1,11 +1,7 @@
 import '../../styles/ContentComponents.css'
 import ExternalResourceCard from './ExternalResourceCard.jsx'
 import { placeholderCopy } from '../../data/uiCopy.js'
-
-export function hasValidExternalLinks(links) {
-  if (!links?.length) return false
-  return links.some((l) => l?.href && (l.resourceTitle || l.label))
-}
+import { hasValidExternalLinks } from '../../utils/externalLinks.js'
 
 /**
  * Curated outbound resources. Renders nothing when there are no valid links.

@@ -1,9 +1,9 @@
 /**
- * Learn · Church knowledge — orientation to Ethiopian Orthodox history, culture, and life today.
+ * Learn · Church Life & History — orientation to Ethiopian Orthodox history, culture, and life today.
  */
 
-export const churchKnowledgeTopicContent = {
-  title: 'Church knowledge',
+export const churchLifeHistoryTopicContent = {
+  title: 'Church Life & History',
   intro:
     'The Ethiopian Orthodox Tewahedo Church is one of the world’s oldest Christian communities and belongs to the Oriental Orthodox family of churches. The word Tewahedo refers to the Church’s Christological confession of unity in Christ, and this identity places it within the non-Chalcedonian Oriental Orthodox tradition alongside churches such as the Coptic, Armenian, and Syriac Orthodox Churches.',
 

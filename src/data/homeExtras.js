@@ -1,4 +1,4 @@
 /**
- * Home page lists — editorial copy lives in src/content/homeContent.js
+ * Home page structural lists — copy strings live in i18n (`home.*`).
  */
-export { homeQuickSections, homeFeaturedPractice } from '../content/homeContent.js'
+export { homeQuickLinksConfig, homeFeaturedPracticeConfig } from '../content/homeContent.js'

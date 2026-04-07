@@ -3,12 +3,12 @@
  */
 export const aboutContent = {
   title: 'About',
-  eyebrow: 'Orthodox Learning',
+  eyebrow: 'OrthodoxPath',
 
   purpose: {
     title: 'Purpose',
     paragraphs: [
-      'Orthodox Learning is a companion site for Ethiopian Orthodox Christians and inquirers who want to grow in prayer, hymnody, liturgy, language, and awareness of the church year. It offers guided routines and clear summaries so you can practice with structure while full texts and recordings remain on the books, publishers, and church sites that provide them.',
+      'OrthodoxPath is a companion site for Ethiopian Orthodox Christians and inquirers who want to grow in prayer, hymnody, liturgy, language, and awareness of the church year. It offers guided routines and clear summaries so you can practice with structure while full texts and recordings remain on the books, publishers, and church sites that provide them.',
       'The platform emphasizes respectful learning: short on-site explanations, step-by-step practice flows, and links to trusted external resources—not a substitute for your parish, priest, or the living tradition of the Church.',
     ],
   },
@@ -17,7 +17,7 @@ export const aboutContent = {
     title: 'What you will find here',
     items: [
       {
-        label: 'Prayer practice (Tselot)',
+        label: 'Prayer practice',
         text: 'Habits and flow for daily prayer, including orientation around morning prayer (Zeweter), with texts used from sources your community approves.',
       },
       {
@@ -29,8 +29,8 @@ export const aboutContent = {
         text: 'Orientation to the Divine Liturgy (Qidase) between Sundays—understanding parts and responses without hosting full service books here.',
       },
       {
-        label: 'Language support',
-        text: 'Amharic Fidel, writing, and pronunciation practice framed for church reading and hymnody, alongside external charts and lessons.',
+        label: 'Language & pronunciation',
+        text: 'Under Practice: Amharic Fidel, writing, and pronunciation framed for church reading and hymnody, alongside external charts and lessons.',
       },
       {
         label: 'Calendar awareness',
@@ -76,7 +76,7 @@ export const aboutContent = {
   future: {
     title: 'Future plans',
     intro:
-      'The direction of Orthodox Learning is deliberate: deepen what helps people pray and learn without cluttering the experience. Planned work includes:',
+      'The direction of OrthodoxPath is deliberate: deepen what helps people pray and learn without cluttering the experience. Planned work includes:',
     items: [
       'Improved practice tools—clearer flows and optional local habits that respect privacy.',
       'Richer learning guides—more topic summaries and curated reading paths, still copyright-aware.',

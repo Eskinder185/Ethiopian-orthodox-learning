@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import '../styles/ContentComponents.css'
 import './AboutPage.css'
 import PageHeader from '../components/sections/PageHeader.jsx'
@@ -9,15 +10,16 @@ import CollapsiblePanel from '../components/ui/CollapsiblePanel.jsx'
 import { aboutContent } from '../content/aboutContent.js'
 
 export default function AboutPage() {
+  const { t } = useTranslation('common')
   const c = aboutContent
 
   return (
     <article className="content-page about-page">
-      <PageHeader title={c.title} eyebrow={c.eyebrow} compact />
+      <PageHeader title={t('about.title')} eyebrow={t('about.eyebrow')} compact />
 
       <section aria-labelledby="about-purpose-heading">
-        <SectionTitle id="about-purpose-heading" title={c.purpose.title} />
-        <ExpandableText lines={3} className="about-page__purpose-expand" moreLabel="Read more">
+        <SectionTitle id="about-purpose-heading" title={t('about.purposeTitle')} />
+        <ExpandableText lines={3} className="about-page__purpose-expand" moreLabel={t('about.readMore')}>
           <div className="about-page__purpose-inner">
             {c.purpose.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
@@ -29,7 +31,7 @@ export default function AboutPage() {
       <SectionDivider />
 
       <CollapsiblePanel
-        title={c.scope.title}
+        title={t('about.scopeTitle')}
         icon="◇"
         defaultOpen={false}
         className="about-page__collapsible"
@@ -47,7 +49,7 @@ export default function AboutPage() {
       <SectionDivider />
 
       <section aria-labelledby="about-faq-heading">
-        <SectionTitle id="about-faq-heading" title={c.faq.title} />
+        <SectionTitle id="about-faq-heading" title={t('about.faqTitle')} />
         <div className="about-page__faq">
           {c.faq.items.map((item) => (
             <details key={item.q} className="about-page__faq-item">
@@ -61,7 +63,7 @@ export default function AboutPage() {
       <SectionDivider />
 
       <CollapsiblePanel
-        title={c.future.title}
+        title={t('about.futureTitle')}
         icon="✧"
         defaultOpen={false}
         className="about-page__collapsible"

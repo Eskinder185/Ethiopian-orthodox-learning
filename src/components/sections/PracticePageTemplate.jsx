@@ -4,9 +4,8 @@ import SectionDivider from './SectionDivider.jsx'
 import InfoBlock from './InfoBlock.jsx'
 import InfoBanner from './InfoBanner.jsx'
 import PracticeFlowSteps from './PracticeFlowSteps.jsx'
-import ExternalLinksSection, {
-  hasValidExternalLinks,
-} from './ExternalLinksSection.jsx'
+import ExternalLinksSection from './ExternalLinksSection.jsx'
+import { hasValidExternalLinks } from '../../utils/externalLinks.js'
 import TopicAccordion from '../ui/TopicAccordion.jsx'
 import CollapsiblePanel from '../ui/CollapsiblePanel.jsx'
 import PageJumpNav from '../ui/PageJumpNav.jsx'
@@ -28,6 +27,7 @@ export default function PracticePageTemplate({
   supplement = null,
   afterExternalLinks = null,
   articleClassName = '',
+  beforeOrientation = null,
 }) {
   if (!config) return null
 
@@ -78,6 +78,8 @@ export default function PracticePageTemplate({
       <div className="practice-page__columns">
         <div className="practice-page__primary">
           <PageHeader category={category} title={title} intro={headerIntro} compact />
+
+          {beforeOrientation}
 
           {orientationAccordion?.length ? (
             <div id="practice-orientation">
