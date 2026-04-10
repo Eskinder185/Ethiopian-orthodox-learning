@@ -55,11 +55,9 @@
 /* Elevated panels: main tools only */
 .mezmur-panel--elevated {
   background: var(--card-bg);
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-lg);
-  box-shadow:
-    0 1px 3px var(--shadow-soft),
-    0 12px 40px -18px rgba(30, 58, 95, 0.12);
+  box-shadow: var(--shadow-card);
   padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.2rem, 2.5vw, 1.85rem);
   min-width: 0;
 }
@@ -150,9 +148,9 @@
   min-width: 0;
   padding: 0.65rem 0.9rem;
   font-size: 0.95rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-sm);
-  background: var(--surface);
+  background: var(--card-bg-elevated);
   color: var(--text-heading);
 }
 
@@ -175,12 +173,6 @@
   background: var(--accent-subtle);
   border: 1px solid var(--accent-muted);
   border-radius: var(--radius-sm);
-}
-
-@media (prefers-color-scheme: dark) {
-  .mezmur-workspace__error {
-    color: var(--gold-bright);
-  }
 }
 
 .mezmur-video-stage {
@@ -218,8 +210,8 @@
   padding: clamp(2rem, 6vw, 3.5rem) clamp(1.25rem, 4vw, 2rem);
   text-align: center;
   border-radius: var(--radius-md);
-  border: 1px dashed var(--border);
-  background: linear-gradient(180deg, var(--surface) 0%, var(--cream) 100%);
+  border: 1px dashed var(--card-border, var(--border));
+  background: var(--card-bg-elevated);
   min-height: clamp(10rem, 28vw, 16rem);
   display: flex;
   align-items: center;
@@ -229,7 +221,7 @@
 .mezmur-video-empty p {
   margin: 0;
   font-size: var(--type-lead);
-  line-height: 1.6;
+  line-height: 1.62;
   color: var(--text-muted);
   max-width: 22rem;
 }
@@ -242,11 +234,12 @@
 .mezmur-controls--compact {
   padding: 1rem 1.15rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, var(--surface) 0%, var(--card-bg) 100%);
+  border: 1px solid var(--card-border, var(--border));
+  background: var(--card-bg-elevated);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  box-shadow: 0 2px 12px var(--shadow-soft);
 }
 
 .mezmur-controls__primary {
@@ -348,9 +341,9 @@
   padding: 0.5rem 0.65rem;
   font-size: 0.92rem;
   font-family: inherit;
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-sm);
-  background: var(--surface);
+  background: var(--card-bg-elevated);
   color: var(--text-heading);
 }
 
@@ -379,11 +372,11 @@
   max-height: 50vh;
   padding: 0.85rem 1rem;
   font-size: 1.02rem;
-  line-height: 1.6;
+  line-height: 1.62;
   font-family: inherit;
   color: var(--text-heading);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--card-bg-elevated);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-sm);
   resize: vertical;
   box-sizing: border-box;
@@ -411,9 +404,9 @@
 .mezmur-editor__notes-details {
   margin: 0.5rem 0 0.85rem;
   border-radius: var(--radius-sm);
-  border: 1px dashed var(--border);
+  border: 1px dashed var(--card-border, var(--border));
   padding: 0.5rem 0.85rem;
-  background: var(--surface);
+  background: var(--card-bg-elevated);
 }
 
 .mezmur-editor__notes-details summary {
@@ -522,8 +515,8 @@
   max-width: 20rem;
   padding: 0.65rem 0.85rem;
   border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  background: var(--surface);
+  border: 1px solid var(--card-border, var(--border));
+  background: var(--card-bg-elevated);
   cursor: pointer;
   font: inherit;
   color: inherit;
@@ -531,7 +524,7 @@
     border-color 0.18s ease,
     background 0.18s ease,
     box-shadow 0.18s ease;
-  box-shadow: 0 1px 2px var(--shadow-soft);
+  box-shadow: 0 1px 3px var(--shadow-soft);
 }
 
 .mezmur-part-chip:hover {
@@ -560,7 +553,8 @@
 .mezmur-part-chip__range {
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
-  color: var(--text-muted);
+  color: var(--text-secondary-dark);
+  opacity: 0.95;
 }
 
 .mezmur-part-chip__preview {
@@ -580,9 +574,9 @@
   width: 2.15rem;
   min-height: 2.15rem;
   padding: 0;
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-sm);
-  background: var(--surface);
+  background: var(--card-bg);
   color: var(--text-muted);
   font-size: 1.15rem;
   line-height: 1;
@@ -615,9 +609,9 @@
 .mezmur-memo {
   padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.2rem, 3vw, 1.65rem);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background: linear-gradient(175deg, var(--surface) 0%, rgba(250, 246, 238, 0.65) 100%);
-  box-shadow: 0 1px 4px var(--shadow-soft);
+  border: 1px solid var(--card-border, var(--border));
+  background: var(--card-bg);
+  box-shadow: var(--shadow-card);
 }
 
 .mezmur-memo__title {
@@ -642,9 +636,9 @@
   font-size: 0.86rem;
   font-weight: 600;
   font-family: var(--sans);
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-pill);
-  background: var(--card-bg);
+  background: var(--card-bg-elevated);
   color: var(--text-muted);
   cursor: pointer;
   transition:
@@ -692,7 +686,7 @@
 .mezmur-memo__lead,
 .mezmur-memo__p {
   font-size: 0.92rem;
-  line-height: 1.62;
+  line-height: 1.65;
   color: var(--text-muted);
   margin: 0 0 0.6rem;
 }
@@ -731,9 +725,9 @@
 
 .mezmur-collapse {
   border-radius: var(--radius-md);
-  border: 1px dashed var(--border);
+  border: 1px dashed var(--card-border, var(--border));
   padding: 0.55rem 1rem 1rem;
-  background: var(--surface);
+  background: var(--card-bg-elevated);
 }
 
 .mezmur-collapse summary {
@@ -801,8 +795,8 @@
 
 .mezmur-btn--ghost {
   color: var(--text-heading);
-  background: var(--surface);
-  border-color: var(--border);
+  background: var(--card-bg-elevated);
+  border-color: var(--card-border, var(--border));
 }
 
 .mezmur-btn--ghost:hover {
@@ -811,13 +805,13 @@
 }
 
 .mezmur-btn--primary {
-  color: #fffcf7;
-  background: linear-gradient(180deg, var(--accent-hover) 0%, var(--accent-deep) 100%);
-  border-color: rgba(212, 166, 60, 0.45);
+  color: var(--text-primary-light);
+  background: linear-gradient(180deg, var(--accent-gold-soft) 0%, var(--accent-gold) 100%);
+  border-color: rgba(13, 19, 33, 0.35);
 }
 
 .mezmur-btn--primary:hover {
-  background: linear-gradient(180deg, var(--accent-highlight) 0%, var(--accent-hover) 100%);
+  filter: brightness(1.04);
   border-color: var(--gold-bright);
 }
 
@@ -837,28 +831,12 @@
   box-shadow: inset 0 0 0 1px var(--accent-muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  .mezmur-btn--primary {
-    color: #0f172a;
-    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 100%);
-    border-color: rgba(15, 23, 42, 0.35);
-  }
-
-  .mezmur-btn--primary:hover {
-    filter: brightness(1.05);
-  }
-
-  .mezmur-memo {
-    background: linear-gradient(175deg, var(--surface) 0%, var(--card-bg) 100%);
-  }
-}
-
 .mezmur-workspace__code {
   font-size: 0.82em;
   padding: 0.1em 0.35em;
   border-radius: 4px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--card-bg-elevated);
+  border: 1px solid var(--card-border, var(--border));
 }
 
 .mezmur-lyrics-area {

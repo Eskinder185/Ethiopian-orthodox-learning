@@ -67,15 +67,17 @@
 }
 
 .content-accordion__item {
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-md);
   background: var(--card-bg);
-  box-shadow: 0 1px 6px var(--shadow-soft);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
 }
 
 .content-accordion__item[open] {
-  box-shadow: 0 2px 12px var(--shadow-soft);
+  box-shadow:
+    0 6px 22px var(--shadow-soft),
+    0 0 0 1px var(--accent-muted);
   border-color: var(--accent-muted);
 }
 
@@ -139,8 +141,8 @@
 
 .content-accordion__body {
   padding: 0 1.15rem 1.15rem;
-  border-top: 1px solid var(--border);
-  background: linear-gradient(180deg, var(--surface) 0%, var(--card-bg) 100%);
+  border-top: 1px solid var(--card-border, var(--border));
+  background: var(--card-bg-elevated);
 }
 
 .content-accordion__body p {
@@ -156,11 +158,11 @@
 
 /* —— Collapsible panel (details, softer header) —— */
 .collapsible-panel {
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border, var(--border));
   border-radius: var(--radius-md);
   background: var(--card-bg);
   margin-bottom: var(--space-md);
-  box-shadow: 0 1px 6px var(--shadow-soft);
+  box-shadow: var(--shadow-card);
 }
 
 .collapsible-panel__summary {

@@ -1,0 +1,836 @@
+/* Scripture — guided introduction to Holy Scripture */
+
+.scripture-page {
+  --scr-gold: rgba(212, 166, 60, 0.85);
+  --scr-line: rgba(212, 166, 60, 0.22);
+
+  max-width: min(56rem, 100% - 1.5rem);
+  margin: 0 auto;
+  padding: 0 max(0.5rem, env(safe-area-inset-left)) clamp(2rem, 5vw, 3.25rem)
+    max(0.5rem, env(safe-area-inset-right));
+}
+
+.scripture-page [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scripture-page [data-reveal][data-reveal-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scripture-page [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .scripture__book-card:hover,
+  .scripture__path-card:hover,
+  .scripture__life-card:hover,
+  .scripture__plan-card:hover,
+  .scripture__external-card:hover,
+  .scripture__cross-card:hover {
+    transform: none;
+  }
+}
+
+/* Breadcrumb */
+.scripture__bc {
+  margin-bottom: 1.25rem;
+}
+
+.scripture__bc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+}
+
+.scripture__bc a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.scripture__bc a:hover {
+  text-decoration: underline;
+}
+
+.scripture__bc li[aria-current='page'] {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Hero */
+.scripture__hero {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.scripture__hero-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .scripture__hero-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  }
+}
+
+.scripture__hero-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.scripture__hero-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--heading);
+  font-size: clamp(1.85rem, 1.35vw + 1.45rem, 2.35rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+}
+
+.scripture__hero-intro {
+  margin: 0 0 1.15rem;
+  font-size: 1.05rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+  max-width: 38rem;
+}
+
+.scripture__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.scripture__hero-btn {
+  min-height: 2.65rem;
+  padding-left: 1.15rem;
+  padding-right: 1.15rem;
+}
+
+.scripture__hero-art {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(212, 166, 60, 0.18);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 14px 44px var(--shadow-soft);
+}
+
+.scripture__hero-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.scripture__hero-slot {
+  width: 100%;
+  aspect-ratio: 360 / 220;
+}
+
+.scripture__rule {
+  border: none;
+  height: 1px;
+  margin: clamp(1.75rem, 3.5vw, 2.35rem) 0;
+  background: linear-gradient(90deg, transparent, var(--scr-line), transparent);
+}
+
+/* Section heads */
+.scripture__section {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.scripture__section-head {
+  margin-bottom: clamp(1.15rem, 2.5vw, 1.55rem);
+}
+
+.scripture__section-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading);
+  font-size: clamp(1.32rem, 0.5vw + 1.12rem, 1.55rem);
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+.scripture__section-lead {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 42rem;
+}
+
+#scripture-bible-structure,
+#scripture-reading-paths {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Bible structure — details */
+.scripture__structure-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scripture__structure-details {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px var(--shadow-soft);
+  overflow: hidden;
+}
+
+.scripture__structure-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  padding: 1rem 1.05rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scripture__structure-summary::-webkit-details-marker {
+  display: none;
+}
+
+.scripture__structure-summary::after {
+  content: '';
+  margin-left: auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.scripture__structure-details[open] .scripture__structure-summary::after {
+  transform: rotate(-135deg);
+  margin-top: 0.2rem;
+}
+
+.scripture__structure-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(212, 166, 60, 0.12);
+  border: 1px solid rgba(212, 166, 60, 0.22);
+  color: var(--accent);
+}
+
+.scripture__structure-summary-title {
+  font-family: var(--heading);
+  font-size: 1.05rem;
+}
+
+.scripture__structure-body {
+  padding: 0 1.05rem 1.1rem;
+  border-top: 1px solid rgba(212, 166, 60, 0.12);
+}
+
+.scripture__structure-p {
+  margin: 0 0 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.scripture__structure-p strong {
+  color: var(--text-heading);
+}
+
+.scripture__structure-note {
+  margin: 0.65rem 0 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  background: rgba(212, 166, 60, 0.06);
+  border: 1px solid rgba(212, 166, 60, 0.14);
+}
+
+.scripture__structure-note strong {
+  color: var(--text-heading);
+}
+
+/* Book cards */
+.scripture__book-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .scripture__book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .scripture__book-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.scripture__book-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1rem 1.15rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, rgba(212, 166, 60, 0.06) 0%, var(--card-bg) 45%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 6px 24px var(--shadow-soft);
+  transition:
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.scripture__book-card:hover {
+  border-color: rgba(212, 166, 60, 0.28);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px var(--shadow-soft);
+}
+
+.scripture__book-tag {
+  align-self: flex-start;
+  margin-bottom: 0.55rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.scripture__book-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scripture__book-summary {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.52;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.scripture__book-theme {
+  margin: 0 0 0.75rem;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+.scripture__book-theme strong {
+  color: var(--text-heading);
+}
+
+.scripture__book-link {
+  margin-top: auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.scripture__book-link:hover {
+  text-decoration: underline;
+}
+
+/* Reading paths */
+.scripture__path-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 820px) {
+  .scripture__path-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.scripture__path-card {
+  height: 100%;
+  padding: 1.1rem 1rem 1.15rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(30, 58, 95, 0.12);
+  background: var(--card-bg);
+  box-shadow: 0 4px 22px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.scripture__path-card:hover {
+  border-color: rgba(212, 166, 60, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px var(--shadow-soft);
+}
+
+.scripture__path-head {
+  margin-bottom: 0.65rem;
+}
+
+.scripture__path-tag {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.scripture__path-title {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scripture__path-desc {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  line-height: 1.52;
+  color: var(--text-muted);
+}
+
+.scripture__path-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.scripture__path-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+}
+
+.scripture__path-num {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: rgba(212, 166, 60, 0.12);
+  border: 1px solid rgba(212, 166, 60, 0.28);
+  flex-shrink: 0;
+}
+
+.scripture__path-step-text {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  padding-top: 0.12rem;
+}
+
+/* Church life */
+.scripture__life-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .scripture__life-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .scripture__life-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.scripture__life-card {
+  height: 100%;
+  padding: 1rem 0.95rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 2px 16px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.scripture__life-card:hover {
+  border-color: rgba(212, 166, 60, 0.26);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--shadow-soft);
+}
+
+.scripture__life-icon {
+  width: 2.65rem;
+  height: 2.65rem;
+  margin-bottom: 0.55rem;
+  color: var(--accent);
+}
+
+.scripture__life-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scripture__life-h {
+  margin: 0 0 0.35rem;
+  font-family: var(--heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scripture__life-blurb {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+/* Reading plans */
+.scripture__plans-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .scripture__plans-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.scripture__plan-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1rem 1.15rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(30, 58, 95, 0.06) 0%, var(--card-bg) 50%);
+  box-shadow: 0 4px 20px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.scripture__plan-card:hover {
+  border-color: rgba(212, 166, 60, 0.22);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--shadow-soft);
+}
+
+.scripture__plan-top {
+  margin-bottom: 0.55rem;
+}
+
+.scripture__plan-tag {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.scripture__plan-title {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scripture__plan-desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.scripture__plan-bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+.scripture__plan-bullets li {
+  margin-bottom: 0.35rem;
+}
+
+.scripture__plan-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+/* Glossary */
+.scripture__glossary-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scripture__glossary-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.scripture__glossary-chip {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-heading);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.scripture__glossary-chip:hover {
+  border-color: rgba(212, 166, 60, 0.35);
+}
+
+.scripture__glossary-chip--active {
+  border-color: rgba(212, 166, 60, 0.55);
+  background: rgba(212, 166, 60, 0.12);
+  color: var(--accent);
+}
+
+.scripture__glossary-panel {
+  padding: 1rem 1.05rem 1.1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.16);
+  background: rgba(212, 166, 60, 0.04);
+}
+
+.scripture__glossary-term-title {
+  margin: 0 0 0.45rem;
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scripture__glossary-def {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* External */
+.scripture__external-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scripture__external-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.05rem 1.05rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 18px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.scripture__external-card:hover {
+  border-color: rgba(212, 166, 60, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--shadow-soft);
+}
+
+.scripture__external-label {
+  font-family: var(--heading);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.scripture__external-note {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.scripture__external-cta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+/* Crosslinks */
+.scripture__cross-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 520px) {
+  .scripture__cross-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .scripture__cross-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.scripture__cross-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 0.95rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 14px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.scripture__cross-card:hover {
+  border-color: rgba(212, 166, 60, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px var(--shadow-soft);
+}
+
+.scripture__cross-title {
+  font-family: var(--heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.35rem;
+}
+
+.scripture__cross-blurb {
+  font-size: 0.8rem;
+  line-height: 1.42;
+  color: var(--text-muted);
+  flex: 1;
+  margin-bottom: 0.45rem;
+}
+
+.scripture__cross-cta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Footer */
+.scripture__footer {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(212, 166, 60, 0.14);
+  background: rgba(212, 166, 60, 0.05);
+}
+
+.scripture__footer p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}

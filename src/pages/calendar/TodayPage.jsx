@@ -1,14 +1,15 @@
+import { useMemo, useState } from 'react'
 import '../../styles/ContentComponents.css'
-import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
 import InfoBlock from '../../components/sections/InfoBlock.jsx'
-import CalendarDateCard from '../../components/calendar/CalendarDateCard.jsx'
 import WeekdayThemeCard from '../../components/calendar/WeekdayThemeCard.jsx'
 import FastingStatusCard from '../../components/calendar/FastingStatusCard.jsx'
-import FeastCard from '../../components/calendar/FeastCard.jsx'
-import { todayPage } from '../../data/calendarPages.js'
+import CalendarHero from '../../components/calendar/dashboard/CalendarHero.jsx'
+import UpcomingTimeline from '../../components/calendar/dashboard/UpcomingTimeline.jsx'
+import HolyFiguresSection from '../../components/calendar/dashboard/HolyFiguresSection.jsx'
+import FeastDetailDrawer from '../../components/calendar/dashboard/FeastDetailDrawer.jsx'
 import { CALENDAR_INTRO } from '../../data/calendarData.js'
 import {
   getLiturgicalDayState,
@@ -18,30 +19,27 @@ import {
 } from '../../utils/liturgicalCalendar.js'
 import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
+import '../../components/calendar/dashboard/CalendarDashboard.css'
+import '../../components/calendar/dashboard/calendarVisualMotion.css'
 
 export default function TodayPage() {
-  const now = new Date()
-  const s = getLiturgicalDayState(now)
-  const upcoming = getUpcomingFixedFeasts(now, 6)
-  const week = getThisWeekSummaries(now)
-
-  const { category, title, intro } = todayPage
+  const [now] = useState(() => new Date())
+  const s = useMemo(() => getLiturgicalDayState(now), [now])
+  const upcoming = useMemo(() => getUpcomingFixedFeasts(now, 6), [now])
+  const week = useMemo(() => getThisWeekSummaries(now), [now])
+  const [detailPayload, setDetailPayload] = useState(null)
 
   return (
-    <article className="content-page calendar-page calendar-page--today">
-      <PageHeader category={category} title={title} intro={intro} compact />
+    <article className="content-page calendar-page calendar-page--today calendar-dashboard">
+      <div className="calendar-page__today-hero">
+        <CalendarHero state={s} now={now} embedOnTodayPage />
+      </div>
 
       <StatusBox tone="calm" className="practice-page__notice">
         {CALENDAR_INTRO.homeGregorianNote}
       </StatusBox>
 
       <div className="cal-today__grid cal-today__grid--main">
-        <CalendarDateCard
-          title="Civil & church dates"
-          gregorianFormatted={s.gregorianFormatted}
-          ethiopianFormatted={s.ethiopianFormatted}
-          ethiopianYear={s.ethiopianYear}
-        />
         <WeekdayThemeCard
           weekdayEnglish={s.weekdayEnglish}
           weekdayGeez={s.weekdayGeez}
@@ -49,15 +47,6 @@ export default function TodayPage() {
           weekdayEthiopianName={s.weekdayEthiopianName}
           themeShort={s.weekdayThemeShort}
         />
-      </div>
-
-      {s.pagumenNote ? (
-        <p className="cal-card__body" style={{ marginTop: '0.75rem' }}>
-          {s.pagumenNote}
-        </p>
-      ) : null}
-
-      <div className="cal-today__spiritual">
         <FastingStatusCard
           primaryFastLabel={s.primaryFastLabel}
           isWeeklyFastDay={s.isWeeklyFastDay}
@@ -66,6 +55,12 @@ export default function TodayPage() {
           activeFastSeasons={s.activeFastSeasons}
         />
       </div>
+
+      {s.pagumenNote ? (
+        <p className="cal-card__body" style={{ marginTop: '0.75rem' }}>
+          {s.pagumenNote}
+        </p>
+      ) : null}
 
       <InfoBlock title="Spirit of the day" variant="soft" className="cal-today__spiritual">
         <p>{s.weekdayThemeMedium}</p>
@@ -77,22 +72,9 @@ export default function TodayPage() {
         ) : null}
       </InfoBlock>
 
-      {s.matchingFeasts.length > 0 ? (
-        <section aria-labelledby="today-feasts-heading">
-          <SectionTitle id="today-feasts-heading" title="Feasts & holy days today" />
-          <div className="cal-feast-grid">
-            {s.matchingFeasts.map((f) => (
-              <FeastCard
-                key={f.id}
-                name={f.name}
-                geezName={f.geezName}
-                significance={f.significance}
-                moveable={f.moveable}
-              />
-            ))}
-          </div>
-        </section>
-      ) : null}
+      <HolyFiguresSection state={s} onOpenDetail={(d) => setDetailPayload(d)} />
+
+      <UpcomingTimeline now={now} onOpenDetail={setDetailPayload} />
 
       <SectionDivider />
 
@@ -165,6 +147,15 @@ export default function TodayPage() {
       <SectionDivider />
 
       <p className="cal-card__body">{CALENDAR_INTRO.todayFooter}</p>
+
+      {detailPayload ? (
+        <FeastDetailDrawer
+          key={detailPayload.title}
+          open
+          detail={detailPayload}
+          onClose={() => setDetailPayload(null)}
+        />
+      ) : null}
     </article>
   )
 }

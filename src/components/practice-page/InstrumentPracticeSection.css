@@ -1,0 +1,109 @@
+/* Instrument section layout refinements */
+
+.inst-vis--premium {
+  padding: clamp(1.2rem, 2.5vw, 1.55rem) clamp(1rem, 2vw, 1.3rem) clamp(1.25rem, 2.5vw, 1.6rem);
+}
+
+.inst-vis__pillar {
+  margin-bottom: clamp(1.35rem, 2.5vw, 1.75rem);
+  padding-bottom: clamp(1.15rem, 2vw, 1.35rem);
+  border-bottom: 1px solid rgba(212, 166, 60, 0.12);
+}
+
+.inst-vis__pillar:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+.inst-vis__pillar-kicker {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.inst-vis__posture-photo {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(212, 166, 60, 0.16);
+  box-shadow: 0 8px 26px var(--shadow-soft);
+}
+
+.inst-vis__posture-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 14rem;
+}
+
+.inst-vis__intro {
+  margin-bottom: 0;
+}
+
+.inst-vis__video-panel {
+  margin-bottom: 1rem;
+}
+
+.inst-vis__video-slot {
+  min-height: 8rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(212, 166, 60, 0.16);
+}
+
+.inst-vis__grid--demos {
+  margin-bottom: 1.25rem;
+}
+
+.inst-vis__posture-card {
+  padding: 1rem 1rem 1.15rem;
+  margin-bottom: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.16);
+  background: var(--card-bg);
+  box-shadow: 0 8px 26px var(--shadow-soft);
+}
+
+.inst-vis__diagram--large {
+  height: 6rem;
+  margin-bottom: 0.75rem;
+}
+
+.inst-vis__rhythm-list {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .inst-vis__rhythm-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.inst-vis__rhythm-card {
+  padding: 0.85rem 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.inst-vis__diagram--sm {
+  height: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.inst-vis__rhythm-h {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}

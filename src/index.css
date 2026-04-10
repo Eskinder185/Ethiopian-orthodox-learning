@@ -1,50 +1,8 @@
-/* Ethiopian Orthodox–inspired learning: ivory parchment, royal blue, restrained gold, calm serif/sans */
+@import './styles/orthodox-themes.css';
+
+/* Typography, spacing, and rhythm — colors live in orthodox-themes.css (data-theme) */
 
 :root {
-  /* Sacred palette: cream ground, deep blue accent, gold highlights */
-  --text-heading: #1f2937;
-  --text-muted: #4b5563;
-  --text-soft: #6b7280;
-  --bg-base: #faf6ee;
-  --bg: #faf6ee;
-  --surface: #fffdf8;
-  --card-bg: #fffdf8;
-  --cream: #f5f1e8;
-  --border: #e8dcc7;
-  --border-strong: #d4c9b4;
-  --code-bg: #f0ebe3;
-
-  --accent: #1e3a5f;
-  --accent-hover: #274a76;
-  --accent-highlight: #2f5582;
-  --accent-deep: #152a45;
-  --accent-subtle: rgba(30, 58, 95, 0.08);
-  --accent-muted: rgba(30, 58, 95, 0.32);
-
-  /* Optional secondary — muted sage for calm callouts */
-  --accent-green: #4a6b5c;
-  --accent-green-subtle: rgba(74, 107, 92, 0.1);
-
-  --gold: #d4a63c;
-  --gold-bright: #e0b84a;
-  --gold-soft: rgba(212, 166, 60, 0.2);
-  --shadow-soft: rgba(30, 41, 59, 0.06);
-  --shadow-ink: rgba(30, 41, 59, 0.12);
-
-  /* Sacred hero (home + optional callouts) — night blue, warm type */
-  --hero-bg-deep: #0f1f35;
-  --hero-bg-mid: #1a3252;
-  --hero-bg-ink: #0a1528;
-  --hero-text: #faf6ee;
-  --hero-text-muted: rgba(250, 246, 238, 0.88);
-  --hero-gold: #e4c968;
-  --hero-gold-soft: rgba(228, 201, 104, 0.35);
-  --hero-border: rgba(212, 166, 60, 0.25);
-
-  /* Subtle Ethiopian cross — soft blue-umber on ivory */
-  --bg-cross-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 112 112'%3E%3Cg fill='none' stroke='%234a6078' stroke-width='0.35' opacity='0.08'%3E%3Ccircle cx='56' cy='56' r='20'/%3E%3Cpath d='M56 14v84M14 56h84'/%3E%3Ccircle cx='56' cy='14' r='2.5'/%3E%3Ccircle cx='56' cy='98' r='2.5'/%3E%3Ccircle cx='14' cy='56' r='2.5'/%3E%3Ccircle cx='98' cy='56' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
-
-  /* Layout & rhythm */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -57,18 +15,15 @@
   --space-2xl: 3.25rem;
   --space-section: 3rem;
   --max-content: min(52rem, 100% - 2.5rem);
-  --shadow-card: 0 2px 14px var(--shadow-soft);
 
   --sans: 'Lato', 'Segoe UI', system-ui, sans-serif;
   --heading: 'Cormorant Garamond', 'Palatino Linotype', Palatino, Georgia, serif;
   --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
 
-  /* Typography scale — H1 strongest; H2/H3 clearly stepped; body 17–19px */
   --type-h1: clamp(1.875rem, 2.35vw + 1.15rem, 3.5rem);
   --type-h1-compact: clamp(1.75rem, 1.85vw + 1.05rem, 2.75rem);
   --type-h2: clamp(2rem, 1.35vw + 1.05rem, 2.5rem);
   --type-h3: clamp(1.5rem, 0.7vw + 0.92rem, 1.75rem);
-  /* Card / tile titles — clearly below H3 */
   --type-card-title: clamp(1.125rem, 0.45vw + 0.95rem, 1.3125rem);
   --type-lead: clamp(1.0625rem, 0.25vw + 0.98rem, 1.1875rem);
   --type-small: clamp(0.9375rem, 0.15vw + 0.88rem, 1rem);
@@ -83,7 +38,6 @@
   line-height: var(--line-body);
   font-family: var(--sans);
   letter-spacing: 0.01em;
-  color-scheme: light;
   color: var(--text-muted);
   background: var(--bg);
   font-synthesis: none;
@@ -104,81 +58,10 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --text-heading: #f4f1ea;
-    --text-muted: #c8c4bc;
-    --text-soft: #9ca3af;
-    --bg-base: #0c1219;
-    --bg: #121a24;
-    --surface: #1a2433;
-    --card-bg: #1f2b3d;
-    --cream: #243044;
-    --border: #2d3b50;
-    --border-strong: #3d4f66;
-    --code-bg: #1a2433;
-
-    --accent: #8eb4e0;
-    --accent-hover: #a8c8ed;
-    --accent-highlight: #b8d4f5;
-    --accent-deep: #6b9ad4;
-    --accent-subtle: rgba(142, 180, 224, 0.12);
-    --accent-muted: rgba(142, 180, 224, 0.38);
-
-    --accent-green: #7aab95;
-    --accent-green-subtle: rgba(122, 171, 149, 0.12);
-
-    --gold: #d4a63c;
-    --gold-bright: #e6c35a;
-    --gold-soft: rgba(212, 166, 60, 0.18);
-    --shadow-soft: rgba(0, 0, 0, 0.25);
-    --shadow-ink: rgba(0, 0, 0, 0.4);
-
-    --hero-bg-deep: #070d14;
-    --hero-bg-mid: #0f1a28;
-    --hero-bg-ink: #050a10;
-    --hero-text: #faf6ee;
-    --hero-text-muted: rgba(250, 246, 238, 0.85);
-    --hero-gold: #e4c968;
-    --hero-gold-soft: rgba(228, 201, 104, 0.28);
-    --hero-border: rgba(212, 166, 60, 0.2);
-
-    --bg-cross-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 112 112'%3E%3Cg fill='none' stroke='%238eb4e0' stroke-width='0.35' opacity='0.06'%3E%3Ccircle cx='56' cy='56' r='20'/%3E%3Cpath d='M56 14v84M14 56h84'/%3E%3Ccircle cx='56' cy='14' r='2.5'/%3E%3Ccircle cx='56' cy='98' r='2.5'/%3E%3Ccircle cx='14' cy='56' r='2.5'/%3E%3Ccircle cx='98' cy='56' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
-  }
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-height: 100%;
-  overflow-x: hidden;
-  background-color: var(--bg-base);
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(255, 253, 248, 0.96) 0%,
-      rgba(250, 246, 238, 0.99) 48%,
-      #faf6ee 100%
-    ),
-    radial-gradient(ellipse 100% 70% at 50% -15%, rgba(212, 166, 60, 0.05), transparent 55%),
-    var(--bg-cross-pattern);
-  background-size: auto, auto, 112px 112px;
-  background-attachment: scroll, scroll, scroll;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-image:
-      linear-gradient(180deg, rgba(18, 26, 36, 0.98) 0%, rgba(12, 18, 25, 0.99) 100%),
-      radial-gradient(ellipse 90% 50% at 50% 0%, rgba(142, 180, 224, 0.05), transparent 50%),
-      var(--bg-cross-pattern);
-  }
 }
 
 #root {

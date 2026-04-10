@@ -1,66 +1,51 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import SectionTitle from '../sections/SectionTitle.jsx'
-import HomeChurchDayCard from './HomeChurchDayCard.jsx'
+import TodayChurchDashboard from './TodayChurchDashboard.jsx'
 import { getHomeChurchDay } from '../../data/homeChurchDay.js'
 import './TodayInTheChurch.css'
 
-const CTA_KEY_PREFIX = 'home.todayInChurch.cta.'
-
-function contextEyebrowKey(type) {
-  if (type === 'season') return 'home.todayInChurch.contextType.season'
-  if (type === 'feast-focus') return 'home.todayInChurch.contextType.feastFocus'
-  return 'home.todayInChurch.contextType.weekly'
-}
-
-export default function TodayInTheChurchSection({ className = '' }) {
+export default function TodayInTheChurchSection({ snapshot, className = '' }) {
   const { t } = useTranslation('common')
   const payload = useMemo(() => getHomeChurchDay(new Date()), [])
+  const rootRef = useRef(null)
+  const [inView, setInView] = useState(false)
 
-  const cta = (key) => t(`${CTA_KEY_PREFIX}${key}`)
+  useEffect(() => {
+    const el = rootRef.current
+    if (!el) return
+    if (typeof IntersectionObserver !== 'function') {
+      setInView(true)
+      return
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setInView(true)
+          io.disconnect()
+        }
+      },
+      { threshold: 0.06, rootMargin: '0px 0px -5% 0px' },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
 
   return (
     <section
-      className={`today-church ${className}`.trim()}
+      ref={rootRef}
+      className={`today-church today-church--band ${inView ? 'today-church--revealed' : ''} ${className}`.trim()}
       aria-labelledby="today-church-heading"
     >
-      <SectionTitle
-        id="today-church-heading"
-        title={t('home.todayInChurch.title')}
-        subtitle={t('home.todayInChurch.subtitle')}
-      />
-      <div className="today-church__grid">
-        <HomeChurchDayCard
-          className="today-church__card today-church__card--today"
-          eyebrow={t('home.todayInChurch.card.today')}
-          title={payload.today.title}
-          description={payload.today.description}
-          href={payload.today.href}
-          ctaLabel={cta(payload.today.ctaKey || 'learnMore')}
-          image={payload.today.image}
-          imageAlt={payload.today.image ? payload.today.title : ''}
-        />
-        <HomeChurchDayCard
-          className="today-church__card today-church__card--context"
-          eyebrow={t(contextEyebrowKey(payload.context.type))}
-          title={payload.context.title}
-          description={payload.context.description}
-          href={payload.context.href}
-          ctaLabel={cta(payload.context.ctaKey || 'learnMore')}
-          image={payload.context.image}
-          imageAlt={payload.context.image ? payload.context.title : ''}
-        />
-        <HomeChurchDayCard
-          className="today-church__card today-church__card--next"
-          eyebrow={t('home.todayInChurch.card.next')}
-          title={payload.next.title}
-          description={payload.next.description}
-          href={payload.next.href}
-          ctaLabel={cta(payload.next.ctaKey || 'prepareFeast')}
-          image={payload.next.image}
-          imageAlt={payload.next.image ? payload.next.title : ''}
-        />
-      </div>
+      <header className="today-church__intro">
+        <p className="today-church__eyebrow">{t('home.todayInChurch.sectionEyebrow')}</p>
+        <h2 id="today-church-heading" className="today-church__title">
+          {t('home.todayInChurch.title')}
+        </h2>
+        <p className="today-church__subtitle">{t('home.todayInChurch.subtitle')}</p>
+      </header>
+      {snapshot ?
+        <TodayChurchDashboard snapshot={snapshot} payload={payload} />
+      : null}
     </section>
   )
 }

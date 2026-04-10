@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, useLocation } from 'react-router-dom'
-import { PORTFOLIO_URL } from '../../constants/externalLinks.js'
 import { paths } from '../../constants/paths.js'
 import LanguageSwitcher from '../LanguageSwitcher.jsx'
+import ThemeSwitcher from '../theme/ThemeSwitcher.jsx'
 
 function NavDropdown({ id, label, links, menuLabel }) {
   const [open, setOpen] = useState(false)
@@ -120,6 +120,7 @@ export default function Navbar() {
         </NavLink>
 
         <div className="site-header__tools">
+          <ThemeSwitcher className="site-header__theme" idSuffix="header" />
           <LanguageSwitcher className="site-header__lang" />
 
           <button
@@ -184,16 +185,6 @@ export default function Navbar() {
                 {t('nav.about')}
               </NavLink>
             </nav>
-
-            <a
-              href={PORTFOLIO_URL}
-              className="site-nav__portfolio site-nav__portfolio--desktop"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t('nav.portfolio')}
-              <span className="site-nav__portfolio-sr">{t('nav.portfolioSr')}</span>
-            </a>
           </div>
         </div>
       </div>
@@ -280,14 +271,6 @@ export default function Navbar() {
             >
               {t('nav.about')}
             </NavLink>
-            <a
-              href={PORTFOLIO_URL}
-              className="site-nav__mobile-link site-nav__mobile-link--external"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t('nav.portfolio')}
-            </a>
           </nav>
         </div>
       ) : null}

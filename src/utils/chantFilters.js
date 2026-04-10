@@ -1,6 +1,7 @@
 /**
  * Filter helpers for chant catalog entries (see data/chants/chants.js).
- * Treats feast (majorHoliday), season, and themes as independent layers.
+ * User-facing filters: form, primary, major holiday, saint, usage.
+ * Season, themes, and confidence remain on entries for search/detail/suggestions only — not applied here.
  */
 
 /** @param {unknown} v */
@@ -132,10 +133,7 @@ export function applyChantFilters(entries, f) {
   list = filterByForm(list, s.form ?? 'all')
   list = filterByPrimary(list, s.primary ?? 'all')
   list = filterByMajorHoliday(list, s.majorHoliday ?? 'all')
-  list = filterBySeason(list, s.season ?? 'all')
-  list = filterByTheme(list, s.theme ?? 'all')
   list = filterBySaint(list, s.saint ?? 'all')
   list = filterByUsage(list, s.usage ?? 'all')
-  list = filterByConfidence(list, s.confidence ?? 'all')
   return list
 }

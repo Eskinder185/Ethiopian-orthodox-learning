@@ -1,0 +1,16 @@
+/* Shared practice page section shells — spacing & rhythm */
+
+.pp-section {
+  scroll-margin-top: 5.5rem;
+}
+
+.pp-section--category-grid,
+.pp-section--map,
+.pp-section--goals,
+.pp-section--spotlight,
+.pp-section--time,
+.pp-section--season,
+.pp-section--progress,
+.pp-section--footer-cta {
+  margin-bottom: 0;
+}

@@ -1,0 +1,304 @@
+/* Calendar visual motion — subtle, reverent; paired with prefers-reduced-motion below */
+
+.cal-vis-reveal {
+  animation: cal-vis-reveal-up 0.65s ease both;
+}
+
+@keyframes cal-vis-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cal-dash-hero__art-parallax {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-vis-motion--heroParallax .cal-dash-hero__art-parallax .cal-dash-hero__art-img {
+    animation: cal-vis-parallax-drift 22s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes cal-vis-parallax-drift {
+  from {
+    transform: scale(1.04) translate(0, 0);
+  }
+  to {
+    transform: scale(1.08) translate(-1.2%, -0.6%);
+  }
+}
+
+.cal-vis-motion--reveal.cal-holy-card,
+.cal-vis-motion--reveal.cal-timeline__node,
+.cal-vis-motion--reveal.cal-related-card {
+  animation: cal-vis-reveal-up 0.55s ease both;
+}
+
+.cal-feast-badge--major {
+  position: relative;
+}
+
+.cal-feast-badge--major.cal-vis-halo {
+  box-shadow: 0 0 0 1px rgba(242, 193, 78, 0.32);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-feast-badge--major {
+    animation: cal-vis-halo-pulse 4s ease-in-out infinite;
+  }
+}
+
+@keyframes cal-vis-halo-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(242, 193, 78, 0.3), 0 0 0 0 rgba(242, 193, 78, 0.14);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(242, 193, 78, 0.42), 0 0 16px 3px rgba(242, 193, 78, 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-feast-drawer.cal-vis-motion--drawer[open] {
+    animation: cal-vis-drawer-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .cal-feast-drawer.cal-vis-motion--drawer[open]::backdrop {
+    animation: cal-vis-drawer-backdrop-in 0.55s ease both;
+  }
+}
+
+@keyframes cal-vis-drawer-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cal-vis-drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Visual render helpers */
+.cal-vis-feast-art,
+.cal-vis-saint {
+  position: relative;
+  width: 100%;
+  min-height: 8rem;
+  overflow: hidden;
+}
+
+.cal-vis-feast-art__img,
+.cal-vis-saint__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cal-vis-saint__img {
+  object-position: center 20%;
+}
+
+.cal-vis-feast-art--placeholder,
+.cal-vis-saint--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+  background: linear-gradient(160deg, rgba(30, 58, 95, 0.55) 0%, rgba(10, 21, 40, 0.88) 100%);
+}
+
+.cal-vis-feast-art__glyph,
+.cal-vis-saint__glyph {
+  font-size: 2.75rem;
+  line-height: 1;
+  color: var(--hero-gold);
+  opacity: 0.92;
+}
+
+.cal-vis-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--cream) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+}
+
+.cal-vis-symbol__glyph {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+/* Related strip thumbnails */
+.cal-related-card--visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 6.5rem;
+  padding-top: 0;
+}
+
+.cal-related-card__thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 4.25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin: -0.75rem -0.85rem 0.5rem;
+  width: calc(100% + 1.7rem);
+}
+
+.cal-related-card__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.92;
+}
+
+.cal-related-card__thumb-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--accent-subtle) 0%, var(--surface) 100%);
+  font-size: 1.35rem;
+  color: var(--gold);
+}
+
+.cal-related-card--visual .cal-related-card__label {
+  padding: 0 0.85rem;
+}
+
+.cal-related-card--visual .cal-related-card__hint {
+  padding: 0 0.85rem 0.75rem;
+}
+
+/* Quick learn image strip */
+.cal-dash-learn__card-media {
+  display: block;
+  width: calc(100% + 2.2rem);
+  height: 5rem;
+  margin: -1.05rem -1.1rem 0.65rem;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.cal-dash-learn__card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--card-bg) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.cal-dash-learn__card-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.88;
+}
+
+/* Month explorer detail panel */
+.cal-dash-explorer__panel-visual {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+  min-height: 5.5rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.cal-dash-explorer__panel-visual-img {
+  width: 100%;
+  height: 5.5rem;
+  object-fit: cover;
+  display: block;
+}
+
+.cal-dash-explorer__panel-month-glyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.5rem;
+  font-size: 2rem;
+  color: var(--gold);
+  background: linear-gradient(165deg, var(--cream) 0%, var(--surface) 100%);
+}
+
+/* Seasonal story art */
+.cal-dash-season__art {
+  position: relative;
+  margin: 0 0 1rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(228, 201, 104, 0.25);
+  max-height: 11rem;
+}
+
+.cal-dash-season__art-img {
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+}
+
+/* Accent outlines (optional on cards) */
+.cal-vis-accent--gold {
+  border-color: rgba(212, 166, 60, 0.35);
+}
+.cal-vis-accent--blue {
+  border-color: rgba(47, 85, 130, 0.35);
+}
+.cal-vis-accent--cream {
+  border-color: rgba(212, 196, 160, 0.45);
+}
+.cal-vis-accent--sage {
+  border-color: rgba(74, 107, 92, 0.35);
+}
+.cal-vis-accent--ember {
+  border-color: rgba(180, 90, 60, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cal-vis-reveal,
+  .cal-vis-motion--reveal.cal-holy-card,
+  .cal-vis-motion--reveal.cal-timeline__node,
+  .cal-vis-motion--reveal.cal-related-card,
+  .cal-vis-motion--heroParallax .cal-dash-hero__art-parallax .cal-dash-hero__art-img,
+  .cal-feast-badge--major,
+  .cal-feast-drawer.cal-vis-motion--drawer[open],
+  .cal-feast-drawer.cal-vis-motion--drawer[open]::backdrop {
+    animation: none !important;
+  }
+}

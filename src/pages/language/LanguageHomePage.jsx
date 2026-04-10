@@ -6,6 +6,7 @@ import StatusBox from '../../components/sections/StatusBox.jsx'
 import ExternalSourceCard from '../../components/sections/ExternalSourceCard.jsx'
 import ExternalSourceSupportSection from '../../components/sections/ExternalSourceSupportSection.jsx'
 import LanguageSectionCard from '../../components/language/LanguageSectionCard.jsx'
+import LanguagePracticeHubStrip from '../../components/language/LanguagePracticeHubStrip.jsx'
 import { amharicAlphabetInteractive } from '../../data/curatedExternalLinks.js'
 import { languageHome } from '../../data/languagePages.js'
 import '../../components/language/LanguageComponents.css'
@@ -23,6 +24,8 @@ export default function LanguageHomePage() {
       <StatusBox tone="calm" className="language-home__notice">
         {notice}
       </StatusBox>
+
+      <LanguagePracticeHubStrip />
 
       <SectionDivider />
 

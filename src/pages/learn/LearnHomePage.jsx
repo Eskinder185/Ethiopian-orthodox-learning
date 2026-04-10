@@ -1,40 +1,34 @@
-import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import SectionHubLayout from '../../components/sections/SectionHubLayout.jsx'
-import { learnHubTopicConfig } from '../../content/learnHubContent.js'
+import LearnHomeHero from '../../components/learn/LearnHomeHero.jsx'
+import LearnPathCards from '../../components/learn/LearnPathCards.jsx'
+import LearnFaithMap from '../../components/learn/LearnFaithMap.jsx'
+import LearnSacramentsPreview from '../../components/learn/LearnSacramentsPreview.jsx'
+import LearnQidaseFlow from '../../components/learn/LearnQidaseFlow.jsx'
+import LearnHistoryStrip from '../../components/learn/LearnHistoryStrip.jsx'
+import LearnChurchYearWheel from '../../components/learn/LearnChurchYearWheel.jsx'
+import LearnGlossaryStrip from '../../components/learn/LearnGlossaryStrip.jsx'
+import LearnPracticeBridge from '../../components/learn/LearnPracticeBridge.jsx'
+import LearnHubCrosslinks from '../../components/learn/LearnHubCrosslinks.jsx'
+import './LearnHome.css'
 
 export default function LearnHomePage() {
   const { t } = useTranslation('common')
 
-  const topics = useMemo(
-    () =>
-      learnHubTopicConfig.map(({ to, key }) => ({
-        to,
-        title: t(`learnHub.topics.${key}.title`),
-        description: t(`learnHub.topics.${key}.description`),
-        category: t('learnHub.topicCategory'),
-      })),
-    [t],
-  )
-
-  const contentSlots = useMemo(
-    () => [
-      { title: t('learnHub.notesHeading'), text: t('learnHub.notes.0') },
-      { title: t('learnHub.cautionsHeading'), text: t('learnHub.cautions.0') },
-    ],
-    [t],
-  )
-
   return (
-    <SectionHubLayout
-      title={t('learnHub.title')}
-      eyebrow={t('learnHub.eyebrow')}
-      intro={t('learnHub.intro')}
-      overview={t('learnHub.overview')}
-      topics={topics}
-      topicsTitle={t('learnHub.topicsTitle')}
-      topicsSubtitle={t('learnHub.topicsSubtitle')}
-      contentSlots={contentSlots}
-    />
+    <article className="learn-hub-page">
+      <LearnHomeHero />
+      <div className="learn-hub-page__main">
+        <LearnPathCards />
+        <LearnFaithMap />
+        <LearnSacramentsPreview />
+        <LearnQidaseFlow />
+        <LearnHistoryStrip />
+        <LearnChurchYearWheel />
+        <LearnGlossaryStrip />
+        <LearnPracticeBridge />
+        <LearnHubCrosslinks />
+        <p className="learn-hub-page__note">{t('learnHub.footerNote')}</p>
+      </div>
+    </article>
   )
 }

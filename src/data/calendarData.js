@@ -145,6 +145,16 @@ export const FIXED_FEASTS = [
     relaxesWeeklyFast: true,
   },
   {
+    id: 'st-gabriel',
+    name: 'Saint Gabriel the Archangel',
+    geezName: 'ገብርኤል',
+    ethiopianMonth: 5,
+    ethiopianDay: 19,
+    significance:
+      'Archangel of God’s messages — recalled at the Annunciation and in every Divine Liturgy. The nineteenth of each Ethiopian month is widely dedicated to St. Gabriel in many parish calendars.',
+    relaxesWeeklyFast: false,
+  },
+  {
     id: 'meskel',
     name: 'Finding of the True Cross (Meskel)',
     geezName: 'መስቀል',
@@ -185,6 +195,16 @@ export const FIXED_FEASTS = [
     relaxesWeeklyFast: false,
   },
   {
+    id: 'st-estifanos',
+    name: 'Saint Stephen the Protomartyr (Estifanos)',
+    geezName: 'እስጢፋኖስ',
+    ethiopianMonth: 6,
+    ethiopianDay: 17,
+    significance:
+      'First martyr for Christ — the deacon Stephen, full of faith and the Holy Spirit, whose witness the Church remembers with honor. The 17th of each Ethiopian month also recalls St. Stephen together with Abba Gerima in many parish calendars.',
+    relaxesWeeklyFast: false,
+  },
+  {
     id: 'st-george',
     name: 'Saint George',
     geezName: 'ጊዮርጊስ',
@@ -193,6 +213,16 @@ export const FIXED_FEASTS = [
     significance:
       'Patron saint of Ethiopia — great celebrations especially at churches dedicated to St. George.',
     relaxesWeeklyFast: true,
+  },
+  {
+    id: 'st-tekle-haymanot',
+    name: 'Saint Tekle Haymanot',
+    geezName: 'ተክለ ሃይማኖት',
+    ethiopianMonth: 9,
+    ethiopianDay: 24,
+    significance:
+      'Great Ethiopian monastic father and teacher — zeal for prayer, ascetic life, and the Gospel. The 24th of each Ethiopian month is widely dedicated to Abune Tekle Haymanot together with the twenty-four heavenly priests in many parish calendars.',
+    relaxesWeeklyFast: false,
   },
 ]
 

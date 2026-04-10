@@ -1,0 +1,30 @@
+.sacred-image-slot {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sacred-image-slot__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(212, 166, 60, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 75%, rgba(30, 58, 95, 0.12), transparent 50%),
+    linear-gradient(155deg, rgba(255, 252, 248, 0.5) 0%, var(--card-bg, #faf8f4) 55%);
+  pointer-events: none;
+}
+
+.sacred-image-slot__img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sacred-image-slot > *:not(.sacred-image-slot__fallback):not(.sacred-image-slot__img) {
+  position: relative;
+  z-index: 0;
+}

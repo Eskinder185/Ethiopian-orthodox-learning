@@ -20,12 +20,14 @@ import {
   pushRecentChant,
   toggleSavedChant,
 } from '../../../utils/chantStorage.js'
+import { buildChantFilterChipLists } from '../../../utils/chantFilterUi.js'
 import MezmurPracticeWorkspace from '../MezmurPracticeWorkspace.jsx'
 import ChantCard from './ChantCard.jsx'
 import ChantDetailPanel from './ChantDetailPanel.jsx'
 import ChantQuickFilterStrip from './ChantQuickFilterStrip.jsx'
 import ChantBrowseSegments from './ChantBrowseSegments.jsx'
 import ChantCategoryEntrypoints from './ChantCategoryEntrypoints.jsx'
+import ChantFeaturedCarousel from './ChantFeaturedCarousel.jsx'
 import { chantLibraryCopy, formatResultsCount } from './chantLibraryCopy.js'
 import './ChantLibrary.css'
 
@@ -41,6 +43,7 @@ export default function ChantPracticeView({
   idPrefix = 'chant-practice',
 }) {
   const entries = useMemo(() => getChantEntries(), [])
+  const filterChipLists = useMemo(() => buildChantFilterChipLists(entries), [entries])
   const hasData = hasChantData()
 
   const [categoryFilters, setCategoryFilters] = useState(() => ({
@@ -306,6 +309,14 @@ export default function ChantPracticeView({
           </div>
         </header>
 
+        {featuredPool.length > 0 ? (
+          <ChantFeaturedCarousel
+            title={chantLibraryCopy.featuredCarouselTitle}
+            entries={featuredPool.slice(0, 12)}
+            onPick={(e) => openEntry(e, 'listen')}
+          />
+        ) : null}
+
         <section className="chant-featured" aria-label="Featured ways to practice">
           <article className="chant-feature-card">
             <h3 className="chant-feature-card__title">{chantLibraryCopy.featuredContinueTitle}</h3>
@@ -406,7 +417,12 @@ export default function ChantPracticeView({
 
           {browseSegment === 'results' ? (
             <div className="chant-browser__filters-wrap">
-              <ChantQuickFilterStrip filters={categoryFilters} onChange={setCategoryFiltersAndPage} />
+              <ChantQuickFilterStrip
+                filters={categoryFilters}
+                onChange={setCategoryFiltersAndPage}
+                saintSlugs={filterChipLists.saints}
+                usageSlugs={filterChipLists.usages}
+              />
             </div>
           ) : null}
 
@@ -462,7 +478,6 @@ export default function ChantPracticeView({
                   <li key={entry.id} className="chant-results-grid__item" role="listitem">
                     <ChantCard
                       entry={entry}
-                      maxTags={2}
                       onPractice={() => {
                         pushRecentChant(entry.id)
                         recordPractice()

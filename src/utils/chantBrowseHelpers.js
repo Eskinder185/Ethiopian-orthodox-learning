@@ -21,11 +21,8 @@ export function hasBrowseRefinement(filters, query) {
   return (
     f.primary !== d.primary ||
     f.majorHoliday !== d.majorHoliday ||
-    f.season !== d.season ||
-    f.theme !== d.theme ||
     f.saint !== d.saint ||
-    f.usage !== d.usage ||
-    f.confidence !== d.confidence
+    f.usage !== d.usage
   )
 }
 

@@ -1,0 +1,169 @@
+.inst-vis {
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  padding: 1.15rem 1.1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.14);
+  background: linear-gradient(165deg, rgba(30, 58, 95, 0.05) 0%, var(--card-bg) 50%);
+}
+
+.inst-vis__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.inst-vis__lead {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 40rem;
+}
+
+.inst-vis__grid {
+  list-style: none;
+  margin: 0 0 1.15rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .inst-vis__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.inst-vis__card {
+  padding: 0.85rem 0.8rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  height: 100%;
+}
+
+.inst-vis__diagram {
+  height: 4.5rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.65rem;
+  background: rgba(212, 166, 60, 0.08);
+  border: 1px dashed rgba(212, 166, 60, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.inst-vis__diagram[data-kind='kebero']::after {
+  content: '';
+  position: absolute;
+  inset: 18% 22%;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 166, 60, 0.45);
+  box-shadow: 0 0 0 6px rgba(212, 166, 60, 0.08);
+}
+
+.inst-vis__diagram[data-kind='sistrum']::after {
+  content: '';
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  top: 35%;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(212, 166, 60, 0.45),
+    rgba(212, 166, 60, 0.45) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.inst-vis__diagram[data-kind='listen']::after {
+  content: '♪';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: rgba(212, 166, 60, 0.45);
+}
+
+.inst-vis__diagram[data-kind='posture']::after {
+  content: '';
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 25%;
+  bottom: 25%;
+  border: 2px solid rgba(212, 166, 60, 0.35);
+  border-radius: 50% 50% 40% 40%;
+}
+
+.inst-vis__diagram[data-kind='rhythm']::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 28%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(212, 166, 60, 0.5),
+    rgba(212, 166, 60, 0.5) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  border-radius: 2px;
+}
+
+.inst-vis__name {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.inst-vis__blurb {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.inst-vis__video-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(212, 166, 60, 0.3);
+  background: rgba(212, 166, 60, 0.04);
+  margin-bottom: 0.85rem;
+}
+
+.inst-vis__play {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 166, 60, 0.15);
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.inst-vis__video-label {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+.inst-vis__posture {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}

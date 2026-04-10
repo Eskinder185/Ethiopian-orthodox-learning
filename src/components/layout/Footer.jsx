@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { PORTFOLIO_URL } from '../../constants/externalLinks.js'
 import { paths } from '../../constants/paths.js'
+import ThemeSwitcher from '../theme/ThemeSwitcher.jsx'
 
 export default function Footer() {
   const { t } = useTranslation('common')
@@ -9,6 +10,9 @@ export default function Footer() {
 
   return (
     <footer className="site-footer">
+      <div className="site-footer__utilities">
+        <ThemeSwitcher className="site-footer__theme" idSuffix="footer" />
+      </div>
       <p className="site-footer__note">
         {t('footer.note')}{' '}
         <Link to={paths.about} className="site-footer__link">

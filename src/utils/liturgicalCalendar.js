@@ -44,7 +44,7 @@ export function formatGregorianDate(y, m, d) {
   })
 }
 
-function paschaJDNForGregorianYear(gregorianYear) {
+export function paschaJDNForGregorianYear(gregorianYear) {
   const g = orthodoxEasterSundayGregorianDate(gregorianYear)
   return gregorianToJDN(g.year, g.month, g.day)
 }

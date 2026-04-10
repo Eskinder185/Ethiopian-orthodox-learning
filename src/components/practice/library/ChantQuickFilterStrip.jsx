@@ -1,4 +1,6 @@
+import { useMemo } from 'react'
 import { defaultChantFilterState } from '../../../utils/chantFilters.js'
+import { slugToFilterLabel } from '../../../utils/chantFilterUi.js'
 import { chantLibraryCopy } from './chantLibraryCopy.js'
 
 const FORM = [
@@ -25,38 +27,31 @@ const FEASTS = [
   { id: 'meskel', label: 'Meskel' },
 ]
 
-const SEASONS = [
-  { id: 'all', label: 'All' },
-  { id: 'fasika', label: 'Fasika' },
-  { id: 'tsige', label: 'Tsige' },
-  { id: 'filseta', label: 'Filseta' },
-  { id: 'gena', label: 'Gena' },
-]
-
-const THEMES = [
-  { id: 'all', label: 'All' },
-  { id: 'resurrection', label: 'Resurrection' },
-  { id: 'peace', label: 'Peace' },
-  { id: 'praise', label: 'Praise' },
-  { id: 'cross', label: 'Cross' },
-  { id: 'intercession', label: 'Intercession' },
-  { id: 'incarnation', label: 'Incarnation' },
-]
-
-const CONF = [
-  { id: 'all', label: 'All' },
-  { id: 'high', label: 'High' },
-  { id: 'medium', label: 'Medium' },
-  { id: 'low', label: 'Low' },
-]
-
 /**
  * @param {object} props
  * @param {import('../../../utils/chantFilters.js').ChantFilterState} props.filters
  * @param {(p: import('../../../utils/chantFilters.js').ChantFilterState) => void} props.onChange
+ * @param {string[]} props.saintSlugs — from catalog (unique)
+ * @param {string[]} props.usageSlugs — from catalog (unique)
  */
-export default function ChantQuickFilterStrip({ filters, onChange }) {
+export default function ChantQuickFilterStrip({ filters, onChange, saintSlugs = [], usageSlugs = [] }) {
   const patch = (partial) => onChange({ ...defaultChantFilterState, ...filters, ...partial })
+
+  const saintOptions = useMemo(
+    () => [
+      { id: 'all', label: chantLibraryCopy.filterAll },
+      ...saintSlugs.map((id) => ({ id, label: slugToFilterLabel(id) })),
+    ],
+    [saintSlugs],
+  )
+
+  const usageOptions = useMemo(
+    () => [
+      { id: 'all', label: chantLibraryCopy.filterAll },
+      ...usageSlugs.map((id) => ({ id, label: slugToFilterLabel(id) })),
+    ],
+    [usageSlugs],
+  )
 
   return (
     <div className="chant-quick-filters" id="chant-quick-filters">
@@ -110,49 +105,31 @@ export default function ChantQuickFilterStrip({ filters, onChange }) {
         ))}
       </Row>
 
-      <Row label={chantLibraryCopy.filterSeason}>
-        {SEASONS.map((o) => (
-          <Chip
-            key={o.id}
-            pressed={o.id === 'all' ? filters.season === 'all' : filters.season === o.id}
-            onClick={() => patch({ season: o.id })}
-            label={o.label}
-          />
-        ))}
-      </Row>
+      {saintOptions.length > 1 ? (
+        <Row label={chantLibraryCopy.filterSaint}>
+          {saintOptions.map((o) => (
+            <Chip
+              key={o.id}
+              pressed={o.id === 'all' ? filters.saint === 'all' : filters.saint === o.id}
+              onClick={() => patch({ saint: o.id })}
+              label={o.label}
+            />
+          ))}
+        </Row>
+      ) : null}
 
-      <Row label={chantLibraryCopy.filterThemes}>
-        {THEMES.map((o) => (
-          <Chip
-            key={o.id}
-            pressed={o.id === 'all' ? filters.theme === 'all' : filters.theme === o.id}
-            onClick={() => patch({ theme: o.id })}
-            label={o.label}
-          />
-        ))}
-      </Row>
-
-      <Row label={chantLibraryCopy.filterConfidence}>
-        {CONF.map((o) => (
-          <Chip
-            key={o.id}
-            pressed={
-              o.id === 'all'
-                ? filters.confidence === 'all'
-                : filters.confidence === o.id
-            }
-            onClick={() =>
-              patch({
-                confidence:
-                  o.id === 'all'
-                    ? 'all'
-                    : /** @type {'high'|'medium'|'low'} */ (o.id),
-              })
-            }
-            label={o.label}
-          />
-        ))}
-      </Row>
+      {usageOptions.length > 1 ? (
+        <Row label={chantLibraryCopy.filterUsage}>
+          {usageOptions.map((o) => (
+            <Chip
+              key={o.id}
+              pressed={o.id === 'all' ? filters.usage === 'all' : filters.usage === o.id}
+              onClick={() => patch({ usage: o.id })}
+              label={o.label}
+            />
+          ))}
+        </Row>
+      ) : null}
     </div>
   )
 }

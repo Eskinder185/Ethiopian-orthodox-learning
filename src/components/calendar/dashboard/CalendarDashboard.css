@@ -1,0 +1,2478 @@
+/* Calendar hub — liturgical dashboard (hero, rail, explorer, facts, season, quick learn) */
+
+.calendar-dashboard {
+  position: relative;
+  padding-bottom: var(--space-2xl);
+}
+
+.calendar-dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(212, 166, 60, 0.12) 0%, transparent 55%),
+    var(--bg-cross-pattern),
+    linear-gradient(180deg, transparent 0%, rgba(250, 246, 238, 0.5) 100%);
+  z-index: 0;
+}
+
+.calendar-dashboard > * {
+  position: relative;
+  z-index: 1;
+}
+
+#cal-dash-week,
+#cal-dash-explorer {
+  scroll-margin-top: 5.5rem;
+}
+
+/* —— Hero —— */
+.cal-dash-hero {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+  color: var(--hero-text);
+  box-shadow:
+    0 24px 60px rgba(10, 21, 40, 0.35),
+    0 0 0 1px var(--hero-border);
+}
+
+.cal-dash-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(15, 31, 53, 0.92) 0%, rgba(26, 50, 82, 0.88) 45%, rgba(10, 21, 40, 0.94) 100%),
+    url('/images/home/home-today-in-the-church-panel.jpg') center 30% / cover no-repeat;
+}
+
+.cal-dash-hero__glow {
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: min(70vw, 28rem);
+  height: min(70vw, 28rem);
+  background: radial-gradient(circle, var(--hero-gold-soft) 0%, transparent 70%);
+  pointer-events: none;
+  animation: cal-dash-hero-glow 14s ease-in-out infinite alternate;
+}
+
+@keyframes cal-dash-hero-glow {
+  from {
+    opacity: 0.45;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0.85;
+    transform: translate(-8%, 6%) scale(1.08);
+  }
+}
+
+.cal-dash-hero--immersive .cal-dash-hero__shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  grid-template-columns: 1fr;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .cal-dash-hero--immersive .cal-dash-hero__shell {
+    grid-template-columns: minmax(14rem, 0.95fr) minmax(0, 1.15fr);
+  }
+}
+
+.cal-dash-hero__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 252, 247, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.35;
+  animation: cal-dash-particles 28s linear infinite;
+}
+
+@keyframes cal-dash-particles {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-24px);
+  }
+}
+
+.cal-dash-hero__art-col {
+  display: flex;
+  align-items: stretch;
+}
+
+.cal-dash-hero__art-frame {
+  position: relative;
+  flex: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(228, 201, 104, 0.35);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 253, 248, 0.08);
+  min-height: min(52vw, 18rem);
+}
+
+@media (min-width: 900px) {
+  .cal-dash-hero__art-frame {
+    min-height: 22rem;
+  }
+}
+
+.cal-dash-hero__art-halo {
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(circle at 50% 40%, rgba(228, 201, 104, 0.35) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.cal-dash-hero__art-swing {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+@keyframes cal-hero-art-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cal-hero-art-float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes cal-hero-halo-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes cal-hero-caption-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-swing {
+    animation: cal-hero-art-reveal 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-parallax,
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-placeholder {
+    animation: cal-hero-art-float 9s ease-in-out 1.15s infinite alternate;
+  }
+
+  .cal-dash-hero__art-halo--pulse {
+    animation: cal-hero-halo-breathe 4.2s ease-in-out infinite;
+  }
+
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-caption {
+    animation: cal-hero-caption-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+  }
+}
+
+.cal-dash-hero__art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.7s ease;
+}
+
+.cal-dash-hero__art-frame:hover .cal-dash-hero__art-img {
+  transform: scale(1.06);
+}
+
+.cal-dash-hero__art-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, rgba(30, 58, 95, 0.65) 0%, rgba(10, 21, 40, 0.9) 100%);
+}
+
+.cal-dash-hero__art-icon {
+  font-size: 3.5rem;
+  color: var(--hero-gold);
+  opacity: 0.9;
+}
+
+.cal-dash-hero__art-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.65rem 0.85rem;
+  background: linear-gradient(0deg, rgba(10, 21, 40, 0.92) 0%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cal-dash-hero__art-caption-title {
+  font-family: var(--heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--hero-text);
+}
+
+.cal-dash-hero__art-caption-sub {
+  font-size: 0.82rem;
+  color: var(--hero-text-muted);
+}
+
+.cal-dash-hero__main-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cal-dash-hero__badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.cal-dash-hero__feast-block {
+  margin-bottom: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: rgba(10, 21, 40, 0.35);
+  border: 1px solid rgba(228, 201, 104, 0.18);
+}
+
+.cal-dash-hero__h2 {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hero-gold);
+}
+
+.cal-dash-hero__feast-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--hero-text);
+  line-height: 1.25;
+}
+
+.cal-dash-hero__saint-line {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--hero-text-muted);
+}
+
+.cal-dash-hero__saint-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(228, 201, 104, 0.85);
+  margin-bottom: 0.2rem;
+}
+
+.cal-dash-hero__content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  max-width: 52rem;
+}
+
+.cal-dash-hero--immersive .cal-dash-hero__content {
+  padding: 0;
+  max-width: none;
+}
+
+.cal-dash-hero__eyebrow {
+  font-size: var(--type-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hero-gold);
+  margin: 0 0 0.5rem;
+}
+
+.cal-dash-hero__title {
+  font-family: var(--heading);
+  font-size: clamp(1.85rem, 2.5vw + 1rem, 2.85rem);
+  line-height: 1.12;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+  color: var(--hero-text);
+}
+
+.cal-dash-hero__lead {
+  margin: 0 0 1.25rem;
+  font-size: var(--type-lead);
+  line-height: 1.55;
+  color: var(--hero-text-muted);
+  max-width: 40rem;
+}
+
+.cal-dash-hero__dates {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .cal-dash-hero__dates {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cal-dash-hero__date-card {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 253, 248, 0.06);
+  border: 1px solid rgba(228, 201, 104, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cal-dash-hero__date-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hero-gold);
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-hero__date-main {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--hero-text);
+}
+
+.cal-dash-hero__week-pill,
+.cal-dash-hero__geez-pill {
+  display: inline-block;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(228, 201, 104, 0.15);
+  color: var(--hero-text-muted);
+}
+
+.cal-dash-hero__chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cal-dash-hero__chip {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 21, 40, 0.45);
+  border: 1px solid rgba(255, 253, 248, 0.12);
+  color: var(--hero-text-muted);
+}
+
+.cal-dash-hero__chip--feast {
+  border-color: rgba(228, 201, 104, 0.35);
+  color: var(--hero-text);
+}
+
+.cal-dash-hero__spirit {
+  margin: 0 0 1.15rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--hero-text-muted);
+}
+
+.cal-dash-hero__spirit-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hero-gold);
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-hero__countdown {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(10, 21, 40, 0.5);
+  border: 1px solid rgba(228, 201, 104, 0.2);
+  max-width: 28rem;
+}
+
+.cal-dash-hero__countdown-ring {
+  position: relative;
+  width: 3.25rem;
+  height: 3.25rem;
+  flex-shrink: 0;
+}
+
+.cal-dash-hero__countdown-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.cal-dash-hero__countdown-track {
+  fill: none;
+  stroke: rgba(255, 253, 248, 0.12);
+  stroke-width: 2.5;
+}
+
+.cal-dash-hero__countdown-fill {
+  fill: none;
+  stroke: var(--hero-gold);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s ease;
+}
+
+.cal-dash-hero__countdown-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--hero-text);
+}
+
+.cal-dash-hero__countdown-target {
+  margin: 0;
+  font-weight: 600;
+  color: var(--hero-text);
+  font-size: 1rem;
+}
+
+.cal-dash-hero__countdown-meta {
+  margin: 0.15rem 0 0;
+  font-size: 0.88rem;
+  color: var(--hero-text-muted);
+}
+
+.cal-dash-hero__countdown-label {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--hero-gold);
+}
+
+.cal-dash-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.cal-dash-hero__cta {
+  text-decoration: none;
+}
+
+.cal-dash-hero__cta--primary {
+  background: linear-gradient(180deg, rgba(228, 201, 104, 0.95) 0%, #c49a2e 100%);
+  border: 1px solid rgba(255, 252, 247, 0.35);
+  color: #1a1204;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+}
+
+.cal-dash-hero__cta--primary:hover {
+  filter: brightness(1.05);
+  color: #1a1204;
+}
+
+.cal-dash-hero__hook {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(250, 246, 238, 0.65);
+  max-width: 36rem;
+}
+
+/* —— Event rail —— */
+.cal-dash-rail {
+  margin-bottom: var(--space-xl);
+}
+
+.cal-dash-rail__head {
+  margin-bottom: 1rem;
+}
+
+.cal-dash-rail__title {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-dash-rail__sub {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--type-small);
+  max-width: 40rem;
+}
+
+.cal-dash-rail__track {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cal-dash-rail__card {
+  flex: 0 0 min(16rem, 82vw);
+  scroll-snap-align: start;
+  text-align: left;
+  padding: 1rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, var(--surface) 0%, var(--card-bg) 100%);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.cal-dash-rail__card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-soft);
+  box-shadow: 0 8px 28px var(--shadow-ink);
+}
+
+.cal-dash-rail__card:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.cal-dash-rail__card-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.cal-dash-rail__card-title {
+  display: block;
+  font-family: var(--heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-rail__card-sub {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.cal-dash-rail__card-hint {
+  display: block;
+  margin-top: 0.65rem;
+  font-size: 0.75rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cal-dash-rail__week-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.cal-dash-rail__meta {
+  font-size: 0.9rem;
+  color: var(--text-heading);
+}
+
+/* —— Dialog —— */
+.cal-dash-dialog {
+  max-width: min(32rem, 100% - 2rem);
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+}
+
+.cal-dash-dialog::backdrop {
+  background: rgba(15, 31, 53, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.cal-dash-dialog__inner {
+  padding: 1.35rem 1.4rem 1.25rem;
+}
+
+.cal-dash-dialog__badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-dialog__title {
+  font-family: var(--heading);
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.cal-dash-dialog__body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cal-dash-dialog__body ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.cal-dash-dialog__links {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cal-dash-dialog__link {
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cal-dash-dialog__close {
+  margin-top: 1.1rem;
+  width: 100%;
+}
+
+/* —— Month explorer —— */
+.cal-dash-explorer {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.cal-dash-explorer__head {
+  margin-bottom: 1rem;
+}
+
+.cal-dash-explorer__title {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-dash-explorer__sub {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--type-small);
+  max-width: 42rem;
+}
+
+.cal-dash-explorer__toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 720px) {
+  .cal-dash-explorer__toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.cal-dash-explorer__toggle {
+  display: inline-flex;
+  padding: 0.2rem;
+  border-radius: var(--radius-pill);
+  background: var(--cream);
+  border: 1px solid var(--border);
+}
+
+.cal-dash-explorer__toggle-btn {
+  border: none;
+  background: transparent;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cal-dash-explorer__toggle-btn.is-active {
+  background: var(--card-bg);
+  color: var(--text-heading);
+  box-shadow: 0 1px 6px var(--shadow-soft);
+}
+
+.cal-dash-explorer__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.cal-dash-explorer__nav-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-heading);
+}
+
+.cal-dash-explorer__nav-btn:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+.cal-dash-explorer__month {
+  flex: 1;
+  min-width: 8rem;
+  margin: 0;
+  text-align: center;
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  color: var(--text-heading);
+}
+
+.cal-dash-explorer__today {
+  margin-left: auto;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.88rem;
+}
+
+.cal-dash-explorer__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.cal-dash-explorer__filter {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.cal-dash-explorer__filter.is-on {
+  border-color: rgba(212, 166, 60, 0.55);
+  background: var(--gold-soft);
+  color: var(--text-heading);
+}
+
+.cal-dash-explorer__layout {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .cal-dash-explorer__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
+    align-items: start;
+  }
+}
+
+.cal-dash-explorer__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-explorer__weekday {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.cal-dash-explorer__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.35rem;
+}
+
+.cal-dash-explorer__cell--empty {
+  min-height: 2.75rem;
+}
+
+.cal-dash-explorer__cell--day {
+  position: relative;
+  min-height: 2.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.35rem 0.2rem 0.25rem;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.cal-dash-explorer__cell--day:hover {
+  transform: translateY(-1px);
+  border-color: var(--gold-soft);
+  box-shadow: 0 4px 14px var(--shadow-soft);
+}
+
+.cal-dash-explorer__cell--day.is-today {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 2px var(--gold-soft);
+}
+
+.cal-dash-explorer__cell--day.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-subtle);
+}
+
+@keyframes cal-explorer-selected-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px rgba(47, 85, 130, 0.45),
+      0 0 12px rgba(212, 166, 60, 0.12);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px rgba(47, 85, 130, 0.55),
+      0 0 22px rgba(212, 166, 60, 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-dash-explorer__cell--day.is-selected {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease,
+      box-shadow 0.35s ease,
+      background 0.35s ease;
+    box-shadow:
+      0 0 0 2px rgba(47, 85, 130, 0.45),
+      0 0 16px rgba(212, 166, 60, 0.16);
+    animation: cal-explorer-selected-glow 2.8s ease-in-out infinite;
+  }
+}
+
+.cal-dash-explorer__cell--day.is-dim {
+  opacity: 0.38;
+}
+
+.cal-dash-explorer__day-num {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-heading);
+}
+
+.cal-dash-explorer__marks {
+  display: flex;
+  gap: 0.2rem;
+  margin-top: 0.15rem;
+  min-height: 0.45rem;
+}
+
+.cal-dash-explorer__dot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cal-dash-explorer__dot--feast {
+  background: var(--gold-bright);
+  box-shadow: 0 0 0 2px var(--gold-soft);
+}
+
+.cal-dash-explorer__dot--fast {
+  background: var(--accent);
+  opacity: 0.85;
+}
+
+.cal-dash-explorer__legend {
+  margin: 0.65rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.cal-dash-explorer__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cal-dash-explorer__panel {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--card-bg) 100%);
+  padding: 1rem 1.05rem;
+  min-height: 8rem;
+  transition: opacity 0.25s ease;
+}
+
+.cal-dash-explorer__panel-close {
+  float: right;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin: -0.25rem 0 0.5rem;
+}
+
+.cal-dash-explorer__panel-date {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text-heading);
+  font-size: 1rem;
+}
+
+.cal-dash-explorer__panel-eth {
+  margin: 0.25rem 0 0.65rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cal-dash-explorer__panel-fast {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-heading);
+  margin: 0 0 0.75rem;
+}
+
+.cal-dash-explorer__panel-h {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+  margin: 0 0 0.35rem;
+}
+
+.cal-dash-explorer__panel-feasts ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.cal-dash-explorer__badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: var(--accent-subtle);
+  color: var(--accent);
+  vertical-align: middle;
+}
+
+.cal-dash-explorer__badge--fixed {
+  background: var(--gold-soft);
+  color: var(--text-heading);
+}
+
+.cal-dash-explorer__panel-quiet {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.cal-dash-explorer__panel-spirit p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.cal-dash-explorer__panel-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.cal-dash-explorer__plink {
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.cal-dash-explorer__plink:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cal-dash-explorer__hook {
+  margin: 0.75rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.cal-dash-explorer__placeholder {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* —— Fun facts —— */
+.cal-dash-facts {
+  margin-bottom: var(--space-xl);
+}
+
+.cal-dash-facts__head {
+  margin-bottom: 1rem;
+}
+
+.cal-dash-facts__title {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-dash-facts__sub {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--type-small);
+}
+
+.cal-dash-facts__stage {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.cal-dash-facts__arrow {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-heading);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.cal-dash-facts__arrow:hover {
+  border-color: var(--gold-bright);
+  transform: scale(1.05);
+}
+
+.cal-dash-facts__card {
+  flex: 1;
+  min-height: 11rem;
+  perspective: 1000px;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+}
+
+@keyframes cal-facts-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.992) rotateX(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+.cal-dash-facts__card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 11rem;
+  border-radius: var(--radius-lg);
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-dash-facts__card {
+    animation: cal-facts-card-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .cal-dash-facts__card-inner {
+    transition: transform 0.85s cubic-bezier(0.33, 1, 0.32, 1);
+  }
+}
+
+.cal-dash-facts__card.is-flipped .cal-dash-facts__card-inner {
+  transform: rotateY(180deg);
+}
+
+.cal-dash-facts__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.cal-dash-facts__face--front {
+  background: linear-gradient(145deg, var(--surface) 0%, var(--card-bg) 60%, var(--cream) 100%);
+}
+
+.cal-dash-facts__face--back {
+  background: linear-gradient(145deg, var(--accent-deep) 0%, var(--accent) 100%);
+  color: var(--hero-text-muted);
+  transform: rotateY(180deg);
+}
+
+.cal-dash-facts__icon {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-facts__kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.cal-dash-facts__face--back .cal-dash-facts__kicker {
+  color: var(--hero-gold);
+}
+
+.cal-dash-facts__fact-title {
+  font-family: var(--heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.cal-dash-facts__face--back .cal-dash-facts__fact-title {
+  color: var(--hero-text);
+}
+
+.cal-dash-facts__tap {
+  margin-top: 0.85rem;
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cal-dash-facts__body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cal-dash-facts__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.85rem;
+}
+
+.cal-dash-facts__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--border-strong);
+  cursor: pointer;
+}
+
+.cal-dash-facts__dot.is-active {
+  background: var(--gold-bright);
+  transform: scale(1.15);
+}
+
+/* —— Seasonal story —— */
+.cal-dash-season {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+  border: 1px solid var(--border);
+}
+
+.cal-dash-season__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, var(--gold-soft) 0%, transparent 55%),
+    linear-gradient(180deg, var(--surface) 0%, var(--cream) 100%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.cal-dash-season__inner {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-lg);
+  max-width: 44rem;
+}
+
+.cal-dash-season__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.35rem;
+}
+
+.cal-dash-season__title {
+  font-family: var(--heading);
+  font-size: clamp(1.5rem, 1.2vw + 1.1rem, 2rem);
+  margin: 0 0 0.25rem;
+  color: var(--text-heading);
+}
+
+.cal-dash-season__phase {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+.cal-dash-season__summary {
+  margin: 0 0 1.25rem;
+  font-size: var(--type-small);
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.cal-dash-season__rail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.cal-dash-season__node {
+  flex: 0 0 auto;
+  text-align: center;
+  max-width: 8rem;
+}
+
+.cal-dash-season__node--next {
+  max-width: 14rem;
+  text-align: left;
+}
+
+.cal-dash-season__ring {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 3px solid var(--gold-bright);
+  box-shadow: 0 0 0 4px var(--gold-soft);
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-season__ring--next {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-subtle);
+}
+
+.cal-dash-season__node-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.cal-dash-season__next-name {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.35;
+}
+
+.cal-dash-season__track {
+  flex: 1;
+  height: 3px;
+  margin-top: 0.45rem;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold-bright), var(--accent-muted));
+  opacity: 0.55;
+  min-width: 1.5rem;
+}
+
+.cal-dash-season__habit {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.cal-dash-season__habit-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.cal-dash-season__habit p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.cal-dash-season__cta {
+  text-decoration: none;
+}
+
+.cal-dash-season__hook {
+  margin: 0.75rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+/* —— Quick learn —— */
+.cal-dash-learn {
+  margin-bottom: var(--space-xl);
+}
+
+.cal-dash-learn__title {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-dash-learn__sub {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  font-size: var(--type-small);
+  max-width: 40rem;
+}
+
+.cal-dash-learn__grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .cal-dash-learn__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .cal-dash-learn__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cal-dash-learn__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  padding: 1.05rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-card);
+  min-height: 7.5rem;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.cal-dash-learn__card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-soft);
+  box-shadow: 0 10px 28px var(--shadow-ink);
+}
+
+.cal-dash-learn__card:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.cal-dash-learn__card-kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.cal-dash-learn__card-title {
+  font-family: var(--heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.cal-dash-learn__card-body {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.cal-dash-learn__card-go {
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.cal-dash-learn__card--today {
+  background: linear-gradient(160deg, var(--surface) 0%, rgba(212, 166, 60, 0.08) 100%);
+}
+
+.cal-dash-learn__card--month {
+  background: linear-gradient(160deg, var(--surface) 0%, var(--accent-subtle) 100%);
+}
+
+.cal-dash-learn__card--fast {
+  background: linear-gradient(160deg, var(--card-bg) 0%, var(--cream) 100%);
+}
+
+.cal-dash-learn__card--moveable {
+  background: linear-gradient(160deg, var(--surface) 0%, rgba(74, 107, 92, 0.1) 100%);
+}
+
+.cal-dash-learn__card--ethmonths {
+  background: linear-gradient(160deg, var(--card-bg) 0%, rgba(212, 166, 60, 0.12) 100%);
+}
+
+/* —— Feast badges & category system —— */
+.cal-feast-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-heading);
+}
+
+.cal-feast-badge__icon {
+  font-size: 0.85rem;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+.cal-feast-badge--today {
+  border-color: rgba(212, 166, 60, 0.55);
+  background: var(--gold-soft);
+  color: var(--text-heading);
+}
+
+.cal-feast-badge--movable {
+  border-color: rgba(61, 122, 94, 0.45);
+  background: var(--accent-green-subtle);
+  color: #b8dcc8;
+}
+
+.cal-feast-badge--fixed {
+  border-color: rgba(212, 160, 23, 0.35);
+  background: rgba(212, 160, 23, 0.08);
+  color: var(--accent-gold-soft);
+}
+
+.cal-feast-badge--major {
+  border-color: rgba(139, 30, 63, 0.5);
+  background: linear-gradient(135deg, rgba(139, 30, 63, 0.22) 0%, var(--surface) 100%);
+  color: var(--text-heading);
+}
+
+.cal-feast-badge--fast {
+  border-color: rgba(100, 90, 120, 0.38);
+  background: rgba(20, 33, 61, 0.55);
+  color: var(--text-secondary-dark);
+}
+
+.cal-cat-badge--saint {
+  border-color: rgba(61, 122, 94, 0.45);
+  background: rgba(61, 122, 94, 0.14);
+  color: #b8dcc8;
+}
+
+.cal-cat-badge--angel {
+  border-color: rgba(212, 160, 23, 0.42);
+  background: var(--gold-soft);
+  color: var(--accent-gold-soft);
+}
+
+.cal-cat-badge--martyr {
+  border-color: rgba(139, 30, 63, 0.45);
+  background: rgba(139, 30, 63, 0.12);
+  color: #e8a4b8;
+}
+
+.cal-cat-badge--apostle {
+  border-color: rgba(212, 160, 23, 0.4);
+  background: var(--accent-subtle);
+  color: var(--accent-gold-soft);
+}
+
+.cal-cat-badge--marian {
+  border-color: rgba(139, 30, 63, 0.38);
+  background: rgba(139, 30, 63, 0.1);
+  color: #f0c0d0;
+}
+
+.cal-cat-badge--christ {
+  border-color: rgba(212, 166, 60, 0.55);
+  background: var(--gold-soft);
+  color: var(--text-heading);
+}
+
+.cal-cat-badge--cross {
+  border-color: rgba(120, 90, 60, 0.45);
+  background: rgba(212, 166, 60, 0.12);
+  color: #6b4a2a;
+}
+
+.cal-cat-badge--fasting {
+  border-color: rgba(30, 58, 95, 0.35);
+  background: rgba(30, 58, 95, 0.08);
+  color: var(--accent);
+}
+
+.cal-cat-badge--resurrection {
+  border-color: rgba(212, 166, 60, 0.65);
+  background: linear-gradient(135deg, rgba(228, 201, 104, 0.25) 0%, var(--surface) 100%);
+  color: var(--text-heading);
+}
+
+.cal-cat-badge--holiday {
+  border-color: rgba(212, 166, 60, 0.5);
+  background: rgba(212, 166, 60, 0.12);
+  color: var(--text-heading);
+}
+
+.cal-cat-badge--church-month {
+  border-color: var(--border-strong);
+  background: var(--cream);
+  color: var(--text-muted);
+}
+
+.cal-cat-badge--prophet {
+  border-color: rgba(47, 85, 130, 0.35);
+  background: rgba(47, 85, 130, 0.08);
+  color: var(--accent);
+}
+
+.cal-cat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.cal-cat-icon--sm {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.cal-cat-icon--md {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.85rem;
+}
+
+.cal-cat-icon--lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+/* —— Related content strip —— */
+.cal-related-strip {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, var(--surface) 0%, var(--card-bg) 100%);
+  box-shadow: var(--shadow-card);
+}
+
+.cal-related-strip__title {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-related-strip__sub {
+  margin: 0 0 1rem;
+  font-size: var(--type-small);
+  color: var(--text-muted);
+  max-width: 40rem;
+}
+
+.cal-related-strip__track {
+  display: flex;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scroll-snap-type: x mandatory;
+}
+
+.cal-related-card {
+  flex: 0 0 min(11.5rem, 78vw);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cal-related-card:hover {
+  border-color: var(--gold-soft);
+  box-shadow: 0 6px 20px var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+.cal-related-card:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.cal-related-card__label {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-heading);
+}
+
+.cal-related-card__hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* —— Holy figures —— */
+.cal-holy-figures {
+  margin-bottom: var(--space-xl);
+}
+
+.cal-holy-figures__head {
+  margin-bottom: 1rem;
+}
+
+.cal-holy-figures__title {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-holy-figures__sub {
+  margin: 0;
+  font-size: var(--type-small);
+  color: var(--text-muted);
+  max-width: 44rem;
+}
+
+.cal-holy-figures__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .cal-holy-figures__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cal-holy-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+  text-align: left;
+}
+
+.cal-holy-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 166, 60, 0.42);
+  box-shadow:
+    0 14px 36px var(--shadow-ink),
+    0 0 28px rgba(212, 166, 60, 0.12);
+}
+
+.cal-holy-card--span {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 720px) {
+  .cal-holy-card--major {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 12rem;
+  }
+}
+
+.cal-holy-card__visual {
+  position: relative;
+  flex: 0 0 min(40%, 14rem);
+  min-height: 10rem;
+}
+
+.cal-holy-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cal-holy-card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(15, 31, 53, 0.45) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cal-holy-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: linear-gradient(145deg, var(--cream) 0%, var(--surface) 100%);
+  min-height: 8rem;
+}
+
+.cal-holy-card__body {
+  padding: 1rem 1.05rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cal-holy-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.cal-holy-card__title {
+  margin: 0 0 0.25rem;
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  color: var(--text-heading);
+}
+
+.cal-holy-card__geez {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cal-holy-card__line {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.cal-holy-card__more {
+  align-self: flex-start;
+}
+
+/* —— Upcoming timeline —— */
+.cal-timeline {
+  margin-bottom: var(--space-xl);
+}
+
+.cal-timeline__head {
+  margin-bottom: 1rem;
+}
+
+.cal-timeline__title {
+  font-family: var(--heading);
+  font-size: var(--type-h3);
+  margin: 0 0 0.35rem;
+  color: var(--text-heading);
+}
+
+.cal-timeline__sub {
+  margin: 0;
+  font-size: var(--type-small);
+  color: var(--text-muted);
+  max-width: 44rem;
+}
+
+.cal-timeline__track {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.cal-timeline__node {
+  display: flex;
+  gap: 0.65rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background 0.2s ease;
+}
+
+.cal-timeline__node:hover {
+  background: rgba(212, 166, 60, 0.06);
+}
+
+.cal-timeline__node:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 4px;
+}
+
+.cal-timeline__rail-mark {
+  position: relative;
+  width: 1.25rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cal-timeline__rail-line {
+  position: absolute;
+  top: 0.5rem;
+  bottom: -0.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-bright), var(--accent-muted));
+  opacity: 0.45;
+  border-radius: 2px;
+}
+
+.cal-timeline__dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  margin-top: 0.35rem;
+  background: var(--gold-bright);
+  box-shadow: 0 0 0 4px var(--gold-soft);
+  z-index: 1;
+}
+
+@keyframes cal-timeline-node-in {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cal-timeline-node-in-row {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-timeline__track--stagger .cal-timeline__node--enter {
+    animation: cal-timeline-node-in 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--cal-timeline-i, 0) * 52ms);
+  }
+
+  .cal-timeline__node:hover .cal-timeline__card {
+    transform: translateY(-2px);
+    border-color: rgba(212, 166, 60, 0.28);
+    box-shadow:
+      0 8px 24px var(--shadow-soft),
+      0 0 20px rgba(212, 166, 60, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 900px) {
+  .cal-timeline__track--stagger .cal-timeline__node--enter {
+    animation-name: cal-timeline-node-in-row;
+  }
+}
+
+.cal-timeline__card {
+  flex: 1;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, var(--surface) 0%, var(--card-bg) 100%);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.cal-timeline__thumb {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  border: 1px solid var(--border);
+}
+
+.cal-timeline__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cal-timeline__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.cal-timeline__when {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.cal-timeline__eth {
+  font-size: 0.72rem;
+  color: var(--text-soft);
+}
+
+.cal-timeline__countdown {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.cal-timeline__event-title {
+  font-family: var(--heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.25;
+}
+
+.cal-timeline__summary {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cal-timeline__badges {
+  margin-top: 0.35rem;
+}
+
+@media (min-width: 900px) {
+  .cal-timeline__track {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.75rem;
+    padding-bottom: 0.35rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .cal-timeline__node {
+    flex: 0 0 min(17rem, 82vw);
+    flex-direction: column;
+    scroll-snap-align: start;
+  }
+
+  .cal-timeline__rail-mark {
+    flex-direction: row;
+    width: 100%;
+    height: 0.5rem;
+    justify-content: flex-start;
+  }
+
+  .cal-timeline__rail-line {
+    top: auto;
+    bottom: auto;
+    left: 0.5rem;
+    right: -0.5rem;
+    width: auto;
+    height: 2px;
+  }
+
+  .cal-timeline__dot {
+    margin-top: 0;
+    margin-left: 0.15rem;
+  }
+}
+
+/* —— Feast detail drawer —— */
+.cal-feast-drawer {
+  max-width: min(36rem, 100% - 1.5rem);
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  box-shadow:
+    0 28px 70px var(--shadow-deep),
+    0 0 0 1px rgba(212, 160, 23, 0.1);
+}
+
+.cal-feast-drawer::backdrop {
+  background: rgba(13, 19, 33, 0.62);
+  backdrop-filter: blur(6px);
+}
+
+.cal-feast-drawer__inner {
+  position: relative;
+  padding: 0;
+  max-height: min(90vh, 44rem);
+  overflow-y: auto;
+}
+
+.cal-feast-drawer__x {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 3;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-heading);
+}
+
+.cal-feast-drawer__hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 520px) {
+  .cal-feast-drawer__hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  }
+}
+
+.cal-feast-drawer__visual {
+  position: relative;
+  min-height: 11rem;
+}
+
+.cal-feast-drawer__img {
+  width: 100%;
+  height: 100%;
+  min-height: 11rem;
+  object-fit: cover;
+  display: block;
+}
+
+.cal-feast-drawer__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(13, 19, 33, 0.58) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.cal-feast-drawer__placeholder {
+  min-height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--hero-bg-ink) 100%);
+}
+
+.cal-feast-drawer__placeholder-icon {
+  font-size: 2.75rem;
+  color: var(--hero-gold);
+}
+
+.cal-feast-drawer__hero-copy {
+  padding: 1.1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.cal-feast-drawer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.cal-feast-drawer__title {
+  font-family: var(--heading);
+  font-size: 1.45rem;
+  margin: 0;
+  color: var(--text-heading);
+  line-height: 1.15;
+}
+
+.cal-feast-drawer__subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.cal-feast-drawer__dates {
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.cal-feast-drawer__dates p {
+  margin: 0.2rem 0;
+}
+
+.cal-feast-drawer__body {
+  padding: 0 1.15rem 1rem;
+}
+
+.cal-feast-drawer__h {
+  margin: 0.85rem 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cal-feast-drawer__lead {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cal-feast-drawer__related {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .cal-feast-drawer__related {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cal-feast-drawer__hook {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.cal-feast-drawer__close {
+  margin: 0 1.15rem 1.1rem;
+  width: calc(100% - 2.3rem);
+}
+
+/* —— Month map refinements —— */
+.cal-dash-explorer__grid--transition {
+  animation: cal-month-fade 0.45s ease;
+}
+
+@keyframes cal-month-fade {
+  from {
+    opacity: 0.35;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cal-dash-explorer__cell--day.has-feast {
+  padding-top: 0.25rem;
+}
+
+.cal-dash-explorer__cell-icon {
+  margin: 0.1rem 0 0;
+}
+
+.cal-dash-explorer__panel-feast-btn {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+/* —— Fun facts symbol —— */
+.cal-dash-facts__symbol {
+  display: block;
+  font-family: var(--heading);
+  font-size: clamp(2.5rem, 6vw, 3.25rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+/* —— Season progress & texture —— */
+.cal-dash-season__texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background: url('/images/home/bg-parchment-soft.jpg') center / cover no-repeat;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.cal-dash-season__progress {
+  margin: 1rem 0 1.25rem;
+}
+
+.cal-dash-season__progress-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 0.35rem;
+}
+
+.cal-dash-season__progress-track {
+  height: 0.45rem;
+  border-radius: var(--radius-pill);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.cal-dash-season__progress-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--accent-muted), var(--gold-bright));
+  transition: width 0.7s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cal-dash-season__progress-fill {
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cal-dash-hero__glow,
+  .cal-dash-hero__countdown-fill,
+  .cal-dash-hero__particles,
+  .cal-dash-hero__art-img,
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-swing,
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-parallax,
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-placeholder,
+  .cal-dash-hero__art-halo--pulse,
+  .cal-dash-hero__art-frame--enter .cal-dash-hero__art-caption,
+  .cal-dash-rail__card,
+  .cal-dash-explorer__cell--day,
+  .cal-dash-explorer__grid--transition,
+  .cal-dash-facts__card,
+  .cal-dash-facts__card-inner,
+  .cal-dash-learn__card,
+  .cal-dash-season__progress-fill,
+  .cal-holy-card,
+  .cal-related-card,
+  .cal-timeline__node,
+  .cal-timeline__track--stagger .cal-timeline__node--enter,
+  .cal-timeline__card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .cal-dash-explorer__cell--day.is-selected {
+    box-shadow: none;
+  }
+
+  .cal-dash-facts__card.is-flipped .cal-dash-facts__card-inner {
+    transform: none;
+  }
+
+  .cal-dash-facts__face--back {
+    position: relative;
+    transform: none;
+    margin-top: 0.75rem;
+  }
+
+  .cal-dash-facts__card .cal-dash-facts__face--back {
+    display: none;
+  }
+
+  .cal-dash-facts__card.is-flipped .cal-dash-facts__face--front {
+    display: none;
+  }
+
+  .cal-dash-facts__card.is-flipped .cal-dash-facts__face--back {
+    display: flex;
+  }
+}

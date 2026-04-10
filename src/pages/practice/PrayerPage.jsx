@@ -5,11 +5,18 @@ import ExternalSourceSupportSection from '../../components/sections/ExternalSour
 import PracticePageTemplate from '../../components/sections/PracticePageTemplate.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import ZeweterTselotSection from '../../components/content/ZeweterTselotSection.jsx'
+import PrayerFlowInteractive from '../../components/prayer/PrayerFlowInteractive.jsx'
 
 export default function PrayerPage() {
   return (
     <PracticePageTemplate
       config={practicePageConfigs.prayer}
+      beforeOrientation={
+        <>
+          <PrayerFlowInteractive />
+          <SectionDivider />
+        </>
+      }
       afterExternalLinks={
         <>
           <ExternalSourceSupportSection

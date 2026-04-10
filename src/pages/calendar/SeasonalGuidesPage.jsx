@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/ui-system.css'
 import '../../styles/ContentComponents.css'
@@ -16,19 +17,28 @@ import {
   seasonalGuidesPrimaryNote,
   whatChangesBlocks,
 } from '../../data/seasonalGuidesContent.js'
+import CalendarSeasonalStory from '../../components/calendar/dashboard/CalendarSeasonalStory.jsx'
+import { getLiturgicalDayState } from '../../utils/liturgicalCalendar.js'
 import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
+import '../../components/calendar/dashboard/CalendarDashboard.css'
+import '../../components/calendar/dashboard/calendarVisualMotion.css'
 import './SeasonalGuidesPage.css'
 
 export default function SeasonalGuidesPage() {
+  const [now] = useState(() => new Date())
+  const snapshot = useMemo(() => getLiturgicalDayState(now), [now])
+
   return (
-    <article className="content-page calendar-page calendar-page--seasons seasonal-hub">
+    <article className="content-page calendar-page calendar-page--seasons seasonal-hub calendar-dashboard">
       <PageHeader
         category="Calendar · Seasons"
         title="Seasonal guides"
         intro={seasonalGuidesHero}
         compact
       />
+
+      <CalendarSeasonalStory state={snapshot} />
 
       <StatusBox tone="calm" className="seasonal-hub__notice">
         {seasonalGuidesPrimaryNote}

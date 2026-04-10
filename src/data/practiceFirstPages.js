@@ -19,6 +19,7 @@ export const practicePageConfigs = {
       links: [],
     },
     jumpNavLinks: [
+      { href: '#prayer-flow-interactive', label: 'Guided path' },
       { href: '#daily-prayer', label: 'Daily prayers' },
       { href: '#daily-prayer-overview', label: 'Overview' },
       { href: '#daily-prayer-beginner', label: 'Beginner routine' },

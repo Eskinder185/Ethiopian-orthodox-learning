@@ -2,6 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var K = 'orthodoxpath-theme'
+        var ALLOW = ['blue-gold-sacred', 'emerald-gold-sacred']
+        var LEGACY = {
+          'sacred-manuscript-night': 'blue-gold-sacred',
+          'parchment-light': 'blue-gold-sacred',
+          'monastery-dark': 'emerald-gold-sacred',
+        }
+        try {
+          var t = localStorage.getItem(K)
+          if (t && LEGACY[t]) t = LEGACY[t]
+          if (!t || ALLOW.indexOf(t) < 0) t = 'blue-gold-sacred'
+          document.documentElement.setAttribute('data-theme', t)
+          document.documentElement.style.colorScheme = 'dark'
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'blue-gold-sacred')
+          document.documentElement.style.colorScheme = 'dark'
+        }
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OrthodoxPath</title>

@@ -1,0 +1,28 @@
+/**
+ * Route-scoped atmosphere — one global token system, subtle personality per area.
+ */
+
+.layout__main--home {
+  background:
+    radial-gradient(ellipse 120% 85% at 50% -25%, var(--glow-gold), transparent 52%),
+    transparent;
+}
+
+.layout__main--calendar {
+  background:
+    radial-gradient(ellipse 100% 58% at 88% 8%, rgba(139, 30, 63, 0.08), transparent 50%),
+    radial-gradient(ellipse 85% 50% at 12% 28%, var(--glow-gold), transparent 48%),
+    transparent;
+}
+
+.layout__main--learn {
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 0%, rgba(243, 233, 210, 0.08), transparent 58%),
+    transparent;
+}
+
+.layout__main--practice {
+  background:
+    radial-gradient(ellipse 95% 55% at 50% 0%, rgba(61, 122, 94, 0.07), transparent 52%),
+    transparent;
+}

@@ -1,4 +1,5 @@
 export * from './subpageOutlines.js'
+export * from './homeAssets.js'
 export * from './homeExtras.js'
 export * from './uiCopy.js'
 export * from './practiceFirstPages.js'

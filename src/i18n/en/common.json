@@ -5,6 +5,11 @@
     "switchToEn": "English",
     "switchToAm": "አማርኛ"
   },
+  "theme": {
+    "label": "Site theme",
+    "blueGoldSacred": "Blue Gold Sacred",
+    "emeraldGoldSacred": "Emerald Gold Sacred"
+  },
   "nav": {
     "mainLabel": "Main navigation",
     "mobileLabel": "Mobile main navigation",
@@ -73,9 +78,153 @@
     "frameworkNotice": "Sacred texts and audio are not fully hosted here. You will find routines, summaries, and links to books and websites that provide full material.",
     "startHere": "Start here",
     "exploreMonth": "Explore this month",
+    "newHereBanner": {
+      "title": "New here? Start with a short path",
+      "body": "OrthodoxPath is a gentle guide — learn, pray, and follow the Church year beside your priest and parish.",
+      "cta": "Open Start here"
+    },
+    "hero": {
+      "eyebrow": "Ethiopian Orthodox Learning",
+      "headlineLine1": "Learn the faith.",
+      "headlineLine2": "Practice with reverence.",
+      "headlineLine3": "Follow the Church year.",
+      "support": "Faith, prayer, and the Church calendar — for inquirers and families, beside your spiritual father.",
+      "trust": "For home and parish — never instead of your priest and parish.",
+      "visualCaption": "Image or welcome video",
+      "visualAria": "Placeholder for welcome image or short introduction video",
+      "actionsLabel": "Next steps",
+      "ctaStart": "Start here",
+      "ctaToday": "See Today in the Church"
+    },
+    "dashboard": {
+      "gregorian": "Gregorian",
+      "ethiopian": "Ethiopian",
+      "weekday": "Day",
+      "feast": "Feast or commemoration",
+      "fasting": "Fasting context",
+      "theme": "Weekly theme",
+      "openFull": "Open full calendar page",
+      "noFeastShort": "No major feast from our list on this civil day"
+    },
+    "paths": {
+      "sectionEyebrow": "Four doorways",
+      "sectionTitle": "Choose your path",
+      "sectionSubtitle": "One step is enough — learn, pray, chant, or walk the Church year.",
+      "learnFaith": {
+        "title": "Learn the faith",
+        "description": "Scripture, liturgy, and Church life — for beginners and returners.",
+        "cta": "Explore learning",
+        "visualAria": "Decorative panel suggesting manuscript pages and study — placeholder for a learning image"
+      },
+      "practicePrayer": {
+        "title": "Practice prayer",
+        "description": "Daily prayer with gentle structure — always alongside your parish.",
+        "cta": "Start prayer practice",
+        "visualAria": "Decorative panel suggesting prayer and quiet light — placeholder for a prayer image"
+      },
+      "mezmurChant": {
+        "title": "Mezmur & chant",
+        "description": "Sacred hymnody — listen, repeat, and study with care.",
+        "cta": "Open chant practice",
+        "visualAria": "Decorative panel suggesting hymnody and a musical staff — placeholder for a chant image"
+      },
+      "calendarFeasts": {
+        "title": "Calendar & feasts",
+        "description": "Feasts, fasts, and the rhythm of the Church year.",
+        "cta": "View the Church calendar",
+        "visualAria": "Decorative panel suggesting a church calendar — placeholder for a calendar image"
+      }
+    },
+    "spotlight": {
+      "eyebrow": "Seasonal spotlight",
+      "ctaLearn": "Learn more",
+      "ctaPractice": "Practice in season"
+    },
+    "microLearn": {
+      "sectionTitle": "Learn in 60 seconds",
+      "sectionSubtitle": "Short clips on OrthodoxPath, Tewahedo, calendars, and prayer — more coming soon.",
+      "playLabel": "Video placeholder",
+      "comingSoon": "Coming soon",
+      "watchOnYoutube": "Open on YouTube",
+      "items": {
+        "whatIsOrthodoxPath": {
+          "title": "What is OrthodoxPath?",
+          "description": "How this site helps you learn and practice with reverence.",
+          "embedTitle": "What is OrthodoxPath? — introductory video"
+        },
+        "whatIsTewahedo": {
+          "title": "What is Tewahedo?",
+          "description": "One sentence on the Church’s name and one faith.",
+          "embedTitle": "What is Tewahedo? — introductory video"
+        },
+        "datesDiffer": {
+          "title": "Why do Ethiopian and Gregorian dates differ?",
+          "description": "Two calendars, one Church — what to know at a glance.",
+          "embedTitle": "Ethiopian and Gregorian calendars — short explanation"
+        },
+        "whatIsMezmur": {
+          "title": "What is mezmur?",
+          "description": "Sacred poetry and hymnody in Ethiopian Orthodox worship.",
+          "embedTitle": "What is mezmur? — short introduction"
+        },
+        "beginnerPrayer": {
+          "title": "How should a beginner start prayer?",
+          "description": "Small steps with your priest and parish in mind.",
+          "embedTitle": "How a beginner can start prayer — introductory video"
+        }
+      }
+    },
+    "featuredHighlight": {
+      "eyebrow": "Start today",
+      "default": {
+        "title": "Morning prayer",
+        "description": "One short routine — texts from books or trusted sites your spiritual father approves.",
+        "cta": "Begin prayer practice"
+      }
+    },
+    "missionShort": {
+      "title": "Learning with reverence",
+      "lead": "Study and practice at home with clarity — always with your priest and parish, never instead of them.",
+      "note": "Full sacred texts and recordings live on linked sites. Confirm fasts and feasts with your spiritual father."
+    },
+    "closing": {
+      "title": "Your next step",
+      "subtitle": "Choose one; come back through the year.",
+      "ctaStart": "Start with the beginner path",
+      "ctaCalendar": "Explore today’s Church calendar",
+      "ctaPrayer": "Begin prayer practice"
+    },
+    "materialsShort": "Full liturgical texts and audio are on sites we link to — OrthodoxPath is a guide.",
     "todayInChurch": {
       "title": "Today in the Church",
-      "subtitle": "Remembrance, context, and what lies ahead — confirm fasts and feasts with your parish.",
+      "sectionEyebrow": "Liturgical snapshot",
+      "liveHint": "Liturgical snapshot for today",
+      "subtitle": "Dates, feast, and fasting — confirm with your parish.",
+      "tablistAria": "Choose which day to preview",
+      "tabs": {
+        "today": "Today",
+        "tomorrow": "Tomorrow",
+        "week": "This week"
+      },
+      "tomorrowEyebrow": "Tomorrow’s focus",
+      "tomorrowGlance": "Tomorrow",
+      "weekPanelEyebrow": "The week ahead",
+      "weekPanelTitle": "Season & what’s next",
+      "weekPanelLead": "Season, feasts ahead, and parish rhythm.",
+      "ctaRailLabel": "Explore further",
+      "ctaRailAria": "Calendar links",
+      "visualColAria": "Sacred image for the liturgical day",
+      "visualOverlay": "The rhythm of worship",
+      "ctaOpenCalendar": "Open full calendar",
+      "ctaTodayGuide": "See today’s full guide",
+      "atAGlance": "Snapshot",
+      "mainEyebrow": "Today’s focus",
+      "ctaFullGuide": "See today’s full guide",
+      "ctaExploreCalendar": "Explore the calendar",
+      "asideLabel": "Seasonal context and what is next",
+      "sideNext": "Coming next",
+      "visualCaption": "Liturgical image or video",
+      "visualAria": "Ethiopian Orthodox church and calendar atmosphere — feasts, fasts, and sacred time",
       "card": {
         "today": "Today in the Church",
         "next": "Coming next"
@@ -168,6 +317,7 @@
     }
   },
   "learnHub": {
+    "breadcrumbLabel": "Breadcrumb",
     "title": "Learn",
     "eyebrow": "Faith, Scripture & church life",
     "intro": "Understand the faith, Scripture, the liturgy, church history and life, and the rhythm of the Church year — short guides that support parish teaching and your spiritual father.",
@@ -177,11 +327,248 @@
     "topicCategory": "Topic",
     "notesHeading": "Notes",
     "cautionsHeading": "Editorial caution",
+    "footerNote": "These guides are introductory. Deeper doctrine, liturgical texts, and fasting rules belong with your priest, parish, and the Church’s books.",
     "notes": {
       "0": "Doctrine stays introductory; deeper formation belongs in parish, books, and classes."
     },
     "cautions": {
       "0": "Summarize and link to sources; do not paste long copyrighted or liturgical texts."
+    },
+    "hero": {
+      "eyebrow": "Ethiopian Orthodox · Learn",
+      "headline": "Learn the Ethiopian Orthodox faith step by step",
+      "support": "Clear paths through Scripture, belief, worship, and the Church year — reverent summaries that point you toward parish and spiritual father.",
+      "ctaPrimary": "Start with the basics",
+      "ctaSecondary": "Explore the learning paths"
+    },
+    "pathsSection": {
+      "title": "Learning paths",
+      "subtitle": "Five doors into the faith — each one is written for beginners and returners alike."
+    },
+    "pathCards": {
+      "scripture": {
+        "badge": "Begin here",
+        "summary": "How the Church receives the Bible, Ge’ez tradition, and prayer with the Word.",
+        "cta": "Open Scripture"
+      },
+      "teachings": {
+        "badge": "Core belief",
+        "summary": "Trinity, Christ, and the mysteries — faithful language without jargon walls.",
+        "cta": "Open Teachings"
+      },
+      "liturgy": {
+        "badge": "Sunday worship",
+        "summary": "The shape of Qidase so the service feels less like a mystery and more like home.",
+        "cta": "Open Liturgy"
+      },
+      "churchLifeHistory": {
+        "badge": "Story & witness",
+        "summary": "From the early Church to Ethiopian Orthodox life today — context, not clutter.",
+        "cta": "Open Church life"
+      },
+      "churchYear": {
+        "badge": "Sacred time",
+        "summary": "Why fasts and feasts exist; exact dates live in Calendar.",
+        "cta": "Open Church year"
+      }
+    },
+    "faithMap": {
+      "title": "A simple faith map",
+      "subtitle": "Hover or tap each step — Scripture leads into belief, worship, community life, and the year God gives the Church.",
+      "trackLabel": "Steps from Scripture to Church year",
+      "nodes": {
+        "scripture": {
+          "short": "Scripture",
+          "detail": "God’s Word in the Church’s canon and languages — read and heard in liturgy, not as a private hobby alone."
+        },
+        "belief": {
+          "short": "Belief",
+          "detail": "The Nicene faith: one God in Trinity, Christ truly God and man, salvation in His Body, the Church."
+        },
+        "worship": {
+          "short": "Worship",
+          "detail": "Qidase, incense, icons, and hymnody — heaven and earth meet; the people offer praise with the angels."
+        },
+        "churchLife": {
+          "short": "Church life",
+          "detail": "Fasting, feasts, monastic witness, and care for the poor — faith embodied in community across centuries."
+        },
+        "churchYear": {
+          "short": "Church year",
+          "detail": "The calendar teaches repentance and joy in rhythm; your parish calendar confirms what to keep each season."
+        }
+      }
+    },
+    "teachingsPreview": {
+      "title": "The mysteries in brief",
+      "lead": "Holy Baptism, the Eucharist, and the other mysteries — names and meanings; full catechesis stays with your priest.",
+      "cta": "Read the full Teachings section",
+      "items": {
+        "baptism": {
+          "title": "Holy Baptism",
+          "blurb": "New birth in water and the Spirit — entrance into Christ and His Church."
+        },
+        "eucharist": {
+          "title": "Holy Communion",
+          "blurb": "The bread and wine become Christ’s Body and Blood — food for the journey."
+        },
+        "chrismation": {
+          "title": "Chrismation (Myron)",
+          "blurb": "Gift of the Holy Spirit — seal and strength after Baptism."
+        },
+        "repentance": {
+          "title": "Repentance & confession",
+          "blurb": "Return to the Father through the priest’s witness — healing, not shame."
+        },
+        "marriage": {
+          "title": "Holy Matrimony",
+          "blurb": "A crowned path of love — Christ’s blessing on one flesh in Him."
+        },
+        "unction": {
+          "title": "Holy Unction",
+          "blurb": "Oil and prayer for soul and body in Christ’s compassion."
+        }
+      }
+    },
+    "liturgyPreview": {
+      "title": "Inside the Qidase",
+      "lead": "The Divine Liturgy moves in steady stages — this is a sketch, not a rubric. Listen in church; ask your priest when details differ by parish.",
+      "cta": "Explore the full Liturgy guide",
+      "stages": {
+        "proclamation": {
+          "title": "Gathering",
+          "desc": "The people assemble; hearts turn toward the King of glory."
+        },
+        "readings": {
+          "title": "Word",
+          "desc": "Epistle, Gospel, homily — Christ speaks in Scripture."
+        },
+        "creed": {
+          "title": "Creed & prayers",
+          "desc": "We confess one faith and lift intercessions with the saints."
+        },
+        "anaphora": {
+          "title": "Holy offering",
+          "desc": "Thanksgiving and epiclesis — the Church offers bread and wine to become holy gifts."
+        },
+        "communion": {
+          "title": "Communion",
+          "desc": "The faithful receive Christ — guard the fast and parish discipline your spiritual father sets."
+        },
+        "dismissal": {
+          "title": "Blessing",
+          "desc": "Sent in peace to bear Christ to the world."
+        }
+      }
+    },
+    "historyPreview": {
+      "title": "Church history at a glance",
+      "lead": "A thread of witness — read slowly; every land has local saints your parish remembers best.",
+      "cta": "Open Church life & history",
+      "points": {
+        "apostolic": {
+          "title": "One Church",
+          "text": "From Jerusalem and the apostles — one faith carried in Scripture and liturgy."
+        },
+        "councils": {
+          "title": "Councils",
+          "text": "Nicaea and the undivided witness — Trinity and Christology guarded."
+        },
+        "ethiopia": {
+          "title": "Ethiopia",
+          "text": "The Gospel deep roots — kings, monks, and martyrs in African soil."
+        },
+        "monastic": {
+          "title": "Monastic life",
+          "text": "Prayer warriors and teachers — the desert in the heart of the Church."
+        },
+        "today": {
+          "title": "Today",
+          "text": "Diaspora and homeland — same liturgy, same fasts, new generations learning reverence."
+        }
+      }
+    },
+    "yearPreview": {
+      "title": "The Church’s circle of time",
+      "lead": "Fasts lean the heart toward God; feasts shout His victory. Weekdays carry themes; Pagumen closes the year gently.",
+      "cta": "Learn about the Church year",
+      "ctaCalendar": "Open Calendar",
+      "segments": {
+        "fasts": {
+          "title": "Great fasts",
+          "desc": "Lent before Pascha, seasons before Nativity and other feasts — ask your priest how you keep them."
+        },
+        "feasts": {
+          "title": "Great feasts",
+          "desc": "Pascha, Nativity, Timkat, Meskel, and the saints — joy after repentance."
+        },
+        "weekdays": {
+          "title": "Each day",
+          "desc": "Wednesday and Friday recall betrayal and cross; Saturday and Sunday honor creation and resurrection."
+        },
+        "seasons": {
+          "title": "Seasons",
+          "desc": "Green, white, red, black — vestments and hymns teach the mood of the Church."
+        }
+      }
+    },
+    "glossary": {
+      "title": "Quick terms",
+      "hint": "Tap a word for a short definition.",
+      "close": "Close",
+      "terms": {
+        "tewahedo": {
+          "label": "Tewahedo",
+          "definition": "Ge’ez for “being made one” — the Church’s name confesses one united nature in Christ, as defined at Ephesus, against division."
+        },
+        "qidase": {
+          "label": "Qidase (ቅዳሴ)",
+          "definition": "The Divine Liturgy — the Eucharistic service of the Ethiopian Orthodox Church, the holy offering of the people."
+        },
+        "mezmur": {
+          "label": "Mezmur",
+          "definition": "Sacred hymn or spiritual song — poetry for worship, often in Ge’ez, Amharic, or local tongues, learned with reverence."
+        },
+        "geez": {
+          "label": "Ge’ez",
+          "definition": "Classical Semitic language of Ethiopian Orthodox liturgy and much hymnody — still prayed though many also use Amharic."
+        },
+        "tabot": {
+          "label": "Tabot",
+          "definition": "The altar tablet — a consecrated ark representing God’s presence; the church building exists to house the Tabot, not the reverse."
+        },
+        "senksar": {
+          "label": "Senksar",
+          "definition": "Synaxarium — lives of saints and feasts read through the year; the cloud of witnesses beside Scripture."
+        }
+      }
+    },
+    "bridge": {
+      "title": "From learning to practice",
+      "subtitle": "Study moves toward prayer — take the next step with what your priest approves.",
+      "learnLinkLabel": "Learn more",
+      "practiceLinkLabel": "Try practice",
+      "cards": {
+        "wordToLife": {
+          "title": "Scripture & language",
+          "text": "After reading about the Bible, practice letters and sounds so services open up."
+        },
+        "faithToPrayer": {
+          "title": "Belief & prayer",
+          "text": "After the Creed and mysteries, begin a simple daily prayer rule with guidance."
+        },
+        "yearToCalendar": {
+          "title": "Church year & today",
+          "text": "After seasons and feasts, see today’s fast, feast, and weekday theme in the Calendar."
+        }
+      }
+    },
+    "crosslinks": {
+      "ariaLabel": "Related sections",
+      "label": "Also explore",
+      "practice": "Practice hub",
+      "calendarToday": "Today in the Church",
+      "seasons": "Seasonal guides"
     },
     "topics": {
       "scripture": {
@@ -257,9 +644,35 @@
     "exploreTitle": "Explore",
     "exploreSubtitle": "Today, fasting seasons, and fixed feasts.",
     "snapshotHeading": "Right now (this device)",
+    "snapshotCta": "Open full Today in the Church",
     "gregorian": "Gregorian:",
     "ethiopian": "Ethiopian:",
     "weekdayTheme": "Weekday theme:",
+    "dualCalendarTitle": "Two calendars, one Church day",
+    "seasonPreviewEyebrow": "This season",
+    "seasonPreviewCta": "Seasonal guides & formation",
+    "heroCtaPrimary": "Open Today in the Church",
+    "heroCtaSecondary": "Ethiopian months",
+    "heroCtaExplore": "Jump to explore",
+    "heroChipToday": "Today",
+    "heroChipChurch": "Church date",
+    "heroChipSeason": "Season",
+    "heroChipNext": "Next highlight",
+    "heroChipNow": "This day",
+    "heroChipCountdown": "{{label}} · {{days}} days",
+    "noticeSummary": "Note on parish calendars & our data",
+    "dualLaneCivil": "Civil (Gregorian)",
+    "dualLaneChurch": "Church (Ethiopian)",
+    "dualCta": "How the months work",
+    "statsToday": "Today",
+    "statsTheme": "Weekday theme",
+    "statsFast": "Fasting note",
+    "statsNext": "Feast / focus",
+    "statsNoFeast": "See Today for full commemorations",
+    "statsCountdownMeta": "About {{days}} days ahead",
+    "seasonNextLabel": "What comes next",
+    "seasonHabitLabel": "One habit for now",
+    "seasonProgressLabel": "Year progress about {{pct}} percent",
     "homeLead": "We walk with two ways of counting days: the civil calendar around us and the Church’s Ethiopian calendar — dates, feasts, fasts, and each weekday’s spiritual theme — always alongside your priest’s guidance.",
     "cards": {
       "today": {
@@ -284,10 +697,186 @@
       }
     }
   },
+  "calendarFasting": {
+    "practiceTitle": "Prayer & mezmur alongside fasting",
+    "practiceBody": "Fasting in the Church is never only food — it is paired with prayer, almsgiving, and repentance. When you are ready, continue in these spaces on OrthodoxPath."
+  },
+  "calendarFeasts": {
+    "libraryTitle": "Feast library",
+    "librarySubtitle": "Principal fixed feasts in Ethiopian year {{year}} E.C. — filter, search, and open each for artwork and practice links.",
+    "searchLabel": "Search feasts",
+    "searchPlaceholder": "Search by name or Ge’ez…",
+    "filterGroupLabel": "Filter by category",
+    "filterAll": "All",
+    "resultsCount": "{{count}} feasts shown"
+  },
+  "calendarDashboard": {
+    "dialogClose": "Close",
+    "badges": {
+      "today": "Today",
+      "movable": "Moveable",
+      "fixed": "Fixed",
+      "major": "Major feast",
+      "fast": "Fasting",
+      "detail": "Full detail",
+      "fasting": "Fasting"
+    },
+    "holyFigures": {
+      "title": "Remembered today",
+      "sub": "Feasts, saints, angels, and the weekday’s theme — tap a card for the full story and practice links.",
+      "moreMajor": "Open full detail",
+      "moreMedium": "More detail"
+    },
+    "timeline": {
+      "title": "Coming next on the calendar",
+      "sub": "A living timeline — dates in both calendars, short context, and room to open each moment."
+    },
+    "related": {
+      "title": "Continue in prayer & practice",
+      "sub": "Mezmur, prayer, and learning paths that pair with sacred time."
+    },
+    "drawer": {
+      "gregorian": "Gregorian",
+      "ethiopian": "Ethiopian",
+      "whyTitle": "Why this day matters",
+      "relatedTitle": "Related on OrthodoxPath",
+      "priestHook": "Your parish calendar, Senksar, and spiritual father remain the final guide for fasts and feasts."
+    },
+    "hero": {
+      "eyebrow": "Liturgical dashboard",
+      "title": "Today in the Church",
+      "lead": "Civil date, Ethiopian date, fasting context, and the next great feast — a calm center for sacred time.",
+      "gregorian": "Gregorian",
+      "ethiopian": "Ethiopian",
+      "noFeast": "No major feast in our data today — weekday theme still shapes the day.",
+      "countdownToday": "This is the day — go to church if you can, and rejoice with the faithful.",
+      "countdownIn": "Days until this feast: {{days}}",
+      "countdownNone": "Upcoming feasts appear as the year unfolds.",
+      "spiritLabel": "Spirit of the day",
+      "ctaWeek": "Explore this week",
+      "ctaFeasts": "View all feasts",
+      "ctaTodayPage": "Full “Today” page",
+      "dataHook": "Senksar, parish books, and your priest hold the full commemorations; this hub binds what we can compute to deeper guides.",
+      "feastHeading": "Feast or holy day",
+      "saintHeading": "Commemoration"
+    },
+    "rail": {
+      "sectionTitle": "Upcoming & around the corner",
+      "sectionSub": "Tap a card for why it matters and where to read more.",
+      "tomorrowLabel": "Tomorrow",
+      "weekLabel": "This week",
+      "weekTitle": "Seven-day rhythm",
+      "weekSub": "Fast notes and feasts from our dataset",
+      "majorFeastLabel": "Next major feast",
+      "feastFallbackTitle": "Next feast",
+      "fastingLabel": "Fasting seasons",
+      "tapHint": "Details",
+      "dialogTomorrowTitle": "Tomorrow in both calendars",
+      "dialogWeekTitle": "This week at a glance",
+      "dialogFeastGeneric": "Major feast",
+      "dialogFeastDays": "{{days}} days from today on this device.",
+      "dialogPaschaBlurb": "Holy Week, Ascension, and Pentecost follow from Pascha each year — see Today for moveable dates.",
+      "dialogFeastFallback": "Open Feasts & holy days for the full table; live moveable dates are on the Today page.",
+      "dialogFastDays": "About {{days}} days until this season’s start (approximate; confirm with your parish).",
+      "linkToday": "Open Today in the Church",
+      "linkFeasts": "Feasts & holy days",
+      "linkFasting": "Fasting seasons",
+      "linkSeasons": "Seasonal guides"
+    },
+    "explorer": {
+      "title": "Interactive calendar explorer",
+      "sub": "Switch between Gregorian and Ethiopian months, tap a day for feasts and fasts, and use filters to highlight what you care about.",
+      "toggleLabel": "Calendar mode",
+      "modeGregorian": "Gregorian month",
+      "modeEthiopian": "Ethiopian month",
+      "prev": "Previous month",
+      "next": "Next month",
+      "today": "Jump to today",
+      "filtersLabel": "Highlight on the grid",
+      "filterFeasts": "Major feasts",
+      "filterSaints": "Saints & angels",
+      "filterFasting": "Fasting",
+      "filterMovable": "Moveable",
+      "filterFixed": "Fixed",
+      "gridLabel": "Month days",
+      "legendFeast": "Feast",
+      "legendFast": "Fast context",
+      "panelLabel": "Selected day",
+      "closePanel": "Clear",
+      "feastsHeading": "Feasts & holy days",
+      "badgeMovable": "Moveable",
+      "badgeFixed": "Fixed",
+      "noFeastData": "No major feast in our dataset for this day.",
+      "weekdayHeading": "Weekday theme",
+      "linkToday": "Today page (full detail)",
+      "linkFeasts": "Feasts & holy days",
+      "linkYear": "Church year (Learn)",
+      "senksarHook": "Full saint lists and readings: Senksar & parish — we’ll wire richer data here later.",
+      "pickDay": "Select a day on the grid to see feasts, fasts, and the weekday theme.",
+      "openFeastDetail": "Open feast detail",
+      "weekSun": "Sun",
+      "weekMon": "Mon",
+      "weekTue": "Tue",
+      "weekWed": "Wed",
+      "weekThu": "Thu",
+      "weekFri": "Fri",
+      "weekSat": "Sat"
+    },
+    "facts": {
+      "title": "Ethiopian calendar — in brief",
+      "sub": "Flip the card or use arrows; facts rotate on their own, gently.",
+      "didYouKnow": "Did you know?",
+      "tapFlip": "Tap to flip",
+      "prev": "Previous fact",
+      "next": "Next fact",
+      "dotsLabel": "Choose a fact"
+    },
+    "season": {
+      "eyebrow": "Where you are in the year",
+      "now": "Now",
+      "next": "Next movement",
+      "habitTitle": "A small habit for this season",
+      "cta": "Open seasonal guides",
+      "hook": "Exact fast boundaries and local customs always come from your diocese and spiritual father.",
+      "progressLabel": "Approximate place in the Ethiopian liturgical year: {{pct}} percent",
+      "pathLabel": "Path through the Church year"
+    },
+    "quick": {
+      "title": "Quick learn",
+      "sub": "Short paths into the calendar topics people open most often.",
+      "open": "Open →",
+      "cards": {
+        "todayFeast": {
+          "kicker": "Daily",
+          "title": "Today’s feast & fast",
+          "body": "Weekday theme, bright week, Great Lent, and moveable feasts in one place."
+        },
+        "month": {
+          "kicker": "Planning",
+          "title": "This month’s holy days",
+          "body": "Fixed feasts with civil dates to help you plan travel and parish life."
+        },
+        "fasting": {
+          "kicker": "Discipline",
+          "title": "Fasting seasons",
+          "body": "Weekly fasts and the great fasts — context before you ask your priest."
+        },
+        "moveable": {
+          "kicker": "Pascha cycle",
+          "title": "Moveable feasts",
+          "body": "Holy Week, Pascha, Ascension, and Pentecost track Orthodox Easter each year."
+        },
+        "months": {
+          "kicker": "Time",
+          "title": "Ethiopian months",
+          "body": "Thirteen months, names in Ge’ez, and how they sit across the civil year."
+        }
+      }
+    }
+  },
   "startHere": {
     "title": "Start here",
     "eyebrow": "Welcome to OrthodoxPath",
-    "heroLead": "This site helps you pray, learn, and practice at home in the Ethiopian Orthodox Tewahedo tradition — with reverence, patience, and your parish always first.",
     "beginTeachings": "Begin with Teachings",
     "whatIsChurchTitle": "What is the Ethiopian Orthodox Tewahedo Church?",
     "howToUseTitle": "How to use this site",
@@ -295,13 +884,196 @@
     "pathTitle": "A beginner learning path",
     "visitorTitle": "First-time church visitor",
     "parishTitle": "Parish and spiritual father",
+    "parishBody": "OrthodoxPath supports parish life, fasting rules, and spiritual direction — it does not replace your priest, bishop, or sacramental life in the Church.",
     "items": {
-      "0": { "label": "Teachings or Scripture", "hint": "A calm foundation in Christ and the Church’s faith." },
-      "1": { "label": "Liturgy (overview)", "hint": "So Sunday worship feels less unfamiliar." },
-      "2": { "label": "Prayer practice (Tselot / ጸሎት)", "hint": "One short routine your priest blesses." }
+      "0": {
+        "label": "Teachings or Scripture",
+        "hint": "A calm foundation in Christ and the Church’s faith."
+      },
+      "1": {
+        "label": "Liturgy (overview)",
+        "hint": "So Sunday worship feels less unfamiliar."
+      },
+      "2": {
+        "label": "Prayer practice (Tselot / ጸሎት)",
+        "hint": "One short routine your priest blesses."
+      }
     },
     "learnHubCta": "Open Learn",
-    "ctaExploreSeasons": "Seasonal guides"
+    "ctaExploreSeasons": "Seasonal guides",
+    "breadcrumbLabel": "Breadcrumb",
+    "heroEyebrow": "A gentle beginning",
+    "heroHeadline": "Start your Ethiopian Orthodox journey with clarity and peace",
+    "heroLead": "You do not need to learn everything at once. OrthodoxPath is here to orient you — with reverence, patience, and your parish always first.",
+    "heroReassure": "Start small. Stay consistent. Grow with the Church.",
+    "heroMicrocopy": "There is no rush. Come back as often as you need — one short visit still counts.",
+    "journeyIllustrationAria": "Symbolic art: a winding path on quiet hills leads toward a small church, suggesting a pilgrim journey in faith.",
+    "pilgrimArtAlt": "Symbolic illustration: a pilgrim path through quiet hills toward a church — a spiritual journey in the Ethiopian Orthodox tradition.",
+    "ctaBeginPath": "Begin the path",
+    "ctaWatchIntro": "Watch the introduction",
+    "video": {
+      "embedTitle": "OrthodoxPath orientation",
+      "thumbnailLabel": "Site orientation",
+      "thumbnailSub": "A six-minute welcome when the recording is ready — settle in, press play, and look around with calm.",
+      "caption": "A short on-site walkthrough when the video is ready.",
+      "posterAlt": "Still image for the upcoming site orientation video — calm welcome artwork with a play marker.",
+      "durationLabel": "About {{count}} minutes",
+      "comingSoon": "A six-minute orientation will be embedded here when it is ready."
+    },
+    "whatHelps": {
+      "title": "What this site helps you do",
+      "lead": "Three doors into OrthodoxPath — pick what fits you today.",
+      "cards": {
+        "learn": {
+          "title": "Learn",
+          "desc": "Faith, Scripture, liturgy, and the Church year in plain, short guides.",
+          "cta": "Explore Learn",
+          "imageAlt": "Illustration for learning — faith, Scripture, and church teaching."
+        },
+        "practice": {
+          "title": "Practice",
+          "desc": "Prayer, hymns, and language — small habits at home, with your priest’s blessing.",
+          "cta": "Explore Practice",
+          "imageAlt": "Illustration for practice — prayer and worship at home."
+        },
+        "calendar": {
+          "title": "Calendar",
+          "desc": "Today in Church time, feasts, and fasts — always confirm with your parish.",
+          "cta": "Explore Calendar",
+          "imageAlt": "Illustration for the Church calendar — feasts, fasts, and sacred time."
+        }
+      }
+    },
+    "checklist": {
+      "title": "A simple path for beginners",
+      "lead": "You can follow in order or skip around — begin one step at a time. Check off what you finish; progress is saved on this device only.",
+      "progressLabel": "{{done}} of {{total}} steps",
+      "progressAria": "{{percent}} percent complete",
+      "reset": "Clear my progress on this device",
+      "ariaMark": "Mark as complete: {{title}}",
+      "steps": {
+        "church": {
+          "title": "Learn what the Ethiopian Orthodox Church is",
+          "desc": "Read a calm introduction to one ancient Church, one Lord, and one baptism.",
+          "cta": "Go to Teachings"
+        },
+        "worship": {
+          "title": "Understand prayer and worship",
+          "desc": "Walk through the Divine Liturgy (Qidase) so Sunday worship feels a little more familiar.",
+          "cta": "Open Liturgy overview"
+        },
+        "year": {
+          "title": "Explore the Church year",
+          "desc": "See why feasts, fasts, and seasons matter — exact dates live under Calendar.",
+          "cta": "Open Church Year"
+        },
+        "practice": {
+          "title": "Begin one small practice",
+          "desc": "Try one short prayer habit your priest can bless — small and steady beats rushing.",
+          "cta": "Open prayer practice"
+        },
+        "parish": {
+          "title": "Connect with a parish",
+          "desc": "Bring questions to a priest or catechist in person — OrthodoxPath supports, never replaces, parish life.",
+          "cta": "Read About & next steps"
+        }
+      }
+    },
+    "glossary": {
+      "title": "Orthodox words made simple",
+      "lead": "Tiny glosses to help you read menus and pages — your parish teaches the full meaning.",
+      "stripAlt": "Decorative row of small Orthodox-themed icons above the glossary.",
+      "terms": {
+        "tewahedo": {
+          "term": "Tewahedo",
+          "script": "ተዋሕዶ",
+          "def": "Means “made one” — points to Christ’s one united nature, as the Church confesses."
+        },
+        "qidase": {
+          "term": "Qidase",
+          "script": "ቅዳሴ",
+          "def": "The Divine Liturgy — the Church’s chief Eucharistic service."
+        },
+        "mezmur": {
+          "term": "Mezmur",
+          "script": "መዝሙር",
+          "def": "A sacred hymn or spiritual song."
+        },
+        "werb": {
+          "term": "Werb",
+          "script": "ወርብ",
+          "def": "Sacred poetry; often learned alongside mezmur."
+        },
+        "geez": {
+          "term": "Ge’ez",
+          "script": "ግዕዝ",
+          "def": "Ancient liturgical language — many prayers and texts come from this tradition."
+        },
+        "feast": {
+          "term": "Feast",
+          "script": "በዓል",
+          "def": "A holy day of joy — the Church marks many through the year."
+        },
+        "fast": {
+          "term": "Fast",
+          "script": "ጾም",
+          "def": "Days or seasons of simpler eating and deeper prayer — your priest guides you."
+        },
+        "parish": {
+          "term": "Parish",
+          "script": "ጉባኤ",
+          "def": "Your local church family — where you receive the sacraments and grow together."
+        }
+      }
+    },
+    "firstVisit": {
+      "title": "First-time church visit",
+      "lead": "If this is new to you, go slowly — God welcomes a quiet, honest heart.",
+      "imageAlt": "Calm illustration of arriving at an Ethiopian Orthodox church for the first time.",
+      "items": {
+        "early": {
+          "title": "Arrive early",
+          "desc": "Come a little before the service so you can find a place and settle your mind."
+        },
+        "dress": {
+          "title": "Dress modestly",
+          "desc": "Simple, respectful clothing fits prayer better than distraction."
+        },
+        "observe": {
+          "title": "Observe respectfully",
+          "desc": "Stand, bow, and sing with the people when you can; let the prayer carry you."
+        },
+        "ushers": {
+          "title": "Follow parish guidance",
+          "desc": "If you are unsure where to stand or move, follow the ushers or ask quietly."
+        },
+        "communion": {
+          "title": "Wait for communion if you are not prepared",
+          "desc": "The holy gifts are for the prepared Orthodox faithful — stay in prayer; your priest can explain more later."
+        }
+      }
+    },
+    "closing": {
+      "title": "Take one small step today",
+      "lead": "Choose one door below — even a few quiet minutes is enough.",
+      "cards": {
+        "prayer": {
+          "title": "Prayer",
+          "desc": "Start or deepen a gentle habit at home.",
+          "cta": "Go to Prayer"
+        },
+        "today": {
+          "title": "Today in the Church",
+          "desc": "See today’s dates, feast, and fasting in context.",
+          "cta": "Open Today"
+        },
+        "learn": {
+          "title": "Learn the basics",
+          "desc": "Teachings, Scripture, and liturgy — little by little.",
+          "cta": "Go to Learn"
+        }
+      }
+    }
   },
   "about": {
     "readMore": "Read more",
@@ -326,12 +1098,30 @@
     "send": "Send",
     "askElse": "Ask something else",
     "topics": {
-      "start": { "label": "Start here", "hint": "Onboarding" },
-      "learn": { "label": "Learn", "hint": "Faith & meaning" },
-      "practice": { "label": "Practice", "hint": "Pray, sing, train" },
-      "language": { "label": "Language & pronunciation", "hint": "Under Practice" },
-      "calendar": { "label": "Calendar", "hint": "When things happen" },
-      "about": { "label": "About", "hint": "This project" }
+      "start": {
+        "label": "Start here",
+        "hint": "Onboarding"
+      },
+      "learn": {
+        "label": "Learn",
+        "hint": "Faith & meaning"
+      },
+      "practice": {
+        "label": "Practice",
+        "hint": "Pray, sing, train"
+      },
+      "language": {
+        "label": "Language & pronunciation",
+        "hint": "Under Practice"
+      },
+      "calendar": {
+        "label": "Calendar",
+        "hint": "When things happen"
+      },
+      "about": {
+        "label": "About",
+        "hint": "This project"
+      }
     },
     "entries": {
       "what-site": {

@@ -1,0 +1,62 @@
+/**
+ * Shared presentation for Learn hub + Learn subpage heroes using SacredImageSlot + manifest.
+ * Parents set aspect-ratio or fixed height; images always cover and stay centered.
+ */
+
+.learn-hero__slot,
+.learn-path-card__media,
+.learn-faith-map__banner,
+.learn-sacraments__strip,
+.learn-qidase__banner,
+.learn-history-strip__banner,
+.learn-bridge-card__media,
+.learn-year-wheel__slot,
+.scripture__hero-slot,
+.liturgy-guide__hero-slot,
+.church-life__hero-slot,
+.church-year__hero-slot,
+.teachings-sac__hero-panel-media,
+.teachings-sac__media-visual {
+  position: relative;
+}
+
+.learn-hero__slot.sacred-image-slot,
+.learn-path-card__media.sacred-image-slot,
+.learn-faith-map__banner.sacred-image-slot,
+.learn-sacraments__strip.sacred-image-slot,
+.learn-qidase__banner.sacred-image-slot,
+.learn-history-strip__banner.sacred-image-slot,
+.learn-bridge-card__media.sacred-image-slot,
+.learn-year-wheel__slot.sacred-image-slot,
+.scripture__hero-slot.sacred-image-slot,
+.liturgy-guide__hero-slot.sacred-image-slot,
+.church-life__hero-slot.sacred-image-slot,
+.church-year__hero-slot.sacred-image-slot,
+.teachings-sac__hero-panel-media.sacred-image-slot,
+.teachings-sac__media-visual.sacred-image-slot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.learn-hero__slot .sacred-image-slot__img,
+.learn-hero__slot-img,
+.learn-path-card__media .sacred-image-slot__img,
+.learn-faith-map__banner .sacred-image-slot__img,
+.learn-sacraments__strip .sacred-image-slot__img,
+.learn-qidase__banner .sacred-image-slot__img,
+.learn-history-strip__banner .sacred-image-slot__img,
+.learn-bridge-card__media .sacred-image-slot__img,
+.learn-year-wheel__slot .sacred-image-slot__img,
+.scripture__hero-slot .sacred-image-slot__img,
+.liturgy-guide__hero-slot .sacred-image-slot__img,
+.church-life__hero-slot .sacred-image-slot__img,
+.church-year__hero-slot .sacred-image-slot__img,
+.teachings-sac__hero-panel-media .sacred-image-slot__img,
+.teachings-sac__media-visual .sacred-image-slot__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}

@@ -1,0 +1,712 @@
+/* Teachings & Sacraments — premium, calm, icon-led */
+
+.teachings-sacraments-page {
+  --ts-gold: rgba(212, 166, 60, 0.85);
+  --ts-gold-soft: rgba(212, 166, 60, 0.14);
+  --ts-glow: rgba(212, 166, 60, 0.12);
+  --ts-depth: rgba(10, 18, 32, 0.4);
+  --ts-panel: linear-gradient(165deg, rgba(255, 253, 248, 0.97) 0%, rgba(248, 242, 232, 0.94) 100%);
+  --ts-ink: rgba(30, 58, 95, 0.92);
+
+  max-width: min(56rem, 100% - 1.5rem);
+  margin: 0 auto;
+  padding: 0 max(0.5rem, env(safe-area-inset-left)) clamp(2rem, 5vw, 3.25rem)
+    max(0.5rem, env(safe-area-inset-right));
+}
+
+@media (prefers-color-scheme: dark) {
+  .teachings-sacraments-page {
+    --ts-panel: linear-gradient(165deg, rgba(34, 42, 54, 0.98) 0%, rgba(22, 28, 38, 0.96) 100%);
+    --ts-ink: rgba(232, 228, 218, 0.92);
+    --ts-gold-soft: rgba(212, 166, 60, 0.1);
+    --ts-glow: rgba(212, 166, 60, 0.08);
+    --ts-depth: rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Scroll reveal (matches Learn hub behavior) */
+.teachings-sacraments-page [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.teachings-sacraments-page [data-reveal][data-reveal-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teachings-sacraments-page [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .teachings-sac__card:hover,
+  .teachings-sac__related-card:hover {
+    transform: none;
+  }
+}
+
+/* Breadcrumb */
+.teachings-sac__bc {
+  margin-bottom: 1.25rem;
+}
+
+.teachings-sac__bc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+}
+
+.teachings-sac__bc a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.teachings-sac__bc a:hover {
+  text-decoration: underline;
+}
+
+.teachings-sac__bc li[aria-current='page'] {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Hero */
+.teachings-sac__hero {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.teachings-sac__hero-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .teachings-sac__hero-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+  }
+}
+
+.teachings-sac__hero-copy {
+  padding: clamp(0.25rem, 1vw, 0.5rem) 0;
+}
+
+.teachings-sac__hero-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.teachings-sac__hero-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--heading);
+  font-size: clamp(1.85rem, 1.4vw + 1.45rem, 2.35rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+}
+
+.teachings-sac__hero-lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+  max-width: 38rem;
+}
+
+.teachings-sac__hero-panel {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.2);
+  background: var(--ts-panel);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 16px 48px var(--shadow-soft),
+    0 0 0 1px var(--ts-glow);
+  padding: clamp(1.15rem, 2.5vw, 1.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.teachings-sac__hero-panel::before {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, var(--ts-gold-soft), transparent 68%);
+  pointer-events: none;
+}
+
+.teachings-sac__hero-panel-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.teachings-sac__hero-panel-media {
+  height: auto;
+  min-height: 10rem;
+  aspect-ratio: 4 / 3;
+  margin: -1.15rem -1.15rem 1rem;
+  width: calc(100% + 2.3rem);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+@media (min-width: 900px) {
+  .teachings-sac__hero-panel-media {
+    min-height: 12rem;
+  }
+}
+
+.teachings-sac__hero-panel-caption {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ts-ink);
+  opacity: 0.75;
+}
+
+.teachings-sac__hero-orbit {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 0.85rem;
+}
+
+.teachings-sac__hero-orbit-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 5.75rem;
+  padding: 0.5rem 0.35rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid transparent;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.22s ease;
+}
+
+.teachings-sac__hero-orbit-link:hover {
+  background: rgba(212, 166, 60, 0.08);
+  border-color: rgba(212, 166, 60, 0.22);
+  box-shadow: 0 6px 20px var(--ts-depth);
+  transform: translateY(-2px);
+}
+
+.teachings-sac__hero-orbit-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 166, 60, 0.1);
+  border: 1px solid rgba(212, 166, 60, 0.25);
+  color: var(--accent);
+}
+
+.teachings-sac__hero-orbit-svg {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.teachings-sac__hero-orbit-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25;
+  color: var(--text-heading);
+}
+
+/* Section rhythm */
+.teachings-sac__rule {
+  border: none;
+  height: 1px;
+  margin: clamp(1.75rem, 3.5vw, 2.35rem) 0;
+  background: linear-gradient(90deg, transparent, rgba(212, 166, 60, 0.28), transparent);
+}
+
+.teachings-sac__section {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.teachings-sac__section-head {
+  margin-bottom: clamp(1.15rem, 2.5vw, 1.55rem);
+}
+
+.teachings-sac__section-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading);
+  font-size: clamp(1.32rem, 0.5vw + 1.12rem, 1.55rem);
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+.teachings-sac__section-lead {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 40rem;
+}
+
+/* Card grid */
+.teachings-sac__card-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .teachings-sac__card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .teachings-sac__card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .teachings-sac__card-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.teachings-sac__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 11rem;
+  padding: 1.15rem 1.1rem 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 6px 24px var(--shadow-soft);
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
+}
+
+.teachings-sac__card:hover {
+  border-color: rgba(212, 166, 60, 0.35);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 14px 40px var(--shadow-soft),
+    0 0 0 1px var(--ts-glow);
+  transform: translateY(-4px);
+}
+
+.teachings-sac__card:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.teachings-sac__card-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  background: linear-gradient(145deg, rgba(212, 166, 60, 0.12), rgba(255, 252, 248, 0.5));
+  border: 1px solid rgba(212, 166, 60, 0.2);
+  color: var(--accent);
+}
+
+.teachings-sac__card-svg {
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.teachings-sac__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.teachings-sac__card-name {
+  font-family: var(--heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.teachings-sac__card-desc {
+  font-size: 0.86rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.teachings-sac__card-cta {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.35rem;
+}
+
+/* Spotlights */
+.teachings-sac__spotlight-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.5vw, 1.65rem);
+}
+
+.teachings-sac__spotlight {
+  scroll-margin-top: 5.5rem;
+  padding: clamp(1.15rem, 2.2vw, 1.45rem) clamp(1.1rem, 2vw, 1.35rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.14);
+  background: var(--card-bg);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 4px 22px var(--shadow-soft);
+}
+
+.teachings-sac__spotlight-head {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.teachings-sac__spotlight-icon {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 166, 60, 0.1);
+  border: 2px solid rgba(212, 166, 60, 0.28);
+  color: var(--accent);
+}
+
+.teachings-sac__spotlight-svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.teachings-sac__spotlight-title {
+  margin: 0 0 0.4rem;
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.teachings-sac__spotlight-summary {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.teachings-sac__spotlight-dl {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.teachings-sac__spotlight-row {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(212, 166, 60, 0.04);
+  border-left: 3px solid rgba(212, 166, 60, 0.35);
+}
+
+.teachings-sac__spotlight-row--accent {
+  background: rgba(30, 58, 95, 0.06);
+  border-left-color: rgba(30, 58, 95, 0.35);
+}
+
+.teachings-sac__spotlight-row dt {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.teachings-sac__spotlight-row dd {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.52;
+  color: var(--text-muted);
+}
+
+/* Comparison table */
+.teachings-sac__table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) inset, 0 8px 32px var(--shadow-soft);
+}
+
+.teachings-sac__table {
+  width: 100%;
+  min-width: 52rem;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.teachings-sac__table thead th {
+  text-align: left;
+  padding: 0.85rem 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  background: rgba(212, 166, 60, 0.08);
+  border-bottom: 1px solid rgba(212, 166, 60, 0.18);
+  white-space: nowrap;
+}
+
+.teachings-sac__table tbody th {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  box-shadow: 1px 0 0 var(--border);
+}
+
+.teachings-sac__table td {
+  padding: 0.75rem 0.9rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.teachings-sac__table tbody tr:last-child th,
+.teachings-sac__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.teachings-sac__table tbody tr:hover td,
+.teachings-sac__table tbody tr:hover th {
+  background: rgba(212, 166, 60, 0.04);
+}
+
+/* Related */
+.teachings-sac__related-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .teachings-sac__related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .teachings-sac__related-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.teachings-sac__related-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.05rem 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 14px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.teachings-sac__related-card:hover {
+  border-color: rgba(212, 166, 60, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px var(--shadow-soft);
+}
+
+.teachings-sac__related-title {
+  font-family: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.4rem;
+}
+
+.teachings-sac__related-blurb {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  flex: 1;
+  margin-bottom: 0.5rem;
+}
+
+.teachings-sac__related-cta {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Media placeholders */
+.teachings-sac__media-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .teachings-sac__media-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.teachings-sac__media-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.1rem 1.05rem 1.15rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.2);
+  background: var(--card-bg);
+  box-shadow: 0 4px 22px var(--shadow-soft);
+  overflow: hidden;
+}
+
+.teachings-sac__media-tag {
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.teachings-sac__media-title {
+  margin: 0 0 0.45rem;
+  font-family: var(--heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.teachings-sac__media-body {
+  margin: 0 0 0.75rem;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.teachings-sac__media-visual {
+  margin: -1.1rem -1.05rem 0.85rem;
+  width: calc(100% + 2.1rem);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  border-bottom: 1px solid rgba(212, 166, 60, 0.1);
+}
+
+.teachings-sac__media-visual--empty {
+  background: linear-gradient(
+    145deg,
+    rgba(212, 166, 60, 0.08) 0%,
+    var(--cream) 48%,
+    rgba(30, 58, 95, 0.06) 100%
+  );
+}
+
+/* Footer notes */
+.teachings-sac__footer {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(212, 166, 60, 0.14);
+  background: rgba(212, 166, 60, 0.05);
+}
+
+.teachings-sac__footer p {
+  margin: 0 0 0.65rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.teachings-sac__footer p:last-child {
+  margin-bottom: 0;
+}

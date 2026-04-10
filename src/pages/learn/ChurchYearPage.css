@@ -1,0 +1,769 @@
+/* Church Year — visual rhythm of the liturgical year */
+
+.church-year-page {
+  --cy-gold: rgba(212, 166, 60, 0.85);
+  --cy-line: rgba(212, 166, 60, 0.22);
+
+  max-width: min(56rem, 100% - 1.5rem);
+  margin: 0 auto;
+  padding: 0 max(0.5rem, env(safe-area-inset-left)) clamp(2rem, 5vw, 3.25rem)
+    max(0.5rem, env(safe-area-inset-right));
+}
+
+.church-year-page [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.church-year-page [data-reveal][data-reveal-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .church-year-page [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .church-year__season-card:hover,
+  .church-year__shapes-card:hover,
+  .church-year__preview-card:hover,
+  .church-year__cross-card:hover {
+    transform: none;
+  }
+}
+
+/* Breadcrumb */
+.church-year__bc {
+  margin-bottom: 1.25rem;
+}
+
+.church-year__bc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+}
+
+.church-year__bc a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.church-year__bc a:hover {
+  text-decoration: underline;
+}
+
+.church-year__bc li[aria-current='page'] {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Hero */
+.church-year__hero {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.church-year__hero-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .church-year__hero-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  }
+}
+
+.church-year__hero-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.church-year__hero-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--heading);
+  font-size: clamp(1.85rem, 1.35vw + 1.45rem, 2.35rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+}
+
+.church-year__hero-intro {
+  margin: 0 0 1.15rem;
+  font-size: 1.05rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+  max-width: 38rem;
+}
+
+.church-year__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.church-year__hero-btn {
+  min-height: 2.65rem;
+  padding-left: 1.15rem;
+  padding-right: 1.15rem;
+}
+
+.church-year__hero-art {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(212, 166, 60, 0.18);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 14px 44px var(--shadow-soft);
+}
+
+.church-year__hero-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.church-year__hero-slot {
+  width: 100%;
+  aspect-ratio: 360 / 220;
+}
+
+.church-year__rule {
+  border: none;
+  height: 1px;
+  margin: clamp(1.75rem, 3.5vw, 2.35rem) 0;
+  background: linear-gradient(90deg, transparent, var(--cy-line), transparent);
+}
+
+/* Section heads */
+.church-year__section {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.church-year__section-head {
+  margin-bottom: clamp(1.15rem, 2.5vw, 1.55rem);
+}
+
+.church-year__section-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading);
+  font-size: clamp(1.32rem, 0.5vw + 1.12rem, 1.55rem);
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+.church-year__section-lead {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 42rem;
+}
+
+#church-year-wheel,
+#church-year-season-cards {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Wheel */
+.church-year__wheel-hint {
+  margin: 0 0 1rem;
+  font-size: 0.84rem;
+  color: var(--text-soft);
+  max-width: 36rem;
+}
+
+.church-year__wheel-layout {
+  display: grid;
+  gap: 1.35rem;
+  align-items: start;
+}
+
+@media (min-width: 820px) {
+  .church-year__wheel-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 1.5rem;
+  }
+}
+
+.church-year__wheel-frame {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.16);
+  background: linear-gradient(165deg, rgba(212, 166, 60, 0.07) 0%, var(--card-bg) 48%);
+  padding: 0.85rem 0.75rem 0.95rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 10px 36px var(--shadow-soft);
+}
+
+.church-year__wheel-svg {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  margin: 0 auto;
+  color: var(--text-heading);
+}
+
+.church-year__wheel-center-text {
+  font-family: var(--heading);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 8px;
+}
+
+.church-year__wheel-wedge:focus-visible {
+  outline: 2px solid rgba(212, 166, 60, 0.95);
+  outline-offset: 1px;
+}
+
+.church-year__wheel-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.church-year__wheel-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.church-year__wheel-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-heading);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.church-year__wheel-chip:hover {
+  border-color: rgba(212, 166, 60, 0.35);
+}
+
+.church-year__wheel-chip--active {
+  border-color: rgba(212, 166, 60, 0.55);
+  background: rgba(212, 166, 60, 0.12);
+  color: var(--accent);
+}
+
+.church-year__wheel-detail {
+  padding: 1rem 1.05rem 1.1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.14);
+  background: var(--card-bg);
+  box-shadow: 0 4px 22px var(--shadow-soft);
+}
+
+.church-year__wheel-detail-title {
+  margin: 0 0 0.55rem;
+  font-family: var(--heading);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.church-year__wheel-p {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.church-year__wheel-p:last-of-type {
+  margin-bottom: 0.75rem;
+}
+
+.church-year__wheel-p strong {
+  color: var(--text-heading);
+  font-weight: 700;
+}
+
+.church-year__wheel-link {
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.church-year__wheel-link:hover {
+  text-decoration: underline;
+}
+
+/* Fixed / movable */
+.church-year__split-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .church-year__split-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+.church-year__split-card {
+  height: 100%;
+  padding: 1.15rem 1.05rem 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 4px 22px var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.church-year__split-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.church-year__split-card--fixed::before {
+  background: linear-gradient(90deg, rgba(100, 149, 180, 0.85), rgba(212, 166, 60, 0.5));
+}
+
+.church-year__split-card--movable::before {
+  background: linear-gradient(90deg, rgba(212, 166, 60, 0.75), rgba(180, 90, 90, 0.45));
+}
+
+.church-year__split-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.65rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  background: rgba(212, 166, 60, 0.08);
+  border: 1px solid rgba(212, 166, 60, 0.2);
+}
+
+.church-year__split-svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.church-year__split-h {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.church-year__split-body {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.church-year__split-example {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.48;
+  color: var(--text-soft);
+}
+
+/* Season cards */
+.church-year__season-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .church-year__season-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.church-year__season-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1.05rem 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, rgba(212, 166, 60, 0.06) 0%, var(--card-bg) 42%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 6px 26px var(--shadow-soft);
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
+}
+
+.church-year__season-card:hover {
+  border-color: rgba(212, 166, 60, 0.28);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px var(--shadow-soft);
+}
+
+.church-year__season-title {
+  margin: 0 0 0.65rem;
+  font-family: var(--heading);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.church-year__season-line {
+  margin: 0 0 0.45rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.church-year__season-line strong {
+  color: var(--text-heading);
+  font-weight: 700;
+}
+
+.church-year__season-link {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.church-year__season-link:hover {
+  text-decoration: underline;
+}
+
+/* Shapes life */
+.church-year__shapes-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .church-year__shapes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .church-year__shapes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.church-year__shapes-card {
+  height: 100%;
+  padding: 1rem 0.95rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 2px 16px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.church-year__shapes-card:hover {
+  border-color: rgba(212, 166, 60, 0.26);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--shadow-soft);
+}
+
+.church-year__shapes-icon {
+  width: 2.65rem;
+  height: 2.65rem;
+  margin-bottom: 0.55rem;
+  color: var(--accent);
+}
+
+.church-year__shapes-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.church-year__shapes-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.church-year__shapes-blurb {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  color: var(--text-muted);
+}
+
+/* Tracker */
+.church-year__tracker-card {
+  padding: 1.15rem 1.1rem 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(212, 166, 60, 0.2);
+  background: linear-gradient(155deg, rgba(30, 58, 95, 0.06) 0%, var(--card-bg) 55%);
+  box-shadow: 0 6px 28px var(--shadow-soft);
+}
+
+.church-year__tracker-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.church-year__tracker-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 9.5rem) 1fr;
+  gap: 0.65rem 1rem;
+  align-items: start;
+}
+
+@media (max-width: 520px) {
+  .church-year__tracker-list li {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+.church-year__tracker-k {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.church-year__tracker-v {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.church-year__tracker-v strong {
+  color: var(--text-heading);
+}
+
+.church-year__tracker-btn {
+  width: 100%;
+  justify-content: center;
+  min-height: 2.65rem;
+}
+
+/* Previews */
+.church-year__preview-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .church-year__preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.church-year__preview-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1rem 0;
+  border-radius: var(--radius-lg);
+  border: 1px dashed rgba(212, 166, 60, 0.35);
+  background: rgba(212, 166, 60, 0.04);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.church-year__preview-card:hover {
+  border-color: rgba(212, 166, 60, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--shadow-soft);
+}
+
+.church-year__preview-tag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 0.55rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 166, 60, 0.25);
+  background: rgba(255, 252, 248, 0.6);
+}
+
+.church-year__preview-name {
+  margin: 0 0 0.45rem;
+  font-family: var(--heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.church-year__preview-blurb {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  line-height: 1.52;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.church-year__preview-placeholder {
+  height: 3.25rem;
+  margin: 0 -1rem;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  background: linear-gradient(
+    110deg,
+    rgba(212, 166, 60, 0.12) 0%,
+    rgba(30, 58, 95, 0.08) 45%,
+    rgba(212, 166, 60, 0.1) 100%
+  );
+  border-top: 1px solid rgba(212, 166, 60, 0.15);
+}
+
+/* Crosslinks */
+.church-year__cross-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 520px) {
+  .church-year__cross-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .church-year__cross-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.church-year__cross-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 0.95rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 14px var(--shadow-soft);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.church-year__cross-card:hover {
+  border-color: rgba(212, 166, 60, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px var(--shadow-soft);
+}
+
+.church-year__cross-title {
+  font-family: var(--heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.35rem;
+}
+
+.church-year__cross-blurb {
+  font-size: 0.8rem;
+  line-height: 1.42;
+  color: var(--text-muted);
+  flex: 1;
+  margin-bottom: 0.45rem;
+}
+
+.church-year__cross-cta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Footer */
+.church-year__footer {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(212, 166, 60, 0.14);
+  background: rgba(212, 166, 60, 0.05);
+}
+
+.church-year__footer p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}

@@ -1,0 +1,71 @@
+/**
+ * Global sacred badge vocabulary — use alongside domain-specific badges (e.g. calendar).
+ */
+
+.sacred-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-heading);
+  line-height: 1.2;
+  transition:
+    border-color var(--motion-duration, 0.55s) var(--motion-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--motion-duration, 0.55s) var(--motion-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.sacred-badge--major-feast {
+  border-color: rgba(139, 30, 63, 0.45);
+  background: linear-gradient(135deg, rgba(139, 30, 63, 0.2) 0%, var(--surface) 100%);
+  color: var(--text-primary-dark);
+}
+
+.sacred-badge--saint {
+  border-color: rgba(61, 122, 94, 0.45);
+  background: var(--accent-green-subtle);
+  color: #b8dcc8;
+}
+
+.sacred-badge--season {
+  border-color: rgba(212, 160, 23, 0.42);
+  background: var(--gold-soft);
+  color: var(--text-primary-dark);
+}
+
+.sacred-badge--fasting {
+  border-color: rgba(100, 90, 120, 0.4);
+  background: rgba(20, 33, 61, 0.65);
+  color: var(--text-secondary-dark);
+}
+
+.sacred-badge--today {
+  border-color: rgba(242, 193, 78, 0.55);
+  background: linear-gradient(180deg, rgba(242, 193, 78, 0.18) 0%, rgba(20, 33, 61, 0.9) 100%);
+  color: var(--text-primary-dark);
+}
+
+.sacred-badge--notice {
+  border-color: rgba(212, 160, 23, 0.35);
+  background: rgba(212, 160, 23, 0.1);
+  color: var(--accent-gold-soft);
+}
+
+.sacred-badge--updated {
+  border-color: rgba(61, 122, 94, 0.35);
+  background: rgba(61, 122, 94, 0.14);
+  color: #a8d4bc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sacred-badge {
+    transition: none;
+  }
+}

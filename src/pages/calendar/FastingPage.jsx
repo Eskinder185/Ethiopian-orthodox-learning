@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import '../../styles/ContentComponents.css'
 import PageHeader from '../../components/sections/PageHeader.jsx'
 import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
 import StatusBox from '../../components/sections/StatusBox.jsx'
+import InfoBlock from '../../components/sections/InfoBlock.jsx'
+import RelatedContentStrip from '../../components/calendar/dashboard/RelatedContentStrip.jsx'
+import { paths } from '../../constants/paths.js'
 import { fastingPage } from '../../data/calendarPages.js'
 import { FASTING_SEASON_DEFINITIONS } from '../../data/calendarData.js'
 import { getGreatLentGregorianRange, formatGregorianDate } from '../../utils/liturgicalCalendar.js'
@@ -10,6 +15,7 @@ import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
 
 export default function FastingPage() {
+  const { t } = useTranslation('common')
   const { category, title, intro, confirmNote } = fastingPage
   const gy = new Date().getFullYear()
   const lentThis = getGreatLentGregorianRange(gy)
@@ -95,6 +101,32 @@ export default function FastingPage() {
           </div>
         ))}
       </div>
+
+      <SectionDivider />
+
+      <SectionTitle
+        id="fasting-practice-heading"
+        title={t('calendarFasting.practiceTitle')}
+      />
+      <InfoBlock variant="soft">
+        <p>{t('calendarFasting.practiceBody')}</p>
+        <ul className="cal-fasting-practice-links">
+          <li>
+            <Link to={paths.practice.prayer} className="text-link">
+              Prayer practice
+            </Link>
+          </li>
+          <li>
+            <Link to={paths.practice.chants} className="text-link">
+              Mezmur &amp; chant practice
+            </Link>
+          </li>
+        </ul>
+      </InfoBlock>
+
+      <SectionDivider />
+
+      <RelatedContentStrip feast={null} />
 
       <SectionDivider />
 

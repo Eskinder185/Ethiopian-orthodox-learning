@@ -92,11 +92,9 @@ export const prayerPageContent = {
     'Consistency matters more than length.',
   ],
   steps: [
-    'Listen from the original source if audio exists, or hear the words in your mind as you read once on the external site or in your book.',
-    'Repeat slowly, line by line, without rushing.',
-    'Read carefully a second time, pausing after each phrase.',
-    'Practice from memory on a short part you know well; open the source when you need it.',
-    'Review again later the same prayer before learning a new section.',
+    'Use the guided prayer path at the top of this page for pacing and beginner/full views.',
+    'Open full prayer texts below when you are ready for longer prayer; compare wording with your parish book.',
+    'When audio is linked from a trusted source, listen once before reading aloud.',
   ],
   checklistItems: [
     'Listen from the original source',

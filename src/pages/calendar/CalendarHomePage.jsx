@@ -1,24 +1,33 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '../../styles/ContentComponents.css'
-import PageHeader from '../../components/sections/PageHeader.jsx'
-import SectionTitle from '../../components/sections/SectionTitle.jsx'
 import SectionDivider from '../../components/sections/SectionDivider.jsx'
-import StatusBox from '../../components/sections/StatusBox.jsx'
-import CalendarSectionCard from '../../components/calendar/CalendarSectionCard.jsx'
+import CalendarHubHero from '../../components/calendar/hub/CalendarHubHero.jsx'
+import CalendarHubTodaySnapshot from '../../components/calendar/hub/CalendarHubTodaySnapshot.jsx'
+import CalendarHubDualCalendar from '../../components/calendar/hub/CalendarHubDualCalendar.jsx'
+import CalendarHubNotice from '../../components/calendar/hub/CalendarHubNotice.jsx'
+import CalendarHubHowSection from '../../components/calendar/hub/CalendarHubHowSection.jsx'
+import CalendarHubExploreCard from '../../components/calendar/hub/CalendarHubExploreCard.jsx'
+import CalendarSeasonalHubPreview from '../../components/calendar/hub/CalendarSeasonalHubPreview.jsx'
+import RelatedContentStrip from '../../components/calendar/dashboard/RelatedContentStrip.jsx'
+import CalendarFunFacts from '../../components/calendar/dashboard/CalendarFunFacts.jsx'
 import { calendarHomeCardRoutes } from '../../data/calendarPages.js'
 import { getLiturgicalDayState } from '../../utils/liturgicalCalendar.js'
 import '../../components/calendar/CalendarComponents.css'
 import '../../components/calendar/CalendarCards.css'
+import '../../components/calendar/dashboard/CalendarDashboard.css'
+import '../../components/calendar/hub/CalendarHub.css'
 
 export default function CalendarHomePage() {
   const { t } = useTranslation('common')
-  const snapshot = getLiturgicalDayState(new Date())
+  const [now] = useState(() => new Date())
+  const snapshot = useMemo(() => getLiturgicalDayState(now), [now])
 
   const cards = useMemo(
     () =>
       calendarHomeCardRoutes.map((c) => ({
         to: c.to,
+        routeKey: c.key,
         title: t(`calendarHub.cards.${c.key}.title`),
         description: t(`calendarHub.cards.${c.key}.description`),
         category: t(`commonUi.${c.categoryKey}`),
@@ -27,72 +36,52 @@ export default function CalendarHomePage() {
   )
 
   return (
-    <article className="content-page calendar-home">
-      <PageHeader title={t('calendarHub.title')} eyebrow={t('calendarHub.eyebrow')}>
-        <p className="page-hero__subtitle">{t('calendarHub.intro')}</p>
-        <p className="page-hero__subtitle">{t('calendarHub.purpose')}</p>
-      </PageHeader>
+    <article className="content-page calendar-home calendar-home--hub-v2">
+      <CalendarHubHero state={snapshot} now={now} />
 
-      <StatusBox tone="calm" className="calendar-home__notice">
-        {t('calendarHub.notice')}
-      </StatusBox>
+      <div className="cal-hub-page-inner">
+        <CalendarHubTodaySnapshot state={snapshot} now={now} />
 
-      <section className="cal-how-grid" aria-labelledby="cal-snapshot-heading">
-        <div className="cal-how-card" style={{ gridColumn: '1 / -1' }}>
-          <h3 id="cal-snapshot-heading">{t('calendarHub.snapshotHeading')}</h3>
-          <p>
-            <strong>{t('calendarHub.gregorian')} </strong>
-            {snapshot.gregorianFormatted}
-            <br />
-            <strong>{t('calendarHub.ethiopian')} </strong>
-            {snapshot.ethiopianFormatted}
-            <br />
-            <strong>{t('calendarHub.weekdayTheme')} </strong>
-            {snapshot.weekdayThemeShort}
-          </p>
+        <CalendarHubDualCalendar state={snapshot} />
+
+        <CalendarHubNotice />
+
+        <SectionDivider className="cal-hub-divider" />
+
+        <CalendarHubHowSection />
+
+        <SectionDivider className="cal-hub-divider" />
+
+        <header className="cal-hub-section-head cal-hub-reveal cal-hub-reveal--delay-1" id="calendar-explore">
+          <h2 className="cal-hub-section-head__title">{t('calendarHub.exploreTitle')}</h2>
+          <p className="cal-hub-section-head__sub">{t('calendarHub.exploreSubtitle')}</p>
+        </header>
+
+        <div className="cal-hub-explore-grid">
+          {cards.map((c, idx) => (
+            <CalendarHubExploreCard
+              key={c.to}
+              to={c.to}
+              routeKey={c.routeKey}
+              title={c.title}
+              description={c.description}
+              category={c.category}
+              className={`cal-hub-reveal cal-hub-reveal--delay-${Math.min(idx + 1, 5)}`}
+            />
+          ))}
         </div>
-      </section>
 
-      <SectionDivider />
+        <SectionDivider className="cal-hub-divider" />
 
-      <SectionTitle
-        id="calendar-how-heading"
-        title={t('calendarHub.howTitle')}
-        subtitle={t('calendarHub.homeLead')}
-      />
-      <div className="cal-how-grid">
-        <div className="cal-how-card">
-          <h3>{t('calendarHub.howCard1Title')}</h3>
-          <p>{t('calendarHub.howCard1Body')}</p>
-        </div>
-        <div className="cal-how-card">
-          <h3>{t('calendarHub.howCard2Title')}</h3>
-          <p>{t('calendarHub.howCard2Body')}</p>
-        </div>
-        <div className="cal-how-card">
-          <h3>{t('calendarHub.howCard3Title')}</h3>
-          <p>{t('calendarHub.howCard3Body')}</p>
-        </div>
-      </div>
+        <CalendarFunFacts variant="hub" />
 
-      <SectionDivider />
+        <SectionDivider className="cal-hub-divider" />
 
-      <SectionTitle
-        id="calendar-areas-heading"
-        title={t('calendarHub.exploreTitle')}
-        subtitle={t('calendarHub.exploreSubtitle')}
-      />
+        <CalendarSeasonalHubPreview state={snapshot} />
 
-      <div className="feature-grid feature-grid--topics">
-        {cards.map((c) => (
-          <CalendarSectionCard
-            key={c.to}
-            to={c.to}
-            title={c.title}
-            description={c.description}
-            category={c.category}
-          />
-        ))}
+        <SectionDivider className="cal-hub-divider" />
+
+        <RelatedContentStrip feast={snapshot.matchingFeasts[0] ?? null} variant="hub" />
       </div>
     </article>
   )
