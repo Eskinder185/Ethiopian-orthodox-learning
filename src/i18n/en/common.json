@@ -1090,8 +1090,8 @@
     "close": "Close site guide",
     "open": "Open site guide",
     "fabLabel": "Guide",
-    "welcome": "Peace. I am a simple on-site guide — not artificial intelligence. OrthodoxPath is organized into Learn (faith and meaning), Practice (prayer, hymnody, language, training), and Calendar (time, fasts, feasts). Tap a topic or ask a short question below.",
-    "fallback": "I am still a simple guide for now. Try a suggested question, use the menu (Learn, Practice, and Calendar have subpages), or open Start here for onboarding.",
+    "welcome": "Peace. I am a simple on-site guide — not artificial intelligence. OrthodoxPath groups content into Learn (faith and meaning), Practice (prayer, hymnody, language, training), and Calendar (time, fasts, feasts). In the header: tap ◎ to switch color themes, EN / አማርኛ for language, and on phones and narrow screens use Menu for the full site. Use the shortcuts below or ask a short question.",
+    "fallback": "I am still a simple guide for now. Try a suggested question, use the header menu (Menu on mobile) or Learn, Practice, and Calendar from the desktop menu, or open Start here for onboarding.",
     "sectionsLabel": "Sections",
     "suggestedLabel": "Suggested questions",
     "inputLabel": "Type a short question",
@@ -1137,7 +1137,12 @@
       },
       "site-organization": {
         "suggestionLabel": "How is the site organized?",
-        "answer": "Learn explains faith, Scripture, liturgy, church life & history, and the meaning of the church year. Practice is for doing: prayer, mezmur & werb (one shared chant practice page), instruments, language. Calendar is for time: today in the Church, Ethiopian months, fasting seasons, feasts & holy days, and seasonal guides. Use the main menu to open each section’s pages.",
+        "answer": "Learn explains faith, Scripture, liturgy, church life & history, and the meaning of the church year. Practice is for doing: prayer, mezmur & werb (one shared chant practice page), instruments, language. Calendar is for time: today in the Church, Ethiopian months, fasting seasons, feasts & holy days, and seasonal guides. Use the main menu to open each section’s pages — on phones, open Menu.",
+        "linkLabel": "Start here"
+      },
+      "appearance-settings": {
+        "suggestionLabel": "How do I change theme or language?",
+        "answer": "In the top bar: tap the ◎ button to switch between Blue Gold Sacred and Emerald Gold Sacred color themes. Tap EN or አማርኛ to change site language. On phones, tap Menu to open the same sections as the desktop menu (Learn, Practice, Calendar, and more).",
         "linkLabel": "Start here"
       },
       "beginners": {
