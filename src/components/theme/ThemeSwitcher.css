@@ -5,6 +5,50 @@
   flex-shrink: 0;
 }
 
+.theme-switcher--toggle {
+  gap: 0;
+}
+
+.theme-switcher__toggle {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  cursor: pointer;
+  transition:
+    border-color var(--motion-duration, 0.55s) var(--motion-ease, ease),
+    box-shadow var(--motion-duration, 0.55s) var(--motion-ease, ease);
+}
+
+.theme-switcher__toggle .theme-switcher__icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--accent-gold-soft);
+  opacity: 0.95;
+}
+
+.theme-switcher__toggle:hover {
+  border-color: var(--accent-muted);
+}
+
+.theme-switcher__toggle:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-switcher__toggle {
+    transition: none;
+  }
+}
+
 .theme-switcher__label {
   display: inline-flex;
   align-items: center;

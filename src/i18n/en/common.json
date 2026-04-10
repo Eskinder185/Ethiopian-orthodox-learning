@@ -7,6 +7,7 @@
   },
   "theme": {
     "label": "Site theme",
+    "ariaToggle": "Current theme: {{current}}. Activate to switch to {{next}}.",
     "blueGoldSacred": "Blue Gold Sacred",
     "emeraldGoldSacred": "Emerald Gold Sacred"
   },
