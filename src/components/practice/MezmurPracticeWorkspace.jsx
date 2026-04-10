@@ -401,95 +401,98 @@ export default function MezmurPracticeWorkspace({
 
           {videoId ? (
             <>
-              <div className="mezmur-video-stage">
-                <div className="mezmur-video-aspect">
-                  <div
-                    ref={playerMountRef}
-                    id={playerMountId}
-                    className="mezmur-yt-mount"
-                    title="YouTube video player"
-                  />
+              {/* Sticky on narrow screens so lyrics can scroll while video keeps playing */}
+              <div className="mezmur-video-panel__sticky">
+                <div className="mezmur-video-stage">
+                  <div className="mezmur-video-aspect">
+                    <div
+                      ref={playerMountRef}
+                      id={playerMountId}
+                      className="mezmur-yt-mount"
+                      title="YouTube video player"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    className="mezmur-btn mezmur-btn--ghost mezmur-btn--small mezmur-video-stage__clear"
+                    onClick={clearVideo}
+                  >
+                    Remove video
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  className="mezmur-btn mezmur-btn--ghost mezmur-btn--small mezmur-video-stage__clear"
-                  onClick={clearVideo}
-                >
-                  Remove video
-                </button>
-              </div>
 
-              <div className="mezmur-controls mezmur-controls--compact" aria-label="Playback">
-                <div className="mezmur-controls__primary">
-                  <button
-                    type="button"
-                    className="mezmur-btn mezmur-btn--ghost mezmur-btn--small"
-                    onClick={seekCurrentMinus5}
-                    disabled={!playerReady}
-                  >
-                    −5s
-                  </button>
-                  <button
-                    type="button"
-                    className="mezmur-btn mezmur-btn--primary mezmur-btn--small"
-                    onClick={playPause}
-                    disabled={!playerReady}
-                  >
-                    Play / Pause
-                  </button>
-                  <button
-                    type="button"
-                    className="mezmur-btn mezmur-btn--ghost mezmur-btn--small"
-                    onClick={seekCurrentPlus5}
-                    disabled={!playerReady}
-                  >
-                    +5s
-                  </button>
-                  <label className="mezmur-controls__speed">
-                    <span className="visually-hidden">Speed</span>
-                    <select
-                      className="mezmur-controls__select"
-                      value={playbackRate}
-                      onChange={(e) => setPlaybackRate(Number(e.target.value))}
-                      disabled={!playerReady}
-                      aria-label="Playback speed"
-                    >
-                      {SPEED_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-                <div className="mezmur-controls__secondary">
-                  <button
-                    type="button"
-                    className={
-                      'mezmur-btn mezmur-btn--ghost mezmur-btn--small' +
-                      (repeatChunkId && activeChunkId && repeatChunkId === activeChunkId
-                        ? ' mezmur-btn--toggled'
-                        : '')
-                    }
-                    onClick={repeatActiveSection}
-                    disabled={!playerReady || !activeChunkId || !activeChunkValid}
-                    title="Loop the active part’s start–end"
-                  >
-                    Repeat section
-                  </button>
-                  {repeatChunkId ? (
+                <div className="mezmur-controls mezmur-controls--compact" aria-label="Playback">
+                  <div className="mezmur-controls__primary">
                     <button
                       type="button"
                       className="mezmur-btn mezmur-btn--ghost mezmur-btn--small"
-                      onClick={() => setRepeatChunkId(null)}
+                      onClick={seekCurrentMinus5}
+                      disabled={!playerReady}
                     >
-                      Stop repeat
+                      −5s
                     </button>
+                    <button
+                      type="button"
+                      className="mezmur-btn mezmur-btn--primary mezmur-btn--small"
+                      onClick={playPause}
+                      disabled={!playerReady}
+                    >
+                      Play / Pause
+                    </button>
+                    <button
+                      type="button"
+                      className="mezmur-btn mezmur-btn--ghost mezmur-btn--small"
+                      onClick={seekCurrentPlus5}
+                      disabled={!playerReady}
+                    >
+                      +5s
+                    </button>
+                    <label className="mezmur-controls__speed">
+                      <span className="visually-hidden">Speed</span>
+                      <select
+                        className="mezmur-controls__select"
+                        value={playbackRate}
+                        onChange={(e) => setPlaybackRate(Number(e.target.value))}
+                        disabled={!playerReady}
+                        aria-label="Playback speed"
+                      >
+                        {SPEED_OPTIONS.map((opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
+                  <div className="mezmur-controls__secondary">
+                    <button
+                      type="button"
+                      className={
+                        'mezmur-btn mezmur-btn--ghost mezmur-btn--small' +
+                        (repeatChunkId && activeChunkId && repeatChunkId === activeChunkId
+                          ? ' mezmur-btn--toggled'
+                          : '')
+                      }
+                      onClick={repeatActiveSection}
+                      disabled={!playerReady || !activeChunkId || !activeChunkValid}
+                      title="Loop the active part’s start–end"
+                    >
+                      Repeat section
+                    </button>
+                    {repeatChunkId ? (
+                      <button
+                        type="button"
+                        className="mezmur-btn mezmur-btn--ghost mezmur-btn--small"
+                        onClick={() => setRepeatChunkId(null)}
+                      >
+                        Stop repeat
+                      </button>
+                    ) : null}
+                  </div>
+                  {!playerReady ? (
+                    <p className="mezmur-controls__status">Loading player…</p>
                   ) : null}
                 </div>
-                {!playerReady ? (
-                  <p className="mezmur-controls__status">Loading player…</p>
-                ) : null}
               </div>
             </>
           ) : (

@@ -43,6 +43,10 @@ export const chantLibraryCopy = {
   close: 'Close',
   stepListen: 'Listen',
   stepListenLead: 'Hear the line or hymn once with attention before you join in.',
+  listenWithLyricsLead:
+    'Full lyrics appear beside the player on wide screens (below on phones). Line-by-line practice follows so you can listen and read together.',
+  listenLineByLineHeading: 'Line by line',
+  listenReadColAria: 'Full lyrics for reading along while listening',
   stepRead: 'Read',
   stepReadLead: 'Read the Amharic text slowly; notice phrasing and pauses.',
   stepRepeat: 'Repeat',
@@ -117,6 +121,8 @@ export const chantLibraryCopy = {
   memorizeHint: 'Short sections, honest repetition, and silence between passes deepen memory.',
   markSessionPracticed: 'Mark session practiced',
   recordPracticeFooter: 'Record practice session',
+  recordPracticeSaved: 'Session recorded. Your weekly count updates on this page.',
+  recordPracticeFailed: 'Could not save on this device (storage blocked or full).',
 }
 
 

@@ -5,7 +5,7 @@ import {
   getYouTubeEmbedUrl,
   getYouTubeWatchUrl,
 } from '../../../utils/youtubeEmbed.js'
-import { incrementWeeklyPractice, pushRecentChant } from '../../../utils/chantStorage.js'
+import { recordChantPracticeSession } from '../../../utils/chantStorage.js'
 import { formatPrimaryLabel } from './chantDisplayUtils.js'
 import ChantLineByLine from './ChantLineByLine.jsx'
 import { chantLibraryCopy } from './chantLibraryCopy.js'
@@ -45,6 +45,7 @@ export default function ChantDetailPanel({
       ? defaultTab
       : 'listen'
   const [tab, setTab] = useState(initialTab)
+  const [recordFeedback, setRecordFeedback] = useState(/** @type {null | 'ok' | 'fail'} */ (null))
 
   useEffect(() => {
     if (!open) return
@@ -54,6 +55,10 @@ export default function ChantDetailPanel({
     return () => {
       document.body.style.overflow = prev
     }
+  }, [open])
+
+  useEffect(() => {
+    if (!open) setRecordFeedback(null)
   }, [open])
 
   useEffect(() => {
@@ -76,9 +81,10 @@ export default function ChantDetailPanel({
   const primaryLabel = formatPrimaryLabel(cat.primary)
 
   const markPracticed = () => {
-    pushRecentChant(entry.id)
-    incrementWeeklyPractice()
+    const ok = recordChantPracticeSession(entry.id)
     onPracticeRecorded?.()
+    setRecordFeedback(ok ? 'ok' : 'fail')
+    window.setTimeout(() => setRecordFeedback(null), 5000)
   }
 
   return createPortal(
@@ -180,51 +186,91 @@ export default function ChantDetailPanel({
 
         {tab === 'listen' ? (
           <section
-            className="chant-detail-tab-panel"
+            className="chant-detail-tab-panel chant-detail-tab-panel--listen"
             role="tabpanel"
             aria-labelledby={`${baseId}-tab-listen`}
           >
             <p className="chant-detail-tab-panel__lead">{chantLibraryCopy.stepListenLead}</p>
-            {videoId && embedUrl ? (
-              <div className="chant-detail-panel__video">
-                <div className="chant-detail-panel__video-frame">
-                  <iframe
-                    title={entry.transliterationTitle || entry.title || 'YouTube'}
-                    src={embedUrl}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                  />
-                </div>
-                <p className="chant-detail-panel__video-fallback">
-                  {chantLibraryCopy.embedFallback}{' '}
-                  <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-                    {chantLibraryCopy.youtubeOpen}
-                  </a>
-                </p>
+            <p className="chant-detail-tab-panel__hint chant-detail-tab-panel__hint--listen">
+              {chantLibraryCopy.listenWithLyricsLead}
+            </p>
+
+            <div className="chant-detail-panel__listen-grid">
+              <div className="chant-detail-panel__listen-media-col">
+                {videoId && embedUrl ? (
+                  <div className="chant-detail-panel__video">
+                    <div className="chant-detail-panel__video-frame">
+                      <iframe
+                        title={entry.transliterationTitle || entry.title || 'YouTube'}
+                        src={embedUrl}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                      />
+                    </div>
+                    <p className="chant-detail-panel__video-fallback">
+                      {chantLibraryCopy.embedFallback}{' '}
+                      <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+                        {chantLibraryCopy.youtubeOpen}
+                      </a>
+                    </p>
+                  </div>
+                ) : watchUrl ? (
+                  <p className="chant-detail-panel__video-missing">
+                    <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+                      {chantLibraryCopy.youtubeOpen}
+                    </a>
+                  </p>
+                ) : (
+                  <p className="chant-detail-panel__video-missing">{chantLibraryCopy.youtubeMissing}</p>
+                )}
+                {onSendVideoToWorkspace && entry.youtubeUrl?.trim() ? (
+                  <div className="chant-detail-panel__workspace-handoff">
+                    <button
+                      type="button"
+                      className="chant-detail-panel__workspace-btn"
+                      onClick={() => onSendVideoToWorkspace(entry.youtubeUrl)}
+                    >
+                      {chantLibraryCopy.sendVideoToWorkspace}
+                    </button>
+                    <p className="chant-detail-panel__workspace-hint">{chantLibraryCopy.sendVideoToWorkspaceHint}</p>
+                  </div>
+                ) : null}
               </div>
-            ) : watchUrl ? (
-              <p className="chant-detail-panel__video-missing">
-                <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-                  {chantLibraryCopy.youtubeOpen}
-                </a>
-              </p>
-            ) : (
-              <p className="chant-detail-panel__video-missing">{chantLibraryCopy.youtubeMissing}</p>
-            )}
-            {onSendVideoToWorkspace && entry.youtubeUrl?.trim() ? (
-              <div className="chant-detail-panel__workspace-handoff">
-                <button
-                  type="button"
-                  className="chant-detail-panel__workspace-btn"
-                  onClick={() => onSendVideoToWorkspace(entry.youtubeUrl)}
-                >
-                  {chantLibraryCopy.sendVideoToWorkspace}
-                </button>
-                <p className="chant-detail-panel__workspace-hint">{chantLibraryCopy.sendVideoToWorkspaceHint}</p>
+
+              <div
+                className="chant-detail-panel__listen-read-col"
+                aria-label={chantLibraryCopy.listenReadColAria}
+              >
+                <h3 className="chant-detail-panel__block-title chant-detail-panel__block-title--listen">
+                  {chantLibraryCopy.lyricsAm}
+                </h3>
+                {entry.lyrics?.trim() ? (
+                  <pre className="chant-detail-panel__pre chant-detail-panel__pre--listen" lang="am">
+                    {entry.lyrics}
+                  </pre>
+                ) : (
+                  <p className="chant-detail-panel__empty">{chantLibraryCopy.noLyrics}</p>
+                )}
+                <h3 className="chant-detail-panel__block-title chant-detail-panel__block-title--listen">
+                  {chantLibraryCopy.lyricsTr}
+                </h3>
+                {entry.transliterationLyrics?.trim() ? (
+                  <pre className="chant-detail-panel__pre chant-detail-panel__pre--listen">
+                    {entry.transliterationLyrics}
+                  </pre>
+                ) : (
+                  <p className="chant-detail-panel__empty">{chantLibraryCopy.noTransliteration}</p>
+                )}
               </div>
-            ) : null}
+            </div>
+
+            <div className="chant-detail-panel__listen-linebyline">
+              <h3 className="chant-detail-panel__block-title">{chantLibraryCopy.listenLineByLineHeading}</h3>
+              <p className="chant-detail-tab-panel__lead">{chantLibraryCopy.lineByLineIntro}</p>
+              <ChantLineByLine entry={entry} onMarkPracticed={markPracticed} />
+            </div>
           </section>
         ) : null}
 
@@ -269,9 +315,31 @@ export default function ChantDetailPanel({
         ) : null}
 
         <footer className="chant-detail-panel__footer">
-          <button type="button" className="chant-detail-panel__footer-btn" onClick={() => markPracticed()}>
+          <button
+            type="button"
+            className="chant-detail-panel__footer-btn"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              markPracticed()
+            }}
+          >
             {chantLibraryCopy.recordPracticeFooter}
           </button>
+          {recordFeedback ? (
+            <p
+              className={
+                'chant-detail-panel__record-feedback' +
+                (recordFeedback === 'ok' ? ' chant-detail-panel__record-feedback--ok' : '')
+              }
+              role="status"
+              aria-live="polite"
+            >
+              {recordFeedback === 'ok'
+                ? chantLibraryCopy.recordPracticeSaved
+                : chantLibraryCopy.recordPracticeFailed}
+            </p>
+          ) : null}
         </footer>
       </div>
     </div>,

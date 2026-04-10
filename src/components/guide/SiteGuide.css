@@ -24,8 +24,8 @@
   gap: 0.75rem;
   padding: 1rem 1.1rem 1.05rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-secondary);
   box-shadow: 0 8px 32px var(--shadow-ink), 0 2px 8px var(--shadow-soft);
   /* Scroll the whole panel so flex children are never collapsed to zero height */
   overflow-x: hidden;
@@ -290,8 +290,8 @@
   min-height: 2.75rem;
   padding: 0.5rem 1.05rem;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border-strong);
-  background: var(--card-bg);
+  border: 2px solid var(--accent-muted);
+  background: var(--bg-secondary);
   color: var(--accent-gold-soft);
   font-family: var(--heading);
   font-weight: 600;
@@ -299,24 +299,24 @@
   letter-spacing: 0.06em;
   cursor: pointer;
   box-shadow:
-    0 1px 0 rgba(242, 193, 78, 0.28),
-    0 10px 32px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 248, 231, 0.07);
+    0 2px 0 rgba(0, 0, 0, 0.35),
+    0 10px 28px rgba(0, 0, 0, 0.65);
 }
 
 .site-guide__fab-icon {
   flex-shrink: 0;
-  opacity: 0.95;
+  opacity: 1;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
 }
 
 .site-guide__fab:hover {
   border-color: var(--gold-bright);
   color: var(--text-heading);
-  background: var(--card-bg-elevated);
+  background: var(--bg-secondary);
   box-shadow:
-    0 1px 0 rgba(242, 193, 78, 0.4),
-    0 12px 36px rgba(0, 0, 0, 0.58),
-    inset 0 1px 0 rgba(255, 248, 231, 0.1);
+    0 2px 0 rgba(0, 0, 0, 0.4),
+    0 12px 32px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(242, 193, 78, 0.15);
 }
 
 .site-guide__fab:focus-visible {

@@ -15,6 +15,16 @@ function safeParse(json, fallback) {
   }
 }
 
+function safeSetItem(key, value) {
+  try {
+    if (typeof localStorage === 'undefined') return false
+    localStorage.setItem(key, value)
+    return true
+  } catch {
+    return false
+  }
+}
+
 /** @returns {{ id: string; at: string }[]} */
 export function getRecentChants() {
   if (typeof localStorage === 'undefined') return []
@@ -27,12 +37,12 @@ export function getRecentChants() {
     .slice(0, 50)
 }
 
-/** @param {string} id */
+/** @param {string} id @returns {boolean} */
 export function pushRecentChant(id) {
-  if (typeof localStorage === 'undefined' || !id) return
+  if (typeof localStorage === 'undefined' || !id) return false
   const prev = getRecentChants().filter((x) => x.id !== id)
   const next = [{ id, at: new Date().toISOString() }, ...prev].slice(0, 50)
-  localStorage.setItem(KEYS.recent, JSON.stringify(next))
+  return safeSetItem(KEYS.recent, JSON.stringify(next))
 }
 
 /** @returns {string[]} */
@@ -55,8 +65,7 @@ export function toggleSavedChant(id) {
   const cur = getSavedChantIds()
   const has = cur.includes(id)
   const next = has ? cur.filter((x) => x !== id) : [...cur, id]
-  localStorage.setItem(KEYS.saved, JSON.stringify(next))
-  return !has
+  return safeSetItem(KEYS.saved, JSON.stringify(next)) ? !has : has
 }
 
 /**
@@ -82,13 +91,32 @@ function isoWeekKey(d = new Date()) {
   return `${date.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`
 }
 
-/** Increment practice session count for current ISO week. */
+/** Increment practice session count for current ISO week. @returns {{ weekKey: string; count: number }} */
 export function incrementWeeklyPractice() {
   if (typeof localStorage === 'undefined') return getWeeklyProgress()
   const wk = isoWeekKey()
   const cur = getWeeklyProgress()
   const count = cur.weekKey === wk ? cur.count + 1 : 1
   const next = { weekKey: wk, count }
-  localStorage.setItem(KEYS.weekly, JSON.stringify(next))
+  if (!safeSetItem(KEYS.weekly, JSON.stringify(next))) return cur
   return next
+}
+
+/**
+ * Record a practice session: recent list + weekly count (used by chant detail modal footer).
+ * Writes both keys; returns false if either write fails.
+ * @param {string} id
+ * @returns {boolean}
+ */
+export function recordChantPracticeSession(id) {
+  if (!id) return false
+  const prevRecent = getRecentChants().filter((x) => x.id !== id)
+  const nextRecent = [{ id, at: new Date().toISOString() }, ...prevRecent].slice(0, 50)
+  const wk = isoWeekKey()
+  const cur = getWeeklyProgress()
+  const count = cur.weekKey === wk ? cur.count + 1 : 1
+  const nextWeekly = { weekKey: wk, count }
+  if (!safeSetItem(KEYS.recent, JSON.stringify(nextRecent))) return false
+  if (!safeSetItem(KEYS.weekly, JSON.stringify(nextWeekly))) return false
+  return true
 }

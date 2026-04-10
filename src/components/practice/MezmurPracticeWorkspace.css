@@ -179,6 +179,11 @@
   margin-top: 0.35rem;
 }
 
+/* Wrapper: sticky on narrow viewports (see media query) so player stays on screen with lyrics */
+.mezmur-video-panel__sticky {
+  display: block;
+}
+
 .mezmur-video-aspect {
   position: relative;
   width: 100%;
@@ -858,10 +863,51 @@
   outline-offset: 2px;
 }
 
-/* Mobile: stack primary comfortably */
+/* Mobile: stack primary; keep video + controls visible while scrolling lyrics */
 @media (max-width: 899px) {
   .mezmur-workspace__primary {
     gap: 1.65rem;
+  }
+
+  .mezmur-video-panel__sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    margin-top: 0.25rem;
+    padding: 0.5rem 0 0.85rem;
+    margin-bottom: 0.15rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-strong);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+  }
+
+  .mezmur-video-panel__sticky .mezmur-video-aspect {
+    padding-bottom: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: min(42vh, 280px);
+  }
+
+  @supports not (aspect-ratio: 1) {
+    .mezmur-video-panel__sticky .mezmur-video-aspect {
+      padding-bottom: 56.25%;
+      height: 0;
+      max-height: none;
+    }
+  }
+
+  .mezmur-panel--editor {
+    scroll-margin-top: 0.75rem;
+  }
+
+  .mezmur-editor__textarea {
+    min-height: 10rem;
+    max-height: min(52vh, 26rem);
+  }
+
+  .mezmur-controls--compact {
+    margin-top: 0.85rem;
   }
 
   .mezmur-part-list--flow {
